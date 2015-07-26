@@ -16,13 +16,13 @@ SHOW_USER_ID = 10212
 
 # mongodb数据配置
 # by: 范俊伟 at:2015-04-16
-NEED_MONGODB_CONFIG = {
-    "host": "10.172.2.142",
-    "port": 27017,
-    "name": "need_api",
-    "username": None,
-    "password": None,
-}
+# NEED_MONGODB_CONFIG = {
+#     "host": "10.172.2.142",
+#     "port": 27017,
+#     "name": "need_api",
+#     "username": None,
+#     "password": None,
+# }
 
 # 修改阿里云测试服务器host
 # by：尚宗凯 at：2015-05-25
@@ -32,11 +32,11 @@ NEED_MONGODB_CONFIG = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'needserver',  # Or path to database file if using sqlite3.
-        'USER': 'needserver',  # Not used with sqlite3.
-        'PASSWORD': 'needserver',  # Not used with sqlite3.
-        'HOST': 'rdsmizy48ivz81cwa9uvt.mysql.rds.aliyuncs.com',
-        # 'HOST': 'tmp1432525065374-rdsmizy48ivz81cwa9uvt.mysql.rds.aliyuncs.com',
+        'NAME': 'szk',  # Or path to database file if using sqlite3.
+        'USER': 'szk',  # Not used with sqlite3.
+        'PASSWORD': 'Szk1985',  # Not used with sqlite3.
+        # 'HOST': 'rdsmizy48ivz81cwa9uvt.mysql.rds.aliyuncs.com',
+        'HOST': 'rds6nzmjfamaab3.mysql.rds.aliyuncs.com',
         # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',  # Set to empty string for default. Not used with sqlite3.
         'ATOMIC_REQUEST': True,
@@ -95,37 +95,37 @@ ALIPAY_PC_NOTIFY_URL = 'http://www.tjeasyshare.com/zhifubao_pay_pc_callback'
 
 # MongoDB日志配置示例
 # by: 范俊伟 at:2015-04-15
-LOGGING_MONGODB_CONFIG = {
-    "host": "10.172.2.142",
-    "port": 27017,
-    "name": "logging",
-    "username": None,
-    "password": None,
-}
+# LOGGING_MONGODB_CONFIG = {
+#     "host": "10.172.2.142",
+#     "port": 27017,
+#     "name": "logging",
+#     "username": None,
+#     "password": None,
+# }
 # 开启mongodb日志记录
 # by: 范俊伟 at:2015-04-19
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'handlers': {
-        'error': {
-            'level': 'ERROR',
-            'class': 'util.mongodbLogging.MongoHandler',
-            'host': LOGGING_MONGODB_CONFIG.get('host'),
-            'port': LOGGING_MONGODB_CONFIG.get('port'),
-            'database_name': LOGGING_MONGODB_CONFIG.get('name'),
-            'username': LOGGING_MONGODB_CONFIG.get('username'),
-            'password': LOGGING_MONGODB_CONFIG.get('password'),
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['error'],
-            'level': 'ERROR',
-            'propagate': True
-        }
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,
+#     'handlers': {
+#         'error': {
+#             'level': 'ERROR',
+#             'class': 'util.mongodbLogging.MongoHandler',
+#             'host': LOGGING_MONGODB_CONFIG.get('host'),
+#             'port': LOGGING_MONGODB_CONFIG.get('port'),
+#             'database_name': LOGGING_MONGODB_CONFIG.get('name'),
+#             'username': LOGGING_MONGODB_CONFIG.get('username'),
+#             'password': LOGGING_MONGODB_CONFIG.get('password'),
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['error'],
+#             'level': 'ERROR',
+#             'propagate': True
+#         }
+#     },
+# }
 
 # 客服系统地址
 # by: 范俊伟 at:2015-05-07

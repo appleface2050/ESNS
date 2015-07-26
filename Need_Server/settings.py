@@ -25,7 +25,7 @@ if not os.path.exists(os.path.join(BASE_DIR, 'static_all', 'log')):
     os.makedirs(os.path.join(BASE_DIR, 'static_all', 'log'))
 
 # 环境变量：aliyun、 baidu、mac_dev、win_dev
-ENVIRONMENT = 'win_dev'
+ENVIRONMENT = 'aliyun'
 if 'SERVER_SOFTWARE' in os.environ:
     ENVIRONMENT = 'baidu'
 
