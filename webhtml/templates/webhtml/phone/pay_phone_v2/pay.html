@@ -1,0 +1,164 @@
+{% load webhtml_filter %}
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8">
+    <title>充值</title>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}web/js/city_data.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/underscore-min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}webhtml/js/base.js"></script>
+    <script src="{{ STATIC_URL }}webhtml/phone/js/phone_pay.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type=text/javascript src="js/jquery.min.js"></script>-->
+    <script>
+        var unchecked_img_url = "{{ STATIC_URL }}webhtml/phone/images/xuangou1_07.png";
+        var checked_img_url = "{{ STATIC_URL }}webhtml/phone/images/xuangou_07.png";
+        function open_choose_product() {
+            window.location.href = 'phone_pay_product_choose{{ view.get_query_string }}';
+        }
+        function submit_form() {
+            $('#form').submit();
+        }
+
+        $(function () {
+            $('input:radio[name=fp_check]').change(function () {
+                console.log("fp_check_change");
+                var fp_check = $('input:radio[name=fp_check]:checked').val();
+                console.log("fp_check_change", fp_check);
+                if (fp_check == "yes") {
+                    window.location.href = "phone_pay_receipt{{ view.get_query_string }}";
+                }
+                else {
+                    $("#fa_piao_info").hide();
+                }
+            });
+            function set_check_img() {
+                var input = $("#xy_check");
+                var is_check = input.is(":checked");
+                var check_img_control = $("#check_img_control");
+                if (is_check) {
+                    check_img_control.attr("src", checked_img_url);
+                }
+                else {
+                    check_img_control.attr("src", unchecked_img_url);
+                }
+                $("[input-errors=xy_check]").html("");
+            }
+
+            $('#xy_check').change(function () {
+                set_check_img();
+            });
+            set_check_img();
+        });
+
+    </script>
+</head>
+<body class="chongzhi_bg">
+{% if project_name %}
+    <form auto-check id="form" method="post">
+        <div class="chongzhi_biaoti">项目帐户信息：</div>
+        <div class="chongzhi_zhxx">
+            <ul>
+                <li>项目名称：<span class="chongzhi_blue">{{ project_name }}</span></li>
+                <li>项目人数：<span class="chongzhi_blue">{{ person_nums }}人</span></li>
+                <li>账号余额：<span class="chongzhi_blue">{{ balance }}金豆</span></li>
+                <li>预计可用时间：<span class="chongzhi_blue">{{ days }}天</span></li>
+            </ul>
+        </div>
+        <div class="chongzhi_huabian"></div>
+        <div class="chongzhi_biaoti">充值金豆：</div>
+        <div class="tongyongyangshi"><!--请选择充值套餐-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr onclick="open_choose_product()" style="cursor: pointer">
+                    <td width="89%" height="">
+                        {% if gold %}
+                            {{ origin }} 金豆+<span class="chongzhi_red">{{ gift }}金豆（赠送）</span>
+                        {% else %}
+                            请选择充值套餐
+                            <input type="hidden" input-check="taocan_check()" value="{{ gold }}" id="taocan">
+
+                            <span input-errors="taocan"
+                                  style="color: #ff0000"></span>
+                        {% endif %}
+
+
+                    <td width="11%" class="jiantou"><a href="phone_pay_product_choose{{ view.get_query_string }}"><img
+                            src="{{ STATIC_URL }}webhtml/phone/images/jiantou.png" alt=""/></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {% if gold %}
+            <div class="fuwuxieyi tongyong_tubiao_gj"><img
+                    src="{{ STATIC_URL }}webhtml/phone/images/tongyong_tubiao.png"
+                    alt=""
+                    width="32" height="32"/>
+                共计将获得{{ gold }}金豆，预计可用{{ this_pay_days }}天
+            </div>
+        {% endif %}
+
+        <div class="tongyongyangshi">
+            &nbsp; &nbsp; 开发票
+            <label><input {% if not fa_piao_tian_xie %} checked="checked"{% endif %} name="fp_check" value="no"
+                                                        type="radio"> 否</label>
+            <label><input {% if fa_piao_tian_xie %} checked="checked"{% endif %} name="fp_check" value="yes"
+                                                    type="radio"
+                                                    style="text-align:left;"> 是</label>
+        </div>
+        {% if fa_piao_tian_xie %}
+            <div id="fa_piao_info">
+                <div class="chongzhi_biaoti">发票信息：</div>
+                <div class="chongzhi_fapiaoxx">
+                    <ul>
+                        <li>发票类型：<span class="back_373737">普通发票</span></li>
+                        <li>发票抬头：<span class="back_373737">{{ fapiao.fptt }}</span></li>
+                        <li>邮寄地址：<span class="back_373737">{{ fapiao.address|address_v2 }}{{ fapiao.jdxqdz }}</span>
+                        </li>
+                        <li>邮政编码：<span class="back_373737">{{ fapiao.yzbm }}</span></li>
+                        <li>联系人：<span class="back_373737">{{ fapiao.lxr }}</span></li>
+                        <li style="border-bottom:0;">联系电话：<span class="back_373737">{{ fapiao.lxdh }}</span></li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+        <div class="fuwuxieyi">
+            <table width="" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td width="2%"><label><img id="check_img_control"
+                                               src="{{ STATIC_URL }}webhtml/phone/images/xuangou1_07.png" width="25"
+                                               height="22"
+                                               alt=""/><input input-check="xy_must_check()" id="xy_check"
+                                                              type="checkbox"
+                                                              style="display: none"> </label></td>
+                    <td width="" align="left"><label for="xy_check">阅读并同意</label><a style="color: #0000ff"
+                                                                                    href="zhi_fu_xie_yi{{ view.get_query_string }}">《“你的Need”App平台服务协议》</a>
+
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div input-errors="xy_check" style="color: #ff0000"></div>
+        </div>
+        {% if price %}
+            <div class="tongyongyangshi_juzhong">
+                应支付金额：¥{{ price }}
+            </div>
+        {% endif %}
+        <div class="blue_button" style="cursor: pointer" onclick="submit_form();">确定</div>
+        <br>
+    </form>
+{% else %}
+    <div style="text-align:center; margin:12% 0 0 0;"><img
+            src="{{ STATIC_URL }}webhtml/phone/images/chongzhi_shibai.png" width="300" height="300" alt=""
+            class="chongzhi_shibai"/></div>
+    <div class="chongzhi_red" align="center" style="margin:5% 0 12% 0;"><h2>{{ message }}</h2></div>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load webhtml_filter %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8">
+    <title>充值</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type=text/javascript src="js/jquery.min.js"></script>--></head>
+<body class="chongzhi_bg">
+{% if success %}
+    <div align="center" class="input_text_content"><img
+            src="{{ STATIC_URL }}webhtml/phone/images/chongzhi_chenggong.png" width="90" height="90"
+            style=" vertical-align:middle;" alt="" class="chongzhi_chenggong"/> 恭喜您已交易成功！
+    </div>
+    <div class="chongzhi_biaoti">当前项目帐户信息：</div>
+    <div class="chongzhi_zhxx">
+        <ul>
+            <li>项目名称：<span class="chongzhi_blue">{{ project_name }}</span></li>
+            <li>项目人数：<span class="chongzhi_blue">{{ person_nums }}人</span></li>
+            <li>账号余额：<span class="chongzhi_blue">{{ balance }}金豆</span></li>
+            <li>预计可用时间：<span class="chongzhi_blue">{{ days }}天</span></li>
+        </ul>
+    </div>
+    <div class="chongzhi_huabian"></div>
+    <div class="chongzhi_biaoti">支付详情：</div>
+    <div class="tongyongyangshi">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td width="89%" height="">实付金额 <span class="chongzhi_red">￥{{ order.real_price|money }} </span></td>
+                <td width="11%" class="jiantou"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="chongzhi_fapiaoxx">
+        <ul>
+            <li>发票类型：<span class="back_373737">普通发票</span></li>
+            <li>发票抬头：<span class="back_373737">{{ fptt }}</span></li>
+            <li>邮寄地址：<span class="back_373737">{{ address|address_v2 }}{{ address_detail }}</span></li>
+            <li>邮政编码：<span class="back_373737">{{ zip_code }}</span></li>
+            <li>收件人：<span class="back_373737">{{ username }}</span></li>
+            <li style="border-bottom:0;">联系电话：<span class="back_373737">{{ phone }}</span></li>
+        </ul>
+    </div>
+{% endif %}
+{% if message %}
+    <span style="color:#ff0000;">{{ message }}</span>
+{% endif %}
+</body>
+</html>

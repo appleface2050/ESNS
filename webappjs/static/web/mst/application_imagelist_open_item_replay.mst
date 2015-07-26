@@ -1,0 +1,13 @@
+{{#list }}
+<div class="well">
+    <div>
+        {{#createUserName }}{{ u_id }}{{/createUserName }}
+        {{#t_u_id }}
+        回复:{{# createUserName }}{{ t_u_id }}{{/ createUserName }}
+        {{/t_u_id }}
+    </div>
+    <div>{{#format_text }}{{ content }}{{/format_text }}</div>
+    <div class="text-right">{{ create_time }}</div>
+    <div><a href="javascript:imagesReplay({{ images_id }},{{ author }});">回复</a></div>
+</div>
+{{/list }}

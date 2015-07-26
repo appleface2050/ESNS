@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+    {{# click_path }}
+    <li><a href="javascript:openHistory('{{ index }}')">{{ app_name }}</a></li>
+    {{/ click_path  }}
+    <li>{{ last_name }}</li>
+</ol>

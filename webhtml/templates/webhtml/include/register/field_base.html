@@ -1,0 +1,10 @@
+<div class="form-group">
+    <div class="input-group input-group-lg" input-group="{{ field.auto_id }}">
+        <div class="input-group-addon">{% block lable_content %}{{ field.label }}{% endblock %}</div>
+        {% block input %}
+        {% endblock %}
+        {% block input_group_end %}
+        {% endblock %}
+    </div>
+    <div input-errors="{{ field.auto_id }}" class="text-danger"></div>
+</div>

@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+html { font-size:100%; height:100%; }
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+a{text-decoration:none;}
+
+
+body{font-family:"Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma; color:#666; margin:0 auto; background:#f4f4f4;
+    font-size:14px; height:100%;}
+
+ol, ul{list-style:none outside none;padding:0;margin:0;}
+
+
+body,div,p,a,ul,li,h3,span,ol,h1,h2,img,dd,dt{padding:0;margin:0;}
+.juzhong{text-align:center;}
+
+
+@media only screen and (min-width:320px){
+    /*16px*/
+    body{font-size:16px!important;}.viewport{max-width:320px}
+    .jinfenduihuan img{max-width:320px;}
+    .huodongriqi img{max-width:320px;}
+    .tongyong_tubiao_gj img , .jiantou img{max-width:20px; max-height:20px; vertical-align:sub;}
+    .jindou{max-width:15px; max-height:15px; }
+    .chongzhi_chenggong{max-width:30px; max-height:30px;}
+    .chongzhi_shibai{max-width:100px; max-height:100px;}
+
+    .help_detail_img img{max-width:290px;  display:block; margin:0 auto; border:1px solid #d8d8d8; box-shadow:0px 0px 8px #e1e1e1; clear: both;}
+    .content-background img{max-width:43px;}
+
+    .help_menu{}
+    .help_menu ul{ padding-bottom: 3%;}
+    .help_menu ul li{color:#747373; width:45%; margin:3% 1% 3% 3%; text-align:center; float:left; height:140px;  line-height:1.2em; font-size:0.9em;}
+
+    .help_menu ul li img{width:60px; height:60px;  -webkit-border-radius: 60px; -moz-border-radius: 60px; -o-border-radius: 60px; -khtml-border-radius: 60px;}
+    .help_menu ul li div{ margin-bottom:2%; font-size:1.1em; height:1.4em;  line-height:1.4em;}
+    .help_menu ul li a{color:#484848; text-decoration:none;}
+
+
+}
+
+@media only screen and (min-width:640px){
+    /*24px*/
+    body{font-size:24px!important;}.viewport{max-width:640px}
+    .jinfenduihuan img{max-width:640px;}
+    .huodongriqi img{max-width:640px;}
+    .tongyong_tubiao_gj img , .jiantou img{max-width:25px; vertical-align:sub;}
+    .jindou{max-width:10px; max-height:10px; }
+    .chongzhi_chenggong{max-width:60px;  max-height:60px;}
+    .chongzhi_shibai{max-width:200px; max-height:200px;}
+    .help_detail_img img{max-width:600px;  display:block; margin:0 auto; border:1px solid #d8d8d8; box-shadow:0px 0px 8px #e1e1e1; clear: both;}
+    .content-background img{max-width:86px;}
+
+    .help_menu{}
+    .help_menu ul{}
+    .help_menu ul li{color:#747373; width:30%; margin:3% 1% 3% 2%; text-align:center; float:left; height:170px; line-height:1.1em; font-size:0.8em;}
+
+    .help_menu ul li img{width:70px; height:70px;  -webkit-border-radius: 70px; -moz-border-radius: 70px; -o-border-radius: 70px; -khtml-border-radius: 70px;}
+    .help_menu ul li div{ margin-bottom:2%; font-size:1.1em; height:1.4em;  line-height:1.4em;}
+    .help_menu ul li a{ color:#484848; text-decoration:none;}
+
+}
+
+
+@media only screen and (min-width:960px){
+    /*32px*/
+    .viewport{max-width:960px}
+    .jinfenduihuan img{max-width:960px;}
+    .huodongriqi img{max-width:960px;}
+    .tongyong_tubiao_gj img , .jiantou img{max-width:30px; max-height:30px; vertical-align:sub;}
+    .jindou{max-width:20px; max-height:20px;}
+    .chongzhi_chenggong{max-width:90px; max-height:90px;}
+    .chongzhi_shibai{max-width:300px; max-height:300px;}
+    .help_detail_img img{max-width:880px;  display:block; margin:0 auto; border:1px solid #d8d8d8; box-shadow:0px 0px 8px #e1e1e1; clear: both;}
+    .content-background img{max-width:128px;}
+
+
+
+
+}
+
+
+
+.bg_white1{
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+.zong_con{
+    width: 100%;
+    overflow: hidden;
+}
+.zong_cg_01 {
+    float: left;
+    width: 33%;
+    max-height: 16.125em;
+    border: 0;
+    border-bottom: 1px solid #dddddd;
+    border-right:  1px solid #dddddd;
+    text-align: center;
+    padding-bottom: 8%;
+}
+.zong_cg_01 img{
+    width:40%;
+    max-width: 102px;
+    height : 40%;
+    max-height: 102px;
+    margin: 30% 30% 0 30%;
+}
+.zong_cg_01 a{
+    color: #666666;
+}
+#zong_bg{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

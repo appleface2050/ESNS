@@ -1,0 +1,40 @@
+{% extends 'webhtml/frame.html' %}
+
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script1.js" >
+    </script>
+
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+<!-- 代码 结束 -->
+
+<td align="center" valign="top"><div class="text_title">新闻中心</div>
+ <div class="text_content">
+        <div class="newspage-title"> <strong>热烈祝贺依子轩软件科技获得《计算机软件著作权登记证书》</strong></div>
+<div class="newspage-date">依子轩软件科技  &nbsp;&nbsp;&nbsp;&nbsp; 2015-3-31</div>
+<div class="newspage_concent" style=" text-align:left;">
+  <div style=" text-align:center;"><img src="{{ STATIC_URL }}webhtml/img/img.png" width="400" height="530"></div><br>
+
+
+  &nbsp;　&nbsp;&nbsp;经中华人民共和国国家版权局考证，根据《计算机软件保护条例》和《计算机软件著作权登记办法》的规定，近日，天津依子轩软件科技有限公司被认定为软件——依子轩你的Need建设工程项目管理信息平台（简称：你的Need）的法定著作权人，并于2015年3月26日被正式授予《中华人民共和国国家版权局计算机软件著作权登记证书》，登记号为2015SR054017。即日起，我司版权将得到“中国版权保护中心”的有效保护。
+<br>
+  
+    &nbsp;　&nbsp;&nbsp;该证书的获得，是依子轩软件科技在知识产权工作上的一个里程碑，它意味着公司的自主研发能力在具有独立知识产权的建筑工程项目管理领域得到了权威的认可和充分的肯定，标志着公司在移动互联网产品开发的高新技术领域中迈上了一个新的台阶。  
+</div>
+ </div>
+
+      </td>
+    </tr>
+</table>
+
+
+{% endblock %}

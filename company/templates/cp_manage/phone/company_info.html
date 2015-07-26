@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=3.0; user-scalable=0;"/>
+
+    <title>{{ company.name }}</title>
+</head>
+<link rel="stylesheet" href="{{ STATIC_URL }}webhtml/phone/css/css.css?t=1">
+<link rel="stylesheet" href="{{ STATIC_URL }}webhtml/phone/css/style.css?t=1">
+<link rel="stylesheet" href="{{ STATIC_URL }}webhtml/phone/css/pay.css?t=1">
+<body>
+<header class="qiye_tt">
+    <div class="qiye_tt_con">
+        <span class="qiye_tt_pic"><img src="{{ company.logo_url }}"></span>
+        <span class="qiye_tt_wz">{{ company.name }}</span>
+    </div>
+</header>
+
+<ul class="qiye_con">
+    <li><label>企业账户金额：{{ company_info.price }}金豆</label></li>
+    <li><label>当前项目总数：{{ company_info.project_num }}个</label></li>
+    <li><label>当前项目成员总数：{{ company_info.person_num }}人</label></li>
+    <li><label>预计可用天数：{{ company_info.days }}天</label></li>
+</ul>
+<a href="/cp/{{ company.id }}/create_project_html" ><button class="qiye_btn">创建项目</button></a>
+</body>
+</html>

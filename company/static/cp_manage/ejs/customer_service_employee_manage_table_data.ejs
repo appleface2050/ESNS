@@ -1,0 +1,28 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+    <td><%= item.name %></td>
+    <td><%= item.tel %></td>
+
+        <td>
+        <% if (item.creator_type==0){ %>
+        <span class="label label-sm label-warning">用户</span>
+        <% }else if(item.creator_type==1) { %>
+        <span class="label label-sm label-warning">管理员</span>
+        <% } %>
+    </td>
+
+
+
+
+</tr>
+<%
+}); %>

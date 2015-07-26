@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <title>验证手机号</title>
+    <script>
+        $(function(){
+            $('#sendsms').click(function(){
+                var tel = $('#tel').val();
+                if(tel.length==11){
+                    $.post('/ns/send_sms_code', {'tel': tel}, function(response, status){
+                        if(status=='success'){
+                            if(response.success){
+                                alert('发送短信成功');
+                            }else{
+                                alert(response.message);
+                            }
+                        }
+                    }, 'json');
+                }
+            });
+            $('#reg_user').click(function(){
+                var tel = $('#tel').val();
+                var name = $('#name').val();
+                var code = $('#code').val();
+                if(tel.length==11){
+                    $.post('/ns/submit_user_tel', {'tel': tel, 'name': name, 'code': code}, function(response, status){
+                        if(status=='success'){
+                            if(response.success){
+                                alert('验证手机号成功');
+                            }else{
+                                alert(response.message);
+                            }
+                        }
+                    }, 'json');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<table width="600px">
+    <tr>
+        <td width="50px;">手机号：</td>
+        <td ><input name="tel" id="tel" style="width: 150px;"></td>
+        <td width="100px"></td>
+    </tr>
+
+    <tr>
+        <td>手机验证码：</td>
+        <td><input name="code" id="code" style="width: 70px;"> <input type="button" id="sendsms" value="发送手机验证码"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>真实姓名：</td>
+        <td><input name="name" id="name" style="width: 150px;"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="3"><input type="submit" value="注册" id="reg_user"></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div id="loginbtn"></div></td>
+    </tr>
+</table>
+
+</body>
+</html>

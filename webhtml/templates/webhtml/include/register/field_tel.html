@@ -1,0 +1,7 @@
+{% extends 'web/include/register/field_text.html' %}
+
+{% block input_group_end %}
+    <div class="input-group-btn">
+        <button type="button" id="sms_btn" onclick="sendsms()" class="btn btn-default ">获取验证码</button>
+    </div>
+{% endblock %}

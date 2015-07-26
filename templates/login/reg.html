@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <title>注册</title>
+    <script>
+        $(function(){
+            $('#sendsms').click(function(){
+                var tel = $('#tel').val();
+                if(tel.length==11){
+                    $.post('/ns/send_sms_code', {'tel': tel}, function(response, status){
+                        if(status=='success'){
+                            if(response.success){
+                                alert('发送短信成功');
+                            }else{
+                                alert(response.message);
+                            }
+                        }
+                    }, 'json');
+                }
+            });
+            $('#reg_user').click(function(){
+                var tel = $('#tel').val();
+                var password = $('#password').val();
+                var name = $('#name').val();
+                var code = $('#code').val();
+                if(tel.length==11){
+                    $.post('/ns/reg_user', {'tel': tel, 'password': password, 'name': name, 'code': code}, function(response, status){
+                        if(status=='success'){
+                            if(response.success){
+                                alert('注册成功');
+                            }else{
+                                alert(response.message);
+                            }
+                        }
+                    }, 'json');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<table width="600px">
+    <tr>
+        <td width="50px;">手机号：</td>
+        <td ><input name="tel" id="tel" style="width: 150px;"></td>
+        <td width="100px"></td>
+    </tr>
+    <tr>
+        <td>密码：</td>
+        <td><input name="password" id="password" style="width: 150px;"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>确认密码：</td>
+        <td><input name="rpassword" style="width: 150px;"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>真实姓名：</td>
+        <td><input name="name" id="name" style="width: 150px;"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>手机验证码：</td>
+        <td><input name="code" id="code" style="width: 70px;"> <input type="button" id="sendsms" value="发送手机验证码"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="3"><input type="submit" value="注册" id="reg_user"  ></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div id="loginbtn"></div></td>
+    </tr>
+</table>
+<script type="text/javascript" id="bd_soc_login_boot"></script><script type="text/javascript">(function(){var t = new Date().getTime(),script = document.getElementById("bd_soc_login_boot"),redirect_uri = encodeURIComponent("http://needserver.duapp.com/ns/web_social_callback"),domid = "loginbtn",src = "http://openapi.baidu.com/social/oauth/2.0/connect/login?redirect_uri=" + redirect_uri + "&domid=" + domid + "&client_type=web&response_type=code&media_types=sinaweibo%2Cqqdenglu%2Cbaidu%2Cqqweibo%2Ckaixin%2Crenren&size=-1&button_type=3&client_id=yT9Lxqc0U56Bv0oB7bvotqGg&view=embedded&t=" + t;script.src = src;})();</script>
+
+</body>
+</html>

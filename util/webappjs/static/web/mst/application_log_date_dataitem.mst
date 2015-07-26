@@ -1,0 +1,18 @@
+{{#result}}
+{{#num }}
+<a href="javascript:showLogAppOneDay('{{ id }}')">
+    <div class="well">
+        <h2>{{ date }}日志</h2>
+
+        <div class="row">
+            <div class="col-md-3 text-right">
+                最后修改时间:{{ create_time }}
+            </div>
+            <div class="col-md-3">
+                日志数量:{{ num }}
+            </div>
+        </div>
+    </div>
+</a>
+{{/num  }}
+{{/result}}

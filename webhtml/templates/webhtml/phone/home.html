@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>天津依子轩软件科技有限公司</title>
+    <link href="{{ STATIC_URL }}webhtml/phone/css/css.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}webhtml/phone/js/jquery.event.drag-1.5.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}webhtml/phone/js/jquery.touchSlider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".main_visual").hover(function () {
+                $("#btn_prev,#btn_next").fadeIn()
+            }, function () {
+                $("#btn_prev,#btn_next").fadeOut()
+            });
+
+            $dragBln = false;
+
+            $(".main_image").touchSlider({
+                flexible: true,
+                speed: 200,
+                btn_prev: $("#btn_prev"),
+                btn_next: $("#btn_next"),
+                paging: $(".flicking_con a"),
+                counter: function (e) {
+                    $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                }
+            });
+
+            $(".main_image").bind("mousedown", function () {
+                $dragBln = false;
+            });
+
+            $(".main_image").bind("dragstart", function () {
+                $dragBln = true;
+            });
+
+            $(".main_image a").click(function () {
+                if ($dragBln) {
+                    return false;
+                }
+            });
+
+            timer = setInterval(function () {
+                $("#btn_next").click();
+            }, 5000);
+
+            $(".main_visual").hover(function () {
+                clearInterval(timer);
+            }, function () {
+                timer = setInterval(function () {
+                    $("#btn_next").click();
+                }, 5000);
+            });
+
+            $(".main_image").bind("touchstart", function () {
+                clearInterval(timer);
+            }).bind("touchend", function () {
+                timer = setInterval(function () {
+                    $("#btn_next").click();
+                }, 5000);
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="table_title">
+<table align="center" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="30%" align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/Icon-76@2x.png"
+                                                            width="70%" height="50%" alt=""/></td>
+        <td align="left" valign="middle">
+欢迎使用你的Need！</br>
+   </td>
+        <td  width="20%" align="left" valign="middle"><a href="http://bcs.duapp.com/easysharepf/apk/YourNeed.apk" class="button_xiazai"/></td>
+    </tr>
+</table>
+    </div>
+<div class="sjweb_bg">
+
+<table class="table_title2" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td height="100" align="center" valign="middle" class="big_title">你的Need</td>
+    </tr>
+    <tr>
+        <td height="80" align="center" valign="middle">移动互联网时代最佳建筑项目信息管理工具</td>
+    </tr>
+    <tr>
+        <td align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/pic3.png" width="80%"
+                                                height="50%" alt=""/></td>
+    </tr>
+</table>
+</div>
+<div class="text_style1"> 将项目管理装手机里，信息随时掌握</div>
+<table width="90%" border="0" cellspacing="0" cellpadding="0" class="table_5">
+    <tbody>
+
+    <tr>
+        <td width="25%" height="80" align="center" valign="middle"><img
+                src="{{ STATIC_URL }}webhtml/phone/images/icon1.png" width="70%" height=65%"
+                alt=""/></td>
+        <td align="left" valign="middle">
+            <div class="title">建筑项目工程管理必备之神器:</div>
+            实时了解项目进度情况，检查施工质量，有效杜绝豆腐渣工程。
+        </td>
+    </tr>
+    <tr>
+        <td height="80" align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/icon2.png"
+                                                             width="70%" height=65%" alt=""/></td>
+        <td align="left" valign="middle">
+            <div class="title">工作效率提高不是梦:</div>
+            多岗位，多单位协同工作，信息即时共享。
+        </td>
+    </tr>
+    <tr>
+        <td height="80" align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/icon3.png"
+                                                            width="70%" height=65%" alt=""/></td>
+        <td align="left" valign="middle">
+            <div class="title">社会价值:</div>
+            不断提高工程质量，为和谐社会贡献一份力量。
+        </td>
+    </tr>
+    <tr>
+        <td height="80" align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/icon4.png"
+                                                              width="70%" height=65%" alt=""/></td>
+        <td align="left" valign="middle">
+            <div class="title">一人一天一元钱:</div>
+            超低使用成本，超高的使用效率。
+        </td>
+    </tr>
+    <tr>
+        <td height="80" align="center" valign="middle"><img src="{{ STATIC_URL }}webhtml/phone/images/icon5.png"
+                                                             width="70%" height=65%" alt=""/></td>
+        <td align="left" valign="middle">
+            <div class="title">你的Need我的World:</div>
+            这不仅是一个品牌，更是一份责任。
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--滑动 效果html开始-->
+<div class="main_visual">
+    <div class="flicking_con">
+        <a href="#"></a>
+        <a href="#"></a>
+
+    </div>
+    <div class="main_image">
+        <ul>
+            <li><span class="img_1"></span></li>
+            <li><span class="img_2"></span></li>
+        </ul>
+        <a href="javascript:;" id="btn_prev"></a>
+        <a href="javascript:;" id="btn_next"></a>
+    </div>
+</div>
+<!--效果html结束-->
+
+<input type="submit" name="submit2" id="submit2" value="立即注册" class="button_lijizhuce" onClick="location.href='/phone_register'"/>
+
+
+</body>
+</html>

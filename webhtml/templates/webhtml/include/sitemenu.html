@@ -1,0 +1,22 @@
+<ul class="well nav nav-pills nav-stacked">
+    <li class="{% ifequal 'home' view.view_id %} active{% endifequal %}">
+        <a href="{% url 'web:home' %}"><span class="glyphicon glyphicon-home"></span>主页</a>
+    </li>
+    {% for item in nav_menu %}
+        <li class="nav-header {% ifequal item.view_id view.view_id %} active{% endifequal %}">
+            {% if item.url %}<a href="{{ item.url }}" class="section">{% endif %}
+            {% if item.icon %}<span class="glyphicon glyphicon-star {{ item.icon }}">
+                </span>{% endif %}{{ item.title }}
+            {% if item.url %}</a>{% endif %}
+        </li>
+        {% for sitem in item.menus %}
+            <li{% ifequal sitem.view_id view.view_id %} class="active"{% endifequal %}>
+                {% if sitem.url %}<a href="{{ sitem.url }}">{% endif %}
+                {% if sitem.icon %}<i class="glyphicon {{ sitem.icon }}"></i>
+                {% else %}<i class="fa-fw fa fa-circle-o"></i>{% endif %}
+                {{ sitem.title }}{% if sitem.url %}</a>{% endif %}
+            </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+

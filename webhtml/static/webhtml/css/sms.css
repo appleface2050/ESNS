@@ -1,0 +1,17 @@
+.sms_imgtop{ background:url(../img/bgt_07.jpg) repeat-x; height:11px; width: 1180px; clear: both; margin: 0 auto;}
+.sms_img{ background:url(../img/bg_07.jpg) repeat-y bottom; padding:10px 0;}
+
+.sms_img img{ background:url(../img/s_11.jpg) repeat-x bottom; padding:10px 0;}
+
+
+
+/*右侧悬浮导航*/
+.float{width:125px;height:504px;position:fixed;left:60%;_position:absolute;display:none;overflow:hidden;margin-left:515px; z-index:50; background:#f1f1f1; padding:6px 10px 16px 10px; color:#}/*left50%确保页面中间，左边距515大于页面内容的一半，确保在内容整体右侧外*/
+.float a{display:block;overflow:hidden; border-bottom:1px solid #ccc; height:22px; background:;-webkit-transition:background 0.2s ease; font-size:13px; color:#282828; text-decoration:none; font-weight:; padding:10px 0px;}
+.float .f_title{padding:10px;}
+.float .an_top{background-position:-2220px 0}
+.float .an_top:hover{background-position:-2331px 0}
+
+/*右侧悬浮*/
+.left_nav{width:109px; height:503px; position:fixed; left:50%; margin-left:-630px; z-index:1000; display:none; background:url(../images/left.png) no-repeat}
+.left_nav a{display:block}

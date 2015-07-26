@@ -1,0 +1,44 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script.js" />
+    <script>
+    $("#firstpane .menu_body:eq(0)").show();
+    </script>
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+
+
+<!-- 代码 结束 -->
+
+
+      <td align="center" valign="top"><div class="text_title">联系我们</div>
+ <div class="text_content" style="padding:100px 0 0 200px; height:400px; background:url({{ STATIC_URL }}webhtml/img/contact_bg.jpg) no-repeat bottom left">
+<div style="font-size:19px; text-align:;"><strong>创造价值  用户至上</strong></div>
+
+<div style="font-size:19px;">你的Need 就是我的World！</div>
+<br>
+<br>
+
+电话：022-60709516<br>
+邮件：easyshare@tjeasyshare.com <br>
+地址：天津市红桥区咸阳北路48号银泰大厦A座13层
+
+ </div>
+
+
+
+
+
+      </td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,39 @@
+<div class="form-inline text-center well">
+    <div class="form-group">
+        <label style="display: inline">城市:</label>
+
+            <span style="display: inline" role="city_group"><select role="select_province"
+                                                                    class="form-control"></select>
+                <select role="select_city" class="form-control" style="display: none" id="city"></select></span>
+
+    </div>
+    <div class="form-group">
+        <label style="display: inline" for="keyword">关键字:</label>
+    </div>
+    <div class="form-group">
+
+        <input style="display: inline" class="form-control typeahead" id="keyword" maxlength="50">
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-default" onclick="search();">搜索</button>
+    </div>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover" id="object_table">
+        <thead>
+        <tr>
+            <th class="hidden-xs hidden-sm" scope="col">图标</th>
+            <th scope="col">工程名称</th>
+            <th class="hidden-xs hidden-sm" scope="col">工程地点</th>
+            <th class="hidden-xs hidden-sm" scope="col">建筑面积</th>
+            <th class="hidden-xs hidden-sm" scope="col">工程概况</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody id="table_data">
+
+        </tbody>
+    </table>
+</div>

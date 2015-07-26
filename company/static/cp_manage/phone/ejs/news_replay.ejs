@@ -1,0 +1,13 @@
+<%
+_(list).each(function(item){
+%>
+<div class="hot_ct_01">
+        <ul class="hot_ct_02">
+            <li class="hot_wz_01"><%=item.name%></li>
+            <li class="hot_wz_02"><%=item.content%></li>
+            <li class="hot_wz_03"><%=item.create_time%></li>
+        </ul>
+    </div>
+
+<%
+}); %>

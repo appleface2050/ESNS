@@ -1,0 +1,57 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block title %}
+    <title>{{ father_column.name }}</title>
+{% endblock %}
+{% block body %}
+    <body class="white_bg1">
+    {% if father_column.image_url %}
+    <div class="qiye_banner">
+
+        <img src="{{ father_column.image_url }}" width="" height="" alt=""/>
+    </div>
+    {% endif %}
+    <div class="woaicss">
+    {% if columnslist %}
+        <ul class="woaicss_title woaicss_title_bg1" id="woaicsstitle">
+            {% for col in columnslist %}
+                <li {% ifequal col.id  column.id %} class="bot_red_line" {% endifequal %}><a
+                        href="/cp/{{ col.company }}/{{ col.flag }}/get_company_button_html_by_flag">{{ col.name }}</a></li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+        <div class="woaicss_con" id="woaicss_con2">
+            <ul>
+
+                {% for n in newslist %}
+                    <li>
+                    {% if n.icon_url %}
+                        <div class="news-1">
+                            <a href="/cp/show_qiye_news/{{ n.company }}/{{ n.company_column }}/{{ n.id }}">
+                                <img width="100" height="100" src="{{ n.icon_url }}">
+                            </a>
+                        </div>
+                    {% endif %}
+                        <div class="give-date{% if n.icon_url %}{% else %} give-date-noimg{% endif %}">
+                            <a href="/cp/show_qiye_news/{{ n.company }}/{{ n.company_column }}/{{ n.id }}">{{ n.title }}</a>
+
+                            <div class="news_bottom">
+                                <span class="news_info">阅读：{{ n.pv }} &nbsp; </span>
+                                <span class="news_time">{{ n.publish_time }}</span>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+
+            </ul>
+        </div>
+    </div>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+    <script>
+        var title_blcok = $('#woaicsstitle');
+        var count = title_blcok.children().length;
+        title_blcok.children().css('width', (100 / count) + "%");
+    </script>
+    </body>
+{% endblock %}

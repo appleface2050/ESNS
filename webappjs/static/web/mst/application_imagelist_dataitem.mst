@@ -1,0 +1,26 @@
+{{#result}}
+<div class="well">
+
+    <div class="row">
+
+        <div class="col-md-9">
+            <div id="image_file_id_{{ template_first_image }}" class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                {{#format_text }}{{ title }}{{/format_text }}
+                {{#is_bg_state }}
+                <div>处理方式:{{ text }}</div>
+                {{/is_bg_state }}
+            </div>
+
+        </div>
+
+        <div class="col-md-3 text-right">
+            <button type="button" onclick="openImagelistItem('{{ id }}')" class="btn btn-default">打开</button>
+            <div class="help-block" style="margin-top:10px;">创建时间:{{ create_time }}</div>
+            <div class="help-block">创建者:{{#createUserName }}{{ user }}{{/createUserName }}</div>
+        </div>
+    </div>
+</div>
+{{/result}}

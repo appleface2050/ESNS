@@ -1,0 +1,23 @@
+<% if( !is_home){ %>
+<li>
+    <i class="icon-home home-icon"></i>
+    <a href="javascript:openView('home');">主页</a>
+</li>
+<% }else{ %>
+<li>
+    <i class="icon-home home-icon"></i>
+    主页
+</li>
+<% } %>
+<% _(list).each(function (item) { %>
+<% if (item.view_id){ %>
+<li>
+    <a href="javascript:openView('<%= item.view_id %>');"><%= item.name %></a>
+</li>
+<% }else{ %>
+<li>
+    <%= item.name %>
+</li>
+<% } %>
+<%
+}); %>

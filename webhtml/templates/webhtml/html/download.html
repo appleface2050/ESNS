@@ -1,0 +1,46 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script>
+    $(function(){
+        qiehuan(1);
+    });
+    </script>
+{% endblock %}
+{% block content %}
+<div class="download_banner">
+  <table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top" bgcolor="#333">
+        <div class="dw_banner">
+          <div class="download_title"><strong>你的Need 下载</strong><br>
+          <span>你的Need 就是我的World！</span>
+          </div>
+        </div>
+       </td>
+      </tr>
+    <tr>
+      <td height="600" align="left"  valign="top">
+
+<div id="productList_dw">
+  <div class="ex-pic_dw">
+            <div class="picarea_dw"><a href="#"><img src="{{ STATIC_URL }}webhtml/img/download_03.png"></a></div>
+                <div class="ex-content_dw">
+                  <img src="{{ STATIC_URL }}webhtml/img/download_07.jpg" width="126" height="50" alt=""/></div>
+              </div>
+          <div class="ex-pic_dw">
+                <div class="picarea_dw"><a href="#"><img width="141" height="134" src="{{ STATIC_URL }}webhtml/img/download_04.png"></a></div>
+                <div class="ex-content_dw">
+                 <img src="{{ STATIC_URL }}webhtml/img/download_09.jpg" width="126" height="50" alt=""/> </div>
+              </div>
+          <div style="clear:both;">1、二维码下载:请用手机扫描上面的二维码
+
+            <div>  2、安卓手机也可以在安卓市场搜索“你的Need”<a href="http://bcs.duapp.com/easysharepf/apk/YourNeed.apk">下载</a> <a href="http://zhushou.360.cn/detail/index/soft_id/2756289"><img src="{{ STATIC_URL }}webhtml/img/downloadpic3.png" style="margin-left:35px;" width="280" height="34" alt=""/></a><br>
+              &nbsp; &nbsp; &nbsp;苹果手机也可以在App Store搜索“你的Need”<a href="https://itunes.apple.com/us/app/ni-deneed/id956441505?l=zh&ls=1&mt=8">下载</a> <a href="https://itunes.apple.com/us/app/ni-deneed/id956441505?l=zh&ls=1&mt=8"><img src="{{ STATIC_URL }}webhtml/img/downloadpic2.png" style="margin-left:30px;" width="100" height="33" alt=""/></a></div>
+          </div>
+</div></td>
+      </tr>
+  </table>
+</div>
+{% endblock %}

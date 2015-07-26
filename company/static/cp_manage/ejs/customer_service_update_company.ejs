@@ -1,0 +1,94 @@
+<form ajax callback="customer_service_update_company_callback" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 公司名称 </label>
+        <div class="col-sm-9">
+            <input name="name" input-check="required" id="form-field-2" placeholder="公司名称" value="<%=name%>"
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 地址 </label>
+        <div class="col-sm-9">
+            <input name="address" input-check="required" id="" placeholder="地址" value="<%=address%>"
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 联系电话 </label>
+        <div class="col-sm-9">
+            <input name="phone" input-check="required" id="" placeholder="联系电话" value="<%=phone%>"
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                提交
+            </button>
+        </div>
+    </div>
+</form>
+
+<form ajax callback="customer_service_update_company_callback2" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> logo </label>
+        <div class="col-sm-9">
+                <div class="shangchuantupian">
+                <div class="sc_left"><button id="btn_select_file" class="btn btn-default" type="button">上传logo图片</button>
+                  <div class="xz_img">
+                <div class="xianshitupiantishi">选择图片上传后，以下将显示所选图片右侧可以预览上传后的效果</div>
+                      <div class="xianshitupiantishi">图片类型为jpg或png或jpeg，大小为17px宽17px高</div>
+                <img id='column_image'src='<%= logo_url %>' width="17" height="17" alt=""/>
+                      <input type="hidden" name="logo" id="logoimage">
+                </div>
+                    <button class="btn btn-info" type="submit">
+                    提交
+                  </button>
+                </div>
+
+                <div class="yulan_right" style="background:url(http://7xjnpa.com2.z0.glb.qiniucdn.com//company/52df1db7-2320-46d5-a651-502715c2253f.jpg?attname=shuangchuanqiyelogo.jpg) no-repeat;">
+                  <div style="padding:184px 0 0 32px;"><img src='<%= logo_url %>' id='column_image2' width="17" height="17" alt=""/> <strong>四川明朗集团</strong></div>
+
+                </div>
+
+                </div>
+        </div>
+    </div>
+</form>
+
+<div style="height:1px; background:#e5e5e5; margin:20px auto;"></div>
+
+
+<form ajax callback="customer_service_update_company_callback3" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 公司标题logo </label>
+        <div class="col-sm-9">
+                <div class="shangchuantupian">
+                <div class="sc_left"><button id="btn_select_file_top_image" class="btn btn-default" type="button">上传企业logo图片</button>
+                  <div class="xz_img">
+                <div class="xianshitupiantishi">选择图片上传后，以下将显示所选图片右侧可以预览上传后的效果</div>
+                      <div class="xianshitupiantishi">图片类型为jpg或png或jpeg，大小为81px宽34px高</div>
+                <img id='column_image1' src='<%= top_logo_url %>'  width="81" height="34" alt=""/>
+                      <input type="hidden" name="top_logo" id="logoimage3">
+                </div>
+                    <button class="btn btn-info" type="submit">
+                        提交
+                    </button>
+                </div>
+
+                <div class="yulan_right" style="background:url(http://7xjnpa.com2.z0.glb.qiniucdn.com//company/9f9bc050-8532-4a24-b0a9-0f622411f927.jpg?attname=shuangchuanqiye_logo.jpg) no-repeat;">
+                  <div style="padding:104px 0 0 122px;"><img id='column_image3' src='<%= top_logo_url %>' width="81" height="34" alt=""/></div>
+
+                </div>
+
+                </div>
+        </div>
+    </div>
+</form>
+
+
+

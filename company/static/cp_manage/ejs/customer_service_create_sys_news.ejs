@@ -1,0 +1,63 @@
+<form ajax callback="customer_service_create_sys_news_callback" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 标题 </label>
+
+        <div class="col-sm-11">
+            <input name="title" input-check="required" id="form-field-2" placeholder="标题" value="<%=title%>"
+                   class="col-sm-12">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 栏目 </label>
+
+        <div class="col-sm-11">
+            <select name="sys_column_id" input-check="required" id="form-field-sys_column_id" class="col-sm-12" placeholder="栏目">
+            <%for(var i=0;i<column_list.length;i++){%>
+                <option value="<%=column_list[i].id%>" <%if(column_list[i].id==sys_column_id){%>selected<%}%>><%=column_list[i].name%></option>
+            <%}%>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" input-group>
+        <label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 新闻内容 </label>
+
+        <div class="col-sm-11">
+            <script type="text/javascript">
+                <!--
+                window.UEDITOR_HOME_URL = '/static/ueditor/';
+                //-->
+            </script>
+            <script type="text/javascript" src="/static/ueditor/editor.min.js"></script>
+            <script type="text/javascript" src="/static/ueditor/editor_config.js"></script>
+
+            <link rel="stylesheet" href="/static/ueditor/themes/default/ueditor.css" />
+            <script type="text/plain" id="id_content" style="width:100%;" name="content"><%=content%></script>
+            <script type="text/javascript">
+                var editor = new UE.ui.Editor();
+                editor.render('id_content');
+            </script>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                提交
+            </button>
+            <%if(id){%>
+            <button class="btn btn-default" type="button" onClick="goNewsBack()">
+                返回
+            </button>
+
+            <%}%>
+            <button class="btn btn-default" type="button" onClick="show_news_look()">
+                预览
+            </button>
+            <input type="hidden" name="id" id="news_id" value="<%=id%>">
+            <input type="hidden" name="temp_column" id="temp_column" value="<%=sys_column%>">
+        </div>
+    </div>
+</form>

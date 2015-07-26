@@ -1,0 +1,17 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block title %}
+    <title>联系我们</title>
+{% endblock %}
+{% block body %}
+<body class="white_bg1">
+
+<div class="contact_img"><img src="{{ STATIC_URL }}webhtml/phone/images/contact.png" alt=""/></div>
+<div class="company_name">{{ data.name }}</div>
+<div class="contact_content">
+  <div class="">联系电话：<span class="tel">{{ data.phone }}</span><br>
+  公司地址：{{ data.address }}
+  </div>
+</div>
+
+</body>
+{% endblock %}

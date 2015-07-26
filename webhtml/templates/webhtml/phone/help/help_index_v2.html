@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<title>使用帮助</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/pay.css">
+<script type=text/javascript src="{{ STATIC_URL }}webhtml/phone/js/jquery.min.js"></script>
+
+</head>
+<!--  class=""app_link_body-->
+<body>
+<div class="help_img"></div>
+
+<div class="help_menu">
+  <ul>
+
+{#        <li>#}
+{#          <a href="/help_menu_parent?help_menu_parent_id=64"><img src="http://7xj20h.com2.z0.glb.qiniucdn.com/help/help_banbenjieshao.png" alt=""/></a>#}
+{#          <div><a href="/help_menu_parent?help_menu_parent_id=64">一、常见问题</a></div>#}
+{#           可以查看或搜索问题及答案#}
+{#        </li>#}
+    {% for i in result %}
+        {% for n in i.sub %}
+         {% if n.is_menu %}
+         <li>
+            <a href="/help_menu_parent?help_menu_parent_id={{ n.menu_id }}">
+             <img src="{{ n.menu_icon_url }}" alt=""/></a>
+             <div><a href="/help_menu_parent?help_menu_parent_id={{ n.menu_id }}">{{ n.menu_title }}</a></div>
+             {{ n.menu_desc }}
+          </li>
+         {% endif %}
+        {% if not n.is_menu %}
+        <li>
+          <a href="/help_detail?help_content_id={{ n.content_id }}">
+          <img src="{{ n.menu_icon_url }}" alt=""/></a>
+          <div><a href="/help_detail?help_content_id={{ n.content_id }}">{{ n.menu_title }}</a></div>
+          {{ n.menu_desc }}
+        </li>
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+{#  <li> <a href="/help_detail?help_content_id=150"><img src="http://7xj20h.com2.z0.glb.qiniucdn.com/help/help_banbenjieshao.png" width="100" height="100" alt=""/></a>#}
+{#      <div><a href="/help_detail?help_content_id=150">施工总平面图 </a></div>#}
+{#可按地区、工程名称、公司名称关键字查找字查找项目字查找项公司名称关键字查找字查找项目字查找项目#}
+{#    </li>#}
+{#     <li> <a href="11"><img src="http://7xj20h.com2.z0.glb.qiniucdn.com/help/help_banbenjieshao.png" alt=""/></a>#}
+{#      <div><a href="11">个人/系统设置</a></div>#}
+{#可以查看或搜索问题及答案#}
+{#    </li>#}
+{#  <li> <a href="11"><img src="http://7xj20h.com2.z0.glb.qiniucdn.com/help/help_banbenjieshao.png" width="" height="" alt=""/></a>#}
+{#      <div><a href="11">常见问题</a></div>#}
+{#把项目组所有成员添加#}
+{#进来，可实现协同工作#}
+{#协同管理    </li>#}
+  </ul>
+
+</div>
+<div style="height:9%; clear: both;"></div>
+
+</body>
+</html>

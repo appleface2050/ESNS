@@ -1,0 +1,14 @@
+{% extends 'ns_manage/frame.html' %}
+{% block page_content %}
+    <div id="view_content"></div>
+{% endblock %}
+{% block body_bottom %}
+    <script src="{{ STATIC_URL }}ns_manage/js/home.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}ns_manage/js/change_password.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}ns_manage/js/user_type_manage.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            openView('home');
+        });
+    </script>
+{% endblock %}

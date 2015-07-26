@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ view.title }}</title>
+    <link href="{{ STATIC_URL }}webhtml/phone/css/css.css" type="text/css" rel="stylesheet"/>
+    <link href="{{ STATIC_URL }}webhtml/phone/css/pay.css" type="text/css" rel="stylesheet"/>
+    <script src="{{ STATIC_URL }}web/js/city_data.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/underscore-min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}webhtml/js/base.js"></script>
+    {% block ext_header %}{% endblock %}
+</head>
+
+<body>
+<table class="table_head" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="left"><img class="logo" src="{{ STATIC_URL }}webhtml/phone/images/logo.png"/></td>
+        <!-- top_ext_1 start -->
+        {% block top_ext_1 %}{% endblock %}
+        <!-- top_ext_1 end -->
+    </tr>
+</table>
+{% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+    {% endfor %}
+
+{% endif %}
+{% block content %}{% endblock %}
+<script src="{{ STATIC_URL }}bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}bootstrap/3.3.1/js/bootstrap-datetimepicker.js"></script>
+<script src="{{ STATIC_URL }}bootstrap/3.3.1/js/bootstrap-datetimepicker.zh-CN.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+.required {
+    color: red;
+}
+
+.parent-brand {
+    font-size: .8em;
+    color: #a10000;
+}
+
+.parent-brand a {
+    color: #a10000;
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
+.nav-tabs li {
+    min-width: 200px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.data_item_title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.jc_item_status {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.nav .menu_right_manage {
+    display: none;
+}
+
+.user_icon_lg {
+    max-width: 50px;
+    max-height: 50px;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.project_icon {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+.weather_icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.manage_user_item {
+    line-height: 60px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.manage_user_name {
+    font-size: 1.2em;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    filter: alpha(opacity=60);
+    background-color: #777;
+    z-index: 1002;
+    left: 0;
+    display: none;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+}
+.well
+{
+    word-wrap: break-word;
+}

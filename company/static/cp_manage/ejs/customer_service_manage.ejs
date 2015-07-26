@@ -1,0 +1,55 @@
+<div class="help-block">集团默认展示</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+            <button class="btn" onclick="setBigCompanyDisplay(false);">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置不展示
+            </button>
+            <button class="btn btn-warning" onclick="setBigCompanyDisplay(true);">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置展示
+            </button>
+
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 pull-right">
+        <form ajax class="form-inline">
+            <input id="search_keyword" type="text" class="" placeholder="集团关键词" onkeydown="enterIn(event);">
+            <button type="button" onclick="orientation_query_big_company();" class="btn btn-info btn-sm">
+                <i class="icon-search bigger-110"></i>
+                查询
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+
+<form id="big_company_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+                <th>id</th>
+                <th>name</th>
+                <th>logo</th>
+                <th>是否展示</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

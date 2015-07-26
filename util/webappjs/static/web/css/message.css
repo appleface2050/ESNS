@@ -1,0 +1,130 @@
+@media (min-width: 992px) {
+    #message_view {
+        position: fixed;
+        bottom: 5px;
+        right: 5px;
+
+    }
+}
+
+@media (max-width: 992px) {
+    #message_view {
+        position: absolute;
+        right: 5px;
+        height: 700px;
+    }
+}
+
+#side_content {
+    position: absolute;
+    bottom: 0;
+    top: 55px;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.message_column {
+    height: 100%;
+}
+
+.user_item {
+    padding: 5px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.user_icon {
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+#chat_title {
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    color: #fff;
+    background-color: #337ab7;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+#chart_user_name {
+    margin-left: 5px;
+    font-size: 1.3em;
+}
+
+#chat_message {
+    position: absolute;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    overflow: auto;
+    top: 51px;
+    bottom: 156px;
+    left: 0;
+    right: 0;
+}
+
+#chat_input {
+    position: absolute;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    height: 155px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#chat_input_toolbar {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#chat_input_box {
+    width: 100%;
+    height: 80px;
+}
+
+#chat_input_bottom {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.chat02_title_btn {
+    background: url('../img/icon.png') no-repeat 0 0;
+    cursor: pointer;
+    float: left;
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: 5px 6px;
+}
+
+.ctb01 {
+    background-position: 0 -90px;
+    margin-left: 18px;
+    _margin-left: 8px;
+}
+
+.ctb03 {
+    background-position: 0 -152px;
+}
+
+.ctb02 {
+    background-position: 0 -457px;
+}
+
+#current_message_btn {
+    position: absolute;
+    z-index: 1000;
+    left: 30px;
+    display: none;
+}

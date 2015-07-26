@@ -1,0 +1,31 @@
+{% extends 'cp_manage/phone/base2.html' %}
+{% block title %}添加新成员{% endblock %}
+{% block head_ext %}
+{#    <link href="{{ STATIC_URL }}cp_manage/phone/css/zongheganli.css" rel="stylesheet">#}
+{% endblock %}
+{% block body_class %}bg_white1{% endblock %}
+{% block body %}
+    <form ajax>
+        <div class="container">
+            <div class="con_top" id="data">
+
+            </div>
+            <br>
+            <!-- dataend -->
+            <div class="footer" id="add_bottom">
+                <div onclick="add_user_by_tel_to_company();" class="btn01">添加</div>
+                <div onclick="back();" class="btn02">返回</div>
+            </div>
+            <div class="footer" style="display: none" id="result_bottom">
+                <div onclick="readd();" class="btn01">添加</div>
+                <div onclick="back();" class="btn02">返回</div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block bottom_ext %}
+    <script src="{{ STATIC_URL }}cp_manage/phone/js/user_manage.js?t=1123123"></script>
+    <script>
+        var company_id = "{{ company_id }}";
+    </script>
+{% endblock %}

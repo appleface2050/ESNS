@@ -1,0 +1,40 @@
+<ul class="well nav nav-pills nav-stacked">
+    <li view-id="home">
+        <a href="javascript:openView('home')"><span class="glyphicon glyphicon-home"></span>主页</a>
+    </li>
+
+    {% for item in no_project_site_menu %}
+        <li project-state="off"
+            class="project_menu nav-header{% if item.right %} menu_right_{{ item.right }} {% endif %}">
+            {% if item.icon %}<span class="glyphicon glyphicon-star {{ item.icon }}">
+                </span>{% endif %}{{ item.title }}
+        </li>
+        {% for sitem in item.menus %}
+            <li right="{{ sitem.right }}" view-id="{{ sitem.view_id }}" project-state="off" class="project_menu {% if sitem.right %} menu_right_{{ sitem.right }} {% endif %}">
+                <a href="javascript:openView('{{ sitem.view_id }}')">
+                    {% if sitem.icon %}<i class="glyphicon {{ sitem.icon }}"></i>
+                    {% else %}<i class="fa-fw fa fa-circle-o"></i>{% endif %}
+                    {{ sitem.title }}</a>
+            </li>
+        {% endfor %}
+    {% endfor %}
+
+
+    {% for item in project_site_menu %}
+        <li project-state="on"
+            class="project_menu nav-header{% if item.right %} menu_right_{{ item.right }} {% endif %}">
+            {% if item.icon %}<span class="glyphicon glyphicon-star {{ item.icon }}">
+                </span>{% endif %}{{ item.title }}
+        </li>
+        {% for sitem in item.menus %}
+            <li right="{{ sitem.right }}" view-id="{{ sitem.view_id }}" project-state="on" class="project_menu {% if sitem.right %} menu_right_{{ sitem.right }} {% endif %}">
+                <a href="javascript:openView('{{ sitem.view_id }}')">
+                    {% if sitem.icon %}<i class="glyphicon {{ sitem.icon }}"></i>
+                    {% else %}<i class="fa-fw fa fa-circle-o"></i>{% endif %}
+                    {{ sitem.title }}</a>
+            </li>
+        {% endfor %}
+    {% endfor %}
+
+</ul>
+

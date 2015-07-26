@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-xs-12 text-center">{{#icon_url }}<img class="project_icon"
+                                                          src='{{ icon_url }}'>{{/icon_url }}
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">项目简称:</div>
+    <div class="col-xs-6 text-left">{{ name }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">项目全称:</div>
+    <div class="col-xs-6 text-left">{{ total_name }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">项目地点:</div>
+    <div class="col-xs-6 text-left">{{#format_address }}{{ address }}{{/format_address }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">建筑面积:</div>
+    <div class="col-xs-6 text-left">{{ jzmj }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">结构类型:</div>
+    <div class="col-xs-6 text-left">{{ jglx }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">建筑层数:</div>
+    <div class="col-xs-6 text-left">{{ jzcs }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">合同造价:</div>
+    <div class="col-xs-6 text-left">{{ htzj }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">开工日期:</div>
+    <div class="col-xs-6 text-left">{{ kg_date }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">总工期(天):</div>
+    <div class="col-xs-6 text-left">{{ days }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">建设单位:</div>
+    <div class="col-xs-6 text-left">{{ jsdw }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">建设单位负责人:</div>
+    <div class="col-xs-6 text-left">{{ jsdw_fzr }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">勘察单位:</div>
+    <div class="col-xs-6 text-left">{{ kcdw }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">建设单位负责人:</div>
+    <div class="col-xs-6 text-left">{{ kcdw_fzr }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">施工单位:</div>
+    <div class="col-xs-6 text-left">{{ sgdw }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">施工单位负责人:</div>
+    <div class="col-xs-6 text-left">{{ sgdw_fzr }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">监理单位:</div>
+    <div class="col-xs-6 text-left">{{ jldw }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">监理单位负责人:</div>
+    <div class="col-xs-6 text-left">{{ jldw_fzr }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">设计单位:</div>
+    <div class="col-xs-6 text-left">{{ sjdw }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">设计单位负责人:</div>
+    <div class="col-xs-6 text-left">{{ sjdw_fzr }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 text-right">创建时间:</div>
+    <div class="col-xs-6 text-left">{{ create_time }}</div>
+</div>

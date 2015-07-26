@@ -1,0 +1,42 @@
+{% extends 'cp_manage/phone/base2.html' %}
+{% block title %}成员管理{% endblock %}
+{% block head_ext %}
+{#    <link href="{{ STATIC_URL }}cp_manage/phone/css/zongheganli.css" rel="stylesheet">#}
+{% endblock %}
+{% block body_class %}bg_white1{% endblock %}
+{% block body %}
+
+    <form ajax>
+        <div class="container">
+        <div class="footer" id="add_bottom">
+                <a href="/cp/{{ company_id }}/user_manage" class="btn01">添加新成员</a>
+                <div onclick="delete_user_by_id_to_company();" class="btn02">删除成员</div>
+            </div>
+            <div class="con_top" id="data">
+                {% for u in users %}
+<label>
+    <input name="user_id" value="{{ u.id }}" style="display: none" type="checkbox">
+
+    <div class="content_text">
+
+        {% if u.icon_url %}<span class="ct_02"><img src="{{ u.icon_url }}"> </span>{% endif %}<span class="ct_02">{{ u.name}}</span><span chk class="ci_02"></span>
+        <span id="registered_{{ u.id }}" class="ci_03" style="display: none"></span>
+{#        <br>#}
+{#        <span class="ct_03">{{ u.tel }}</span>#}
+
+    </div>
+</label>
+                {% endfor %}
+            </div>
+            <br>
+
+        </div>
+    </form>
+{% endblock %}
+{% block bottom_ext %}
+{#    <script src="{{ STATIC_URL }}cp_manage/phone/js/user_manage.js?t=1123123"></script>#}
+    <script src="{{ STATIC_URL }}cp_manage/phone/js/user_manage_delete_user.js?t=13"></script>
+    <script>
+        var company_id = "{{ company_id }}";
+    </script>
+{% endblock %}

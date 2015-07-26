@@ -1,0 +1,23 @@
+<%
+var last_pinyin_word = '';
+        _(list).each(function(item){
+    var pinyin_word = item.pinyin.substring(0, 1);
+%>
+<% if(last_pinyin_word != pinyin_word){ %>
+<div class="ct_01"><%= pinyin_word %></div>
+<% } %>
+<label>
+    <input name="tel" value="<%= item.tel %>" style="display: none" type="checkbox">
+
+    <div class="content_text">
+
+        <span class="ct_02"><%= item.name %></span><span chk class="ci_01"></span>
+        <span id="registered_<%= item.tel %>" class="ci_03" style="display: none"></span>
+        <br>
+        <span class="ct_03"><%= item.tel %></span>
+
+    </div>
+</label>
+<%
+    last_pinyin_word = pinyin_word;
+}); %>

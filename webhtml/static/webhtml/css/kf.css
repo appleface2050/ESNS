@@ -1,0 +1,24 @@
+.kf_panel {
+    z-index: 8000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-transform: translateZ(0px);
+    cursor: pointer;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 180px;
+    right: 5px;
+    width: 89px;
+    height: 139px;
+    display: none;
+
+}
+
+.kf_panel_online {
+    background-image: url(/static/webhtml/img/kf/on_line.png);
+}
+
+.kf_panel_offline {
+    background-image: url(/static/webhtml/img/kf/off_line.png);
+}

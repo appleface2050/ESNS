@@ -1,0 +1,13 @@
+{% extends 'webhtml/include/phone/field_base.html' %}
+{% block input %}
+    <span role="address_group" default="{{ field.value|default_if_none:'' }}">
+<select role="select_province" class="form-control"></select>
+<select role="select_city" class="form-control"
+        style="display: none">
+</select>
+<select role="select_county" class="form-control"
+        style="display: none"
+        name="{{ field.name }}" id="{{ field.name }}" input-check="{{ field.input_check }}">
+</select>
+</span>
+{% endblock %}

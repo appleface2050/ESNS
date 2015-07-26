@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}天津依子轩软件科技有限公司{% endblock %}</title>
+    <meta name="renderer" content="webkit">
+{% block defaultcss %}
+    <!-- 页面 样式-->
+    <link href="{{ STATIC_URL }}webhtml/css/global.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/base.css" rel="stylesheet" type="text/css">
+    <link rel=stylesheet type=text/css href="{{ STATIC_URL }}webhtml/css/lrtk2.css">
+{% endblock %}
+{% block defaultscript %}
+    <script type="text/javascript" src="{{ STATIC_URL }}webhtml/js/nav.js"></script>
+    <!-- banner  滚动样式-->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/css/lrtk.css">
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js" type="text/javascript">
+    </script>
+    <script src="{{ STATIC_URL }}js/underscore-min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}webhtml/js/jquery.hammer-full.min.js" type="text/javascript">
+    </script>
+    <script src="{{ STATIC_URL }}webhtml/js/plugin.js" type="text/javascript">
+    </script>
+    <script src="{{ STATIC_URL }}web/js/city_data.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}webhtml/js/base.js" type="text/javascript"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- 代码 结束 -->
+{% endblock %}
+    {% block ext_header %}{% endblock %}
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8398d10b8d08ccbdf19d39caa0cba998";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+{% block bodytag %}
+<body>
+{% endblock %}
+{% block body %}{% endblock %}
+{% block bodytagend %}
+</body>
+{% endblock %}
+</html>

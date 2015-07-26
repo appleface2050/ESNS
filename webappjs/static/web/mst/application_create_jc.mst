@@ -1,0 +1,53 @@
+<button type="button" class="btn btn-default" onclick="show_browse_jc();">浏览</button>
+<br>
+<br>
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form ajax id="jc_from" class="form-horizontal" method="post" role="form"
+              callback="createJcFormCallback">
+            <input type="hidden" id="fileid" name="fileid">
+            <input type="hidden" id="flag" name="flag">
+
+            <div id="form_error" class="text-danger"></div>
+            <div class="form-group " input-group="desc">
+
+                <label for="desc" class="col-sm-2 control-label">问题描述
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <textarea rows="5" data-toggle="tooltip" data-placement="top" style="max-width: 500px;"
+                              class="form-control" id="desc" name="desc" placeholder="问题描述" maxlength="200"></textarea>
+
+                    <div input-errors="desc" class="text-danger"></div>
+                </div>
+            </div>
+        </form>
+        <form target="bcs_upload" method="post" class="form-horizontal" enctype="multipart/form-data" id="upload_form">
+            <div class="form-group " input-group="upload">
+                <label for="upload" class="col-sm-2 control-label">整改前图片</label>
+
+                <div class="col-sm-10 controls ">
+                    <input type="file" class="form-control" style="max-width: 500px;" name="file"
+                           input-check="imageForJcUploadCheck()" id="upload">
+
+                    <div input-errors="upload" class="text-danger"></div>
+                </div>
+
+            </div>
+        </form>
+        <iframe id="bcs_upload" style="display: none;" name="bcs_upload"></iframe>
+
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button type="button" onclick="saveJcButtonClick();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>
+

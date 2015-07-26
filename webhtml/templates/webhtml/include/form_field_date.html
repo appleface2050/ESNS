@@ -1,0 +1,14 @@
+{% extends 'web/include/form_field_base.html' %}
+{% block input %}
+
+    <div id="datetimepicker_date_{{ field.auto_id }}" style="max-width: 220px;display: inline-table;"
+         role="datetimepicker-date" class="clearfix input-group">
+    <span class="add-on input-group-addon">
+          <span data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></span>
+      </span>
+        <input style="max-width: 500px;" type="text" class="form-control" id="{{ field.auto_id }}"
+               name="{{ field.name }}"
+               value="{% if field.date %}{{ field.date }}{% endif %}" {% if field.input_check %} input-check="{{ field.input_check }}"{% endif %}>
+    </div>
+
+{% endblock %}

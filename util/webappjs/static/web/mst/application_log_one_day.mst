@@ -1,0 +1,39 @@
+<button type="button" onclick="showLogAppDateList();" class="btn btn-default">返回</button>
+<h1>{{ date }}日志</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">项目所在地:{{ city_name }}</div>
+            <div class="col-md-6">记录条数:{{ num }}</div>
+        </div>
+
+    </div>
+    <div class="col-md-9">
+        <div class="row" style="line-height: 70px">
+            <div class="col-md-4">天气:{{ weather }}{{#weather_icon }}{{ weather }}{{/weather_icon }}</div>
+            <div class="col-md-4">风力:{{ wind }}</div>
+            <div class="col-md-4">气温:{{ qiwen }}</div>
+        </div>
+
+    </div>
+
+</div>
+{{#result}}
+{{#is_active  }}
+<div class="well">
+    <div>{{#format_text}}{{ text }}{{/format_text}}</div>
+    <div class="row help-block">
+        <div class="col-md-2 text-left">
+            创建者:{{#createUserName}}{{ user }}{{/createUserName}}
+        </div>
+        <div class="col-md-5 text-left">
+            时间:{{ create_time }}
+        </div>
+        <div class="col-md-5 text-right">
+            {{&template_delete_log }}
+        </div>
+
+    </div>
+</div>
+{{/is_active  }}
+{{/result}}

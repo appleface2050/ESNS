@@ -1,0 +1,37 @@
+{% extends 'web/base.html' %}
+{% block ext_header %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}web/css/register.css" type="text/css">
+    <script src="{{ STATIC_URL }}web/js/register.js" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <div class="container">
+
+        <form ajax action="{% if reg_tel %}/ns/submit_user_tel{% else %}/ns/reg_user{% endif %}" method="post" id="form"
+              class="form" callback="formCallback">
+            <div class="panel panel-default panel-single" id="login_panel">
+
+                <div class="panel-heading">
+                    {% if reg_tel %}
+                        <h2>验证手机号</h2>
+                    {% else %}
+                        <h2>用户注册</h2>
+                    {% endif %}
+                    <div id="form_error" class="text-danger"></div>
+                </div>
+                <div class="panel-body" id="register">
+                    <div from-errors="register" class="text-danger"></div>
+                    {% for f in tform %}
+                        {{ f }}
+                    {% endfor %}
+                    <input class="btn btn-primary btn-block" type="submit" value="提交">
+
+                </div>
+                <div class="panel-footer">
+
+                    <div><a href="{% url 'web:home' %}">登录</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

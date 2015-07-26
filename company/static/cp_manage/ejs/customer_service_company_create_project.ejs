@@ -1,0 +1,152 @@
+
+<form ajax callback="customer_service_company_create_project_callback" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目简称 </label>
+        <div class="col-sm-9">
+            <input name="name" input-check="required" id="" placeholder="项目简称" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目全称 </label>
+        <div class="col-sm-9">
+            <input name="total_name" input-check="required" id="" placeholder="项目全称" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 地址 </label>
+        <div class="col-sm-9" empty="请选择" role="city_group">
+            <select role="select_province"></select>
+            <select role="select_city" name="address"></select>
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 建筑面积 </label>
+        <div class="col-sm-9">
+            <input name="jzmj" input-check="required" id="" placeholder="建筑面积" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">结构类型 </label>
+        <div class="col-sm-9">
+            <input name="jglx" input-check="required" id="" placeholder="结构类型" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 建筑层数 </label>
+        <div class="col-sm-9">
+            <input name="jzcs" input-check="required" id="" placeholder="建筑层数" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 合同造价 </label>
+        <div class="col-sm-9">
+            <input name="htzj" input-check="required" id="" placeholder="合同造价" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="kg_date"> 开工日期 </label>
+        <div class="col-sm-9">
+            <div class="input-group bootstrap-timepicker col-xs-10 col-sm-5">
+                <input role="datepicker" id="kg_date" name="kg_date" type="text" class="form-control" data-date-format="yyyy-mm-dd"/>
+				<span class="input-group-addon">
+					<i class="icon-calendar bigger-110"></i>
+				</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 总工期 </label>
+        <div class="col-sm-9">
+            <input name="days" input-check="required" id="" placeholder="总工期" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 建设单位 </label>
+        <div class="col-sm-9">
+            <input name="jsdw" input-check="required" id="" placeholder="建设单位" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 项目负责人 </label>
+        <div class="col-sm-9">
+            <input name="jsdw_fzr" input-check="required" id="" placeholder="项目负责人" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 勘察单位 </label>
+        <div class="col-sm-9">
+            <input name="kcdw" input-check="required" id="" placeholder="勘察单位" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 勘察单位负责人 </label>
+        <div class="col-sm-9">
+            <input name="kcdw_fzr" input-check="required" id="" placeholder="勘察单位负责人" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 施工单位 </label>
+        <div class="col-sm-9">
+            <input name="sgdw" input-check="required" id="" placeholder="施工单位" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 施工单位负责人 </label>
+        <div class="col-sm-9">
+            <input name="sgdw_fzr" input-check="required" id="" placeholder="施工单位负责人" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 监理单位 </label>
+        <div class="col-sm-9">
+            <input name="jldw" input-check="required" id="" placeholder="监理单位" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 监理单位负责人 </label>
+        <div class="col-sm-9">
+            <input name="jldw_fzr" input-check="required" id="" placeholder="监理单位负责人" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 设计单位 </label>
+        <div class="col-sm-9">
+            <input name="sjdw" input-check="required" id="" placeholder="设计单位" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 设计单位负责人 </label>
+        <div class="col-sm-9">
+            <input name="sjdw_fzr" input-check="required" id="" placeholder="设计单位负责人" value=""
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                提交
+            </button>
+            <input type="hidden" name="id" id="news_id" value="<%=id%>">
+        </div>
+    </div>
+</form>
+
+

@@ -1,0 +1,6204 @@
+
+##你的need 客户端 api接口说明
+**目录：**
+
+------------------
+
+* [1.短信校验码](#1)
+* [2.注册帐号](#2)
+* [3.登录](#3)
+* [4.登出](#4)
+* [5.获取当前用户](#5)
+* [6.获取上传用户头像的url（图片）](#6)
+* [7.更新用户头像图标](#7)
+* [8.修改、获取个人信息](#8)
+* [9.根据id获取个人信息](#9)
+* [10.创建项目](#10)
+* [11.修改项目信息](#11)
+* [12.获取上传项目图标的url（图片）](#12)
+* [13.设置项目图标的url（图片）](#13)
+* [14.获取我关注的项目列表](#14)
+* [15.默认查询项目列表](#15)
+* [16.关注、取消关注项目](#16)
+* [17.向项目发出申请加入](#17)
+* [18.获取所有未处理的项目加入申请](#18)
+* [19.处理项目加入申请](#19)
+* [20.管理员将用户加入或移出分组](#20)
+* [21.根据上传的手机号，加入项目](#21)
+* [22.管理员移除项目内成员](#22)
+* [23.项目成员主动脱离项目，离开项目](#23)
+* [24.获取所有项目成员](#24)
+* [25.获取项目中所有组信息](#25)
+* [26.查询施工日志天气列表](#26)
+* [27.查询施工日志天气列表(旧数据)](#27)
+* [28.查询某一天的施工日志](#28)
+* [29.提交某一天的日志](#29)
+* [30.删除日志（本人、24小时内）](#30)
+* [31.获取url用来上传文件（图片）](#31)
+* [32.获取项目内应用节点的 json数据](#32)
+* [33.保存上传的文件信息](#33)
+* [34.追加上传的文件信息](#34)
+* [35.根据应用节点查询文件列表](#35)
+* [36.根据应用节点查询文件，旧数据](#36)
+* [37.根据fileid 获取文件 url](#37)
+* [38.创建工程检查](#38)
+* [39.修改一个工程检查](#39)
+* [40.查询工程检查列表](#40)
+* [41.查询工程检查，旧数据](#41)
+* [42.记录日期查询](#42)
+* [43.记录日期查询（旧数据）](#43)
+* [44.供应商名录，创建、修改](#44)
+* [45.供应商名录查询](#45)
+* [46.查询供应商名录 旧数据](#46)
+* [47.创建、修改物资记录](#47)
+* [48.删除物资记录(本人、24小时内)](#48)
+* [49.删除物资记录(本人、24小时内)](#49)
+* [50.删除物资记录(本人、24小时内)](#50)
+* [51.删除物资记录(本人、24小时内)](#51)
+* [52.物资记录查询](#52)
+* [53.根据project_id查询项目信息](#53)
+* [54.根据上传的手机号，加入项目](#54)
+* [55.根据访问的手机操作系统不同，跳转至相应的网址](#55)
+* [56.手机号校验](#56)
+* [57.bcs文件上传结果校验](#57)
+* [58.文件上传接口](#58)
+* [59.分享社交应用的积分获取接口](#59)
+* [60.获取我的积分](#60)
+* [61.根据城市id获取城市天气](#61)
+* [62.对一条记录进行“顶”操作](#62)
+* [63.对一条记录进行“评论”操作](#63)
+* [64.对一条记录进行“查询评论”操作](#64)
+* [65.添加系统消息](#65)
+* [66.查询系统消息](#66)
+* [67.查询系统消息旧数据](#67)
+* [68.创建项目公告，根据分组](#68)
+* [69.查询项目公告，根据分组](#69)
+* [70.查询项目公告，根据分组 旧数据](#70)
+* [71.获取项目的余额信息](#71)
+* [72.查询相似项目名](#72)
+* [73.查询示例项目的信息](#73)
+* [74.删除供应商地址记录(本人、24小时内)](#74)
+* [75.修改分组权限](#75)
+* [76.修改个人权限](#76)
+* [77.删除上传的文件信息(本人、24小时内)](#77)
+* [78.删除工程检查信息(本人、24小时内)](#78)
+* [79.创建NEED消息](#79)
+* [80.查询NEED消息](#80)
+* [81.NEED小助手](#81)
+* [82.七牛云存储,获取url用来上传文件（图片）](#82)
+* [83.七牛云存储,获取上传项目图标的url（图片）](#83)
+* [84.七牛云存储,获取上传用户头像的url（图片）](#84)
+* [85.刷新need消息阅读时间接口](#85)
+* [86.重置密码](#86)
+* [87.根据flag获取未读消息数量](#87)
+* [88.根据project_id获取所有flag未读消息数量](#88)
+* [89.刷新project最后阅读时间](#89)
+* [90.获取未读项目公告数量](#90)
+* [91.获取未读系统消息数量](#91)
+* [92.获取未读系统消息和未读项目公告数量的和](#92)
+* [93.获取申请用户的详情](#93)
+* [94.阿里云搜索](#94)
+* [95.获取NEED消息未读数](#95)
+* [96.获取NEED消息未读数](#96)
+* [97.阿里云搜索](#97)
+* [98.关闭项目](#98)
+* [99.关闭项目](#99)
+* [100.恢复删除项目](#100)
+<br/>
+**注意**：统一返回数据均包括这些：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>status_code</td>
+      <td>状态码</td>
+   </tr>
+   <tr>
+      <td>message</td>
+      <td>返回信息</td>
+   </tr>
+   <tr>
+      <td>dialog</td>
+      <td>提示框样式</td>
+   </tr>
+   <tr>
+      <td>success</td>
+      <td>提交是否成功</td>
+   </tr>
+   <tr>
+      <td>resulet</td>
+      <td>不同接口返回数据不同</td>
+   </tr>
+   <tr>
+      <td>jifen</td>
+      <td>获取的积分值，如果不存在则 表示没有获取积分</td>
+   </tr>
+   <tr>
+      <td>jifen_msg</td>
+      <td>获取的积分，提示的信息，如果没获取积分则不存在</td>
+   </tr>
+</table>
+##接口：
+
+ <h3 id="1">1.短信校验码</h3>
+      /ns/send_sms_code
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>用户名,手机号</td>
+   </tr>
+</table>
+-----------------------	
+ <h3 id="2">2.注册帐号</h3>
+      /ns/reg_user
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>用户名,手机号</td>
+   </tr>
+   <tr>
+	  <td>password</td>
+	  <td>是</td>
+	  <td>用户密码</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>是</td>
+	  <td>用户真实姓名</td>
+   </tr>
+   <tr>
+	  <td>code</td>
+	  <td>是</td>
+	  <td>手机短信验证码</td>
+   </tr>
+</table>
+   
+####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>uid</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>用户真实姓名</td>
+   </tr>
+   <tr>
+      <td>tel</td>
+      <td>用户名</td>
+   </tr>
+</table>	
+--------
+ <h3 id="3">3.登录</h3>
+      /ns/login
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>用户名</td>
+   </tr>
+   <tr>
+	  <td>password</td>
+	  <td>是</td>
+	  <td>用户密码</td>
+   </tr>
+</table>
+####返回结果说明：
+无
+	
+ <h3 id="4">4.登出</h3>
+      /ns/logout
+关闭登录状态
+	
+####返回结果说明：
+无
+
+---------------------
+ <h3 id="5">5.获取当前用户</h3>
+      /ns/current_user
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+</table>
+####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>uid</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>icon_url</td>
+      <td>用户头像(小图:80x80)</td>
+   </tr>
+   <tr>
+      <td>big_icon_url</td>
+      <td>用户头像(大图)</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>用户真实姓名</td>
+   </tr>
+   <tr>
+      <td>tel</td>
+      <td>用户名</td>
+   </tr>
+   <tr>
+      <td>sex</td>
+      <td>性别</td>
+   </tr>
+   <tr>
+      <td>hx_reg</td>
+      <td>环信账号是否注册</td>
+   </tr>
+   <tr>
+      <td>hxpassword</td>
+      <td>密码</td>
+   </tr>
+   <tr>
+      <td>guanzhuprojectlist</td>
+      <td>关注的项目的id列表</td>
+   </tr>
+   <tr>
+      <td>canyuprojectlist</td>
+      <td>参与的项目的id列表</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="6">6.获取上传用户头像的url（图片）</h3>
+      /ns/get_upload_user_icon_url
+根据提交的参数，从服务器上获取一个用来给用户上传图标的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>puturl</td>
+      <td>文件上传的url(put)</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="7">7.更新用户头像图标</h3>
+      /ns/update_user_icon_url
+修改用户图标的url，使用该fileid设置为项目的icon_url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file的id</td>
+   </tr>
+   
+</table>
+#####无返回结果：
+
+--------------	
+ <h3 id="8">8.修改、获取个人信息</h3>
+      /ns/update_userinfo
+修改个人的信息，如果什么参数都不传，也会输出个人的信息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>否</td>
+	  <td>用户的真实姓名</td>
+   </tr>
+   <tr>
+	  <td>nickname</td>
+	  <td>否</td>
+	  <td>用户的昵称</td>
+   </tr>
+   <tr>
+	  <td>sex</td>
+	  <td>否</td>
+	  <td>性别,true 为男，false为女</td>
+   </tr>
+   <tr>
+	  <td>birthday</td>
+	  <td>否</td>
+	  <td>生日(2015-01-01)</td>
+   </tr>
+   
+   <tr>
+	  <td>address</td>
+	  <td>否</td>
+	  <td>籍贯(数字)</td>
+   </tr>
+   <tr>
+	  <td>xueli</td>
+	  <td>否</td>
+	  <td>学历(0:未选择5:高中6:大专7:本科8:研究生9:博士)</td>
+   </tr>
+   <tr>
+	  <td>zhicheng</td>
+	  <td>否</td>
+	  <td>职称（字符）</td>
+   </tr>
+   <tr>
+	  <td>zhiyezigezheng</td>
+	  <td>否</td>
+	  <td>职业资格证（字符）</td>
+   </tr>
+   <tr>
+	  <td>company</td>
+	  <td>否</td>
+	  <td>工作公司</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>否</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>department</td>
+	  <td>否</td>
+	  <td>公司部门</td>
+   </tr>
+   <tr>
+	  <td>email</td>
+	  <td>否</td>
+	  <td>电子邮件（电子邮件）</td>
+   </tr>
+   <tr>
+	  <td>qq</td>
+	  <td>否</td>
+	  <td>电子邮件（电子邮件）</td>
+   </tr>
+   
+</table>
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>用户的真实姓名</td>
+   </tr>
+   <tr>
+	  <td>nickname</td>
+	  <td>昵称</td>
+   </tr>
+   <tr>
+	  <td>sex</td>
+	  <td>性别,true 为男，false为女</td>
+   </tr>
+   <tr>
+	  <td>birthday</td>
+	  <td>生日(2015-01-01)</td>
+   </tr>
+   
+   <tr>
+	  <td>address</td>
+	  <td>籍贯（数字）</td>
+   </tr>
+   <tr>
+	  <td>xueli</td>
+	  <td>学历(0:未选择5:高中6:大专7:本科8:研究生9:博士)</td>
+   </tr>
+   
+   <tr>
+	  <td>zhicheng</td>
+	  <td>职称（字符）</td>
+   </tr>
+   <tr>
+	  <td>zhiyezigezheng</td>
+	  <td>职业资格证（字符）</td>
+   </tr>
+   <tr>
+	  <td>hunyin</td>
+	  <td>婚姻状况（'wei':未婚'yihun':已婚'liyi':离异'sang':丧偶）</td>
+   </tr>
+   <tr>
+	  <td>company</td>
+	  <td>工作公司</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>department</td>
+	  <td>公司任职部门</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>qq</td>
+	  <td>qq</td>
+   </tr>
+   <tr>
+	  <td>email</td>
+	  <td>电子邮件（电子邮件）</td>
+   </tr>
+   <tr>
+      <td>uid</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>icon_url</td>
+      <td>用户头像</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>用户真实姓名</td>
+   </tr>
+   <tr>
+      <td>tel</td>
+      <td>用户名</td>
+   </tr>
+   <tr>
+      <td>hx_reg</td>
+      <td>环信账号是否注册</td>
+   </tr>
+   <tr>
+      <td>hxpassword</td>
+      <td>密码</td>
+   </tr>
+   <tr>
+      <td>guanzhuprojectlist</td>
+      <td>关注的项目的id列表</td>
+   </tr>
+   <tr>
+      <td>canyuprojectlist</td>
+      <td>参与的项目的id列表</td>
+   </tr>
+</table>
+-------	------	
+ <h3 id="9">9.根据id获取个人信息</h3>
+      /ns/project_id/get_userinfo
+获取项目中，其他成员的个人信息：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>是</td>
+	  <td>person 表 id</td>
+   </tr>
+   
+   
+</table>
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>用户的真实姓名</td>
+   </tr>
+   <tr>
+	  <td>nickname</td>
+	  <td>昵称</td>
+   </tr>
+   <tr>
+	  <td>sex</td>
+	  <td>性别,true 为男，false为女</td>
+   </tr>
+   <tr>
+	  <td>birthday</td>
+	  <td>生日(2015-01-01)</td>
+   </tr>
+   
+   <tr>
+	  <td>address</td>
+	  <td>籍贯（数字）</td>
+   </tr>
+   <tr>
+	  <td>xueli</td>
+	  <td>学历(0:未选择5:高中6:大专7:本科8:研究生9:博士)</td>
+   </tr>
+   
+   <tr>
+	  <td>zhicheng</td>
+	  <td>职称（字符）</td>
+   </tr>
+   <tr>
+	  <td>zhiyezigezheng</td>
+	  <td>职业资格证（字符）</td>
+   </tr>
+   <tr>
+	  <td>hunyin</td>
+	  <td>婚姻状况（'wei':未婚'yihun':已婚'liyi':离异'sang':丧偶）</td>
+   </tr>
+   <tr>
+	  <td>company</td>
+	  <td>工作公司</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>department</td>
+	  <td>公司任职部门</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>qq</td>
+	  <td>qq</td>
+   </tr>
+   <tr>
+	  <td>email</td>
+	  <td>电子邮件（电子邮件）</td>
+   </tr>
+   <tr>
+      <td>uid</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>icon_url</td>
+      <td>用户头像</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>用户真实姓名</td>
+   </tr>
+   <tr>
+      <td>tel</td>
+      <td>用户名</td>
+   </tr>
+   <tr>
+      <td>hx_reg</td>
+      <td>环信账号是否注册</td>
+   </tr>
+   
+</table>
+-------	------	
+ <h3 id="10">10.创建项目</h3>
+      /ns/reg_project
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>是</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>是</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>是</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>是</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>是</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>是</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>是</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>是</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>是</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>是</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>是</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>是</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>是</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>是</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>是</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>是</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>是</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>是</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>是</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>是</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>channel</td>
+	  <td>否</td>
+	  <td>渠道代码</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>model</td>
+	  <td>模型</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>pk</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>项目头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+   <tr>
+	  <td>channel</td>
+	  <td>渠道代码</td>
+   </tr>
+</table>
+-------	------	
+ <h3 id="11">11.修改项目信息</h3>
+      /ns/project_id/update_project
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>工程id</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>是</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>是</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>是</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>是</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>是</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>是</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>是</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>是</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>是</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>是</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>是</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>是</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>是</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>是</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>是</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>是</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>是</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>是</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>是</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>是</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>是</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>model</td>
+	  <td>模型</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>pk</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>项目头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="12">12.获取上传项目图标的url（图片）</h3>
+      /ns/project_id/get_upload_project_icon_url
+根据提交的参数，从服务器上获取一个用来给特定项目上传图标的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>puturl</td>
+      <td>文件上传的url(put)</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="13">13.设置项目图标的url（图片）</h3>
+      /ns/project_id/update_project_icon_url
+修改项目图标的url，使用该fileid设置为项目的icon_url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file的id</td>
+   </tr>
+   
+</table>
+#####无返回结果：
+
+---------------------
+ <h3 id="14">14.获取我关注的项目列表</h3>
+     /ns/my_project2
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+</table>
+		
+#####返回结果说明（本接口返回的时数组接口，为空时result 字段不存在）：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>model</td>
+	  <td>模型</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>pk</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>项目头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+   <tr>
+	  <td>is_guanzhu</td>
+	  <td>是否是关注项目</td>
+   </tr>
+   <tr>
+	  <td>guanzhu_num</td>
+	  <td>关注人数</td>
+   </tr>
+   <tr>
+	  <td>chengyuan_num</td>
+	  <td>成员人数</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>项目状态 0正常 1欠费 2关闭 3已删除 4删除公示期</td>
+   </tr>
+   <tr>
+	  <td>pay_type</td>
+	  <td>付费类型 0试用项目 1自费项目 2企业付费项目</td>
+   </tr>
+   <tr>
+	  <td>company_id</td>
+	  <td>隶属公司id</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="15">15.默认查询项目列表</h3>
+     /ns/query_project
+查询项目列表用到的接口
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>start</td>
+	  <td>是</td>
+	  <td>分页起始页</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>是</td>
+	  <td>地址</td>
+   </tr>
+   <tr>
+	  <td>key</td>
+	  <td>是</td>
+	  <td>关键字</td>
+   </tr>
+</table>
+
+###返回结果说明（本接口返回的时数组接口，为空时result 字段不存在）：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>model</td>
+	  <td>模型</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>pk</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>项目头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+   <tr>
+	  <td>guanzhu_num</td>
+	  <td>关注人数</td>
+   </tr>
+   <tr>
+	  <td>chengyuan_num</td>
+	  <td>成员人数</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="16">16.关注、取消关注项目</h3>
+     /ns/guanzhu_project
+查询项目列表用到的接口
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>do</td>
+	  <td>是</td>
+	  <td>join 为关注，out为取消关注</td>
+   </tr>
+</table>
+
+###返回结果说明（本接口返回的时数组接口，为空时result 字段不存在）：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project.name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>project.total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>project.address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>project.jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>project.jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>project.jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>project.htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>project.kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>project.days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>project.jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>project.jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>project.jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>project.kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>project.kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>project.kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>project.sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>project.sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>project.sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>project.jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>project.jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>project.jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>project.sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>project.sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>project.sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>project.model</td>
+	  <td>模型</td>
+   </tr>
+   <tr>
+	  <td>project.manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>project.manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>project.id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>project.create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>project.is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>project.flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>project.icon_url</td>
+	  <td>项目头像url</td>
+   </tr>
+   <tr>
+	  <td>project.timeline</td>
+	  <td>时间线</td>
+   </tr>
+   <tr>
+	  <td>project.guanzhu_num</td>
+	  <td>关注人数</td>
+   </tr>
+   <tr>
+	  <td>project.chengyuan_num</td>
+	  <td>成员人数</td>
+   </tr>
+   <tr>
+	  <td>guanzhuprojectlist</td>
+	  <td>[]数组我关注的项目id列表</td>
+   </tr>
+</table>
+----------	---------------
+ <h3 id="17">17.向项目发出申请加入</h3>
+      /ns/project_id/apply_project
+向项目发出申请加入要用到的接口
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>是</td>
+	  <td>验证信息</td>
+   </tr>
+</table>		
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>apply_id</td>
+      <td>申请id</td>
+   </tr>
+</table>
+------------------
+ <h3 id="18">18.获取所有未处理的项目加入申请</h3>
+      /ns/project_id/get_all_applyproject
+获取所有未处理的项目加入申请要用到的接口
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间线</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>申请状态</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>checher_id</td>
+      <td>处理人id</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>验证信息</td>
+   </tr>
+   <tr>
+      <td>user_name</td>
+      <td>用户名</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>消息id</td>
+   </tr>
+   <tr>
+      <td>icon</td>
+      <td>头像url</td>
+   </tr>
+</table>
+----------------
+ <h3 id="19">19.处理项目加入申请</h3>
+      /ns/project_id/change_applyproject
+处理项目加入申请要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>apply_id</td>
+	  <td>是</td>
+	  <td>申请id</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>成员要加入的分组id</td>
+   </tr>
+   <tr>
+	  <td>do</td>
+	  <td>否</td>
+	  <td>未同意申请</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+</table>
+-------------------
+ <h3 id="20">20.管理员将用户加入或移出分组</h3>
+      /ns/project_id/change_user_group
+处理项目加入申请要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>是</td>
+	  <td>用户id</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>分组id</td>
+   </tr>
+   <tr>
+	  <td>do</td>
+	  <td>是</td>
+	  <td>join 代表加入，out代表移出</td>
+   </tr>
+</table>
+#####无结果：
+
+-------------------
+ <h3 id="21">21.根据上传的手机号，加入项目</h3>
+      /ns/project_id/add_person_by_tel
+根据上传的手机号，加入项目,手机号在系统中的用户，被邀请，不在系统中的用户，系统发送短信邀请
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>手机号字符串：“,”分隔，如：12345,123212,1233455,223323</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>任意值，有这个参数，系统就不会发短信了，开发测试使用</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>addlist</td>
+	  <td>数组，tel数组，本身手机号在系统中的，成功加入了项目</td>
+   </tr>
+   <tr>
+	  <td>sendlist</td>
+	  <td>数组，tel数组，本身手机号不在系统中的，成功发送了短信</td>
+   </tr>
+   <tr>
+	  <td>userlist</td>
+	  <td>数组，tel数组，本身手机号已经存在在系统中的，无需再加入</td>
+   </tr>
+</table>
+-------------------
+ <h3 id="22">22.管理员移除项目内成员</h3>
+      /ns/project_id/remove_person
+管理员移除项目内的成员
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>是</td>
+	  <td>被移除的成员id</td>
+   </tr>
+</table>
+		
+#####无返回结果：
+-------------------
+ <h3 id="23">23.项目成员主动脱离项目，离开项目</h3>
+      /ns/project_id/leave_project
+项目成员离开项目。
+无参数
+		
+#####无返回结果：
+-------------------
+ <h3 id="24">24.获取所有项目成员</h3>
+      /ns/project_id/query_person
+获取项目内所有成员的信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+   
+</table>
+		
+#####返回结果，数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>userid</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>最后修改时间</td>
+   </tr>
+   <tr>
+	  <td>project</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>姓名</td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>头像url</td>
+   </tr>
+   <tr>
+	  <td>is_active</td>
+	  <td>是否可用</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>职务</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>加入时间</td>
+   </tr>
+   <tr>
+	  <td>powers</td>
+	  <td>权限值数组[] 数字数组</td>
+   </tr>
+</table>
+--------------
+ <h3 id="25">25.获取项目中所有组信息</h3>
+      /ns/project_id/query_group
+获取项目内所有成员的信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+   
+</table>
+		
+#####返回结果，数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>userid</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>最后修改时间</td>
+   </tr>
+   <tr>
+	  <td>project</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>组名称</td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>头像url</td>
+   </tr>
+   <tr>
+	  <td>is_active</td>
+	  <td>是否可用</td>
+   </tr>
+   <tr>
+	  <td>type</td>
+	  <td>类型（'custom'：用户自建，其他带有'sys'开头为系统建立）</td>
+   </tr>
+   <tr>
+	  <td>sorted</td>
+	  <td>排序</td>
+   </tr>
+   <tr>
+	  <td>user</td>
+	  <td>创建者</td>
+   </tr>
+   <tr>
+	  <td>say_members</td>
+	  <td>可发言用户[] 数字数组</td>
+   </tr>
+   <tr>
+	  <td>look_members</td>
+	  <td>只能看信息的用户[] 数字数组</td>
+   </tr>
+   <tr>
+	  <td>hxgroup_id</td>
+	  <td>环信群组id</td>
+   </tr>
+   <tr>
+	  <td>is_needhx</td>
+	  <td>是否需要有环信群组</td>
+   </tr>
+   <tr>
+	  <td>powers</td>
+	  <td>权限值数组[] 数字数组</td>
+   </tr>
+</table>
+--------------
+ <h3 id="26">26.查询施工日志天气列表</h3>
+      /ns/project_id/query_log_date_list
+查询施工日志天气列表要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>qiwen</td>
+      <td>气温</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>weather</td>
+      <td>天气</td>
+   </tr>
+   <tr>
+      <td>date</td>
+      <td>日期</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>日志天气id</td>
+   </tr>
+   <tr>
+      <td>wind</td>
+      <td>风力</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>日志数量</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>最后修改时间</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人id</td>
+   </tr>
+</table>
+-------------------
+ <h3 id="27">27.查询施工日志天气列表(旧数据)</h3>
+      /ns/project_id/query_log_date_list_old
+查询施工日志天气列表要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>qiwen</td>
+      <td>气温</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>weather</td>
+      <td>天气</td>
+   </tr>
+   <tr>
+      <td>date</td>
+      <td>日期</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>日志天气id</td>
+   </tr>
+   <tr>
+      <td>wind</td>
+      <td>风力</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>日志数量</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>最后修改时间</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人id</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="28">28.查询某一天的施工日志</h3>
+      /ns/project_id/query_log_list_by_date
+查询某一天的施工日志要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>sg_tq_id</td>
+	  <td>是</td>
+	  <td>施工天气id</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>日志id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建用户id</td>
+   </tr>
+   <tr>
+      <td>sg_tq_log</td>
+      <td>日志天气id</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>is_active</td>
+      <td>是否被删除</td>
+   </tr>
+</table>
+----------------
+ <h3 id="29">29.提交某一天的日志</h3>
+      /ns/project_id/update_log_by_date
+提交某一天的日志要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>是</td>
+	  <td>日志内容</td>
+   </tr>
+   <tr>
+	  <td>sg_tq_id</td>
+	  <td>否</td>
+	  <td>施工天气id，不知道可以不传、为确保只能提交当天日志，也可以不传输此字段</td>
+   </tr>
+   <tr>
+	  <td>weather</td>
+	  <td>是</td>
+	  <td>天气</td>
+   </tr>
+   <tr>
+	  <td>wind</td>
+	  <td>是</td>
+	  <td>风力</td>
+   </tr>
+   <tr>
+	  <td>qiwen</td>
+	  <td>是</td>
+	  <td>气温</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>日志id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建用户id</td>
+   </tr>
+   <tr>
+      <td>sg_tq_log</td>
+      <td>日志天气iD</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>日志内容</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>日志数量</td>
+   </tr>
+   <tr>
+      <td>is_active</td>
+      <td>是否被删除</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人的id</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="30">30.删除日志（本人、24小时内）</h3>
+      /ns/project_id/del_log_by_id
+删除某一条日志要用到的接口：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>日志id</td>
+   </tr>
+   
+</table>
+#####返回结果说明：
+result 值是数字，表示被删除的日志id
+
+--------------------
+ <h3 id="31">31.获取url用来上传文件（图片）</h3>
+      /nf/project_id/get_upload_files_url
+根据提交的参数，从服务器上获取一个用来上传的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 或者 file 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>puturl</td>
+      <td>文件上传的url(put)</td>
+   </tr>
+</table>
+----------------------
+ <h3 id="32">32.获取项目内应用节点的 json数据:</h3>
+      /ns/project_id/query_app_list
+根据项目，将应用模块的节点数据 以json格式获取
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>根据timeline获取更新的数据</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>sys/用户创建</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>名称</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>father</td>
+      <td>父节点iD</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>flag</td>
+      <td>节点标记</td>
+   </tr>
+   <tr>
+      <td>typeflag</td>
+      <td>节点类型</td>
+   </tr>
+   <tr>
+      <td>sorted</td>
+      <td>排序依照</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>icon</td>
+      <td>显示图片（本地图片名称）</td>
+   </tr>
+</table>
+------------------------
+ <h3 id="33">33.保存上传的文件信息:</h3>
+      /ns/project_id/create_file_by_group
+将“获取url用来上传文件（图片）” 接口 获取来的 fileid，提供给接口，创建相应的文件信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file的id,可以是单个id，也可以是“,”分隔的字符串</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag标记</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>是</td>
+	  <td>文件名，或工程形象的表述</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>否</td>
+	  <td>详细描述</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>否</td>
+	  <td>文件类型，字符串</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file</td>
+      <td>file的id数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+</table>
+------------------------
+ <h3 id="34">34.追加上传的文件信息:</h3>
+      /ns/project_id/append_file_by_group
+将“获取url用来上传文件（图片）” 接口 获取来的 fileid，提供给接口，追加在相应的文件中
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file的id,可以是单个id，也可以是“,”分隔的字符串</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag标记</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>应用节点下数据的id</td>
+   </tr>
+   
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>files</td>
+      <td>file的id 数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+</table>
+------------------------
+ <h3 id="35">35.根据应用节点查询文件列表:</h3>
+      /ns/project_id/query_file_by_group
+根据应用节点的flag 查询应用下的文件列表信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag标记</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳，根据本机数据库的最大值，查询</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>files</td>
+      <td>file的id数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>zan</td>
+      <td>赞数量</td>
+   </tr>
+   <tr>
+      <td>cai数量</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>replay</td>
+      <td>评论数量</td>
+   </tr>
+   <tr>
+      <td>filetype</td>
+      <td>文件类型</td>
+   </tr>
+</table>
+---------------------
+ <h3 id="36">36.根据应用节点查询文件，旧数据:</h3>
+      /ns/project_id/query_file_by_group_old
+根据应用节点的flag 查询应用下的文件列表信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag标记</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳，根据本机数据库的最大值，查询</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>files</td>
+      <td>file的id数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>zan</td>
+      <td>赞数量</td>
+   </tr>
+   <tr>
+      <td>cai数量</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>replay</td>
+      <td>评论数量</td>
+   </tr>
+   <tr>
+      <td>filetype</td>
+      <td>文件类型</td>
+   </tr>
+</table>
+-----------------------
+ <h3 id="37">37.根据fileid 获取文件 url:</h3>
+      /nf/project_id/get_url_by_file
+根据fileid 获取file的签名url，手机端用来下载文件
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file 的服务器id，也可以是“,”分隔的数组</td>
+   </tr>
+   <tr>
+	  <td>img_w</td>
+	  <td>否</td>
+	  <td>指定返回图片的宽度</td>
+   </tr>
+   <tr>
+	  <td>img_h</td>
+	  <td>否</td>
+	  <td>指定返回图片的高度</td>
+   </tr>
+</table>
+#####返回结果说明(当fileid 是 一个时，结果是字典，fileid是数组时，结果是数组)：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>geturl</td>
+      <td>用来下载文件的url</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>文件名字</td>
+   </tr>
+   <tr>
+      <td>filetype</td>
+      <td>文件类型</td>
+   </tr>
+   <tr>
+      <td>size</td>
+      <td>文件大小</td>
+   </tr>
+   <tr>
+      <td>img_size</td>
+      <td>返回原始图片分辨率,格式:宽度x高度</td>
+   </tr>
+</table>
+-----------------------
+ <h3 id="38">38.创建工程检查:</h3>
+      /ns/project_id/create_enginecheck_by_group
+创建工程检查，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file 的服务器id</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag</td>
+   </tr>
+   
+   <tr>
+	  <td>desc</td>
+	  <td>是</td>
+	  <td>问题描述</td>
+   </tr>
+   
+</table>		
+#####返回结果：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   
+   <tr>
+      <td>user</td>
+      <td>工程检查创建者</td>
+   </tr>
+   
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>desc</td>
+      <td>问题描述</td>
+   </tr>
+   <tr>
+      <td>chuli</td>
+      <td>处理意见</td>
+   </tr>
+   <tr>
+      <td>chuli_pic</td>
+      <td>处理结果图片</td>
+   </tr>
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>fucha</td>
+      <td>复查意见</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>状态</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>finish_time</td>
+      <td>完成日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+-----------------------
+ <h3 id="39">39.修改一个工程检查:</h3>
+      /ns/project_id/update_enginecheck_by_group
+创建工程检查，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>file 的服务器id,处理结果图</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点的flag</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>工程检查id</td>
+   </tr>
+   <tr>
+	  <td>chuli</td>
+	  <td>否</td>
+	  <td>处理结果</td>
+   </tr>
+   <tr>
+	  <td>fucha</td>
+	  <td>否</td>
+	  <td>复查意见</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>否</td>
+	  <td>状态，‘true’为完成，其他为处理中</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   
+   <tr>
+      <td>user</td>
+      <td>工程检查创建者</td>
+   </tr>
+   
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>desc</td>
+      <td>问题描述</td>
+   </tr>
+   <tr>
+      <td>chuli</td>
+      <td>处理意见</td>
+   </tr>
+   <tr>
+      <td>chuli_pic</td>
+      <td>处理结果图片</td>
+   </tr>
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>fucha</td>
+      <td>复查意见</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>状态</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>finish_time</td>
+      <td>完成日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="40">40.查询工程检查列表:</h3>
+      /ns/project_id/query_enginecheck_by_group
+查询工程检查，可带有时间戳，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+
+#####返回结果：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   
+   <tr>
+      <td>user</td>
+      <td>工程检查创建者</td>
+   </tr>
+  
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>desc</td>
+      <td>问题描述</td>
+   </tr>
+   <tr>
+      <td>chuli</td>
+      <td>处理意见</td>
+   </tr>
+   <tr>
+      <td>chuli_pic</td>
+      <td>处理结果图片</td>
+   </tr>
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>fucha</td>
+      <td>复查意见</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>状态</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>finish_time</td>
+      <td>完成日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+---------------
+ <h3 id="41">41.查询工程检查，旧数据:</h3>
+      /ns/project_id/query_enginecheck_by_group_old
+以时间戳为边界，查询旧数据，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>是</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+	
+#####返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   
+   <tr>
+      <td>user</td>
+      <td>工程检查创建者</td>
+   </tr>
+   
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>desc</td>
+      <td>问题描述</td>
+   </tr>
+   <tr>
+      <td>chuli</td>
+      <td>处理意见</td>
+   </tr>
+   <tr>
+      <td>chuli_pic</td>
+      <td>处理结果图片</td>
+   </tr>
+   <tr>
+      <td>pre_pic</td>
+      <td>整改前照片</td>
+   </tr>
+   <tr>
+      <td>fucha</td>
+      <td>复查意见</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>状态</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>finish_time</td>
+      <td>完成日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="42">42.记录日期查询:</h3>
+      /ns/project_id/query_record_date_by_group
+查询记录日期列表，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>是</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+
+#####返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>date</td>
+      <td>日期（2015-01-12）</td>
+   </tr>
+
+   <tr>
+      <td>num</td>
+      <td>数量，记录数量</td>
+   </tr>
+
+   <tr>
+      <td>create_time</td>
+      <td>最近修改日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="43">43.记录日期查询（旧数据）:</h3>
+      /ns/project_id/query_record_date_by_group_old
+根据timeline，查询记录日期列表，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>是</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+
+#####返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>date</td>
+      <td>日期（2015-01-12）</td>
+   </tr>
+
+   <tr>
+      <td>num</td>
+      <td>数量，记录数量</td>
+   </tr>
+
+   <tr>
+      <td>create_time</td>
+      <td>最近修改日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人id</td>
+   </tr>
+</table>
+---------------------
+ <h3 id="44">44.供应商名录，创建、修改:</h3>
+      /ns/project_id/create_gysaddress_by_group
+创建一个供应商名录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>否</td>
+	  <td>带有id为修改，不带为创建</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>是</td>
+	  <td>物资名称</td>
+   </tr>
+   <tr>
+	  <td>ghs</td>
+	  <td>是</td>
+	  <td>供应商</td>
+   </tr>
+   <tr>
+	  <td>ghs_fzr</td>
+	  <td>是</td>
+	  <td>供应商负责人</td>
+   </tr>
+   <tr>
+	  <td>ghs_fzr_tel</td>
+	  <td>是</td>
+	  <td>供应商负责人电话</td>
+   </tr>
+   <tr>
+	  <td>shr</td>
+	  <td>是</td>
+	  <td>送货人</td>
+   </tr>
+   <tr>
+	  <td>shr_tel</td>
+	  <td>是</td>
+	  <td>送货人联系电话</td>
+   </tr>
+   <tr>
+	  <td>bz</td>
+	  <td>否</td>
+	  <td>备注</td>
+   </tr>
+</table>
+#####返回结果：
+Result 字典
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>物资名称</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建者</td>
+   </tr>
+   <tr>
+      <td>ghs</td>
+      <td>供应商</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr</td>
+      <td>供应商负责人电话</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr_tel</td>
+      <td>问题描述</td>
+   </tr>
+   <tr>
+      <td>shr</td>
+      <td>送货人</td>
+   </tr>
+   <tr>
+      <td>shr_tel</td>
+      <td>送货人电话</td>
+   </tr>
+   <tr>
+      <td>bz</td>
+      <td>备注</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+---------------------------
+ <h3 id="45">45.供应商名录查询:</h3>
+      /ns/project_id/query_gysaddress_by_group
+查询供应商名录列表，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+		
+#####返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>物资名称</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建者</td>
+   </tr>
+   <tr>
+      <td>ghs</td>
+      <td>供应商</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr</td>
+      <td>供应商负责人</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr_tel</td>
+      <td>供应商负责人电话</td>
+   </tr>
+   <tr>
+      <td>shr</td>
+      <td>送货人</td>
+   </tr>
+   <tr>
+      <td>shr_tel</td>
+      <td>送货人电话</td>
+   </tr>
+   <tr>
+      <td>bz</td>
+      <td>备注</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+-----------------------------------
+ <h3 id="46">46.查询供应商名录 旧数据:</h3>
+      /ns/project_id/query_gysaddress_by_group_old
+查询供应商名录列表，以timeline为分界，查询旧数据，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>是</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+		
+返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>物资名称</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建者</td>
+   </tr>
+   <tr>
+      <td>ghs</td>
+      <td>供应商</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr</td>
+      <td>供应商负责人</td>
+   </tr>
+   <tr>
+      <td>ghs_fzr_tel</td>
+      <td>供应商负责人电话</td>
+   </tr>
+   <tr>
+      <td>shr</td>
+      <td>送货人</td>
+   </tr>
+   <tr>
+      <td>shr_tel</td>
+      <td>送货人电话</td>
+   </tr>
+   <tr>
+      <td>bz</td>
+      <td>备注</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+</table>
+------------------------
+ <h3 id="47">47.创建、修改物资记录:</h3>
+     /ns/project_id/create_wuzirecord_by_group
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>否</td>
+	  <td>带有id为修改，不带为创建</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>是</td>
+	  <td>物资名称</td>
+   </tr>
+   <tr>
+	  <td>gg</td>
+	  <td>是</td>
+	  <td>规格</td>
+   </tr>
+   <tr>
+	  <td>count</td>
+	  <td>是</td>
+	  <td>字符串</td>
+   </tr>
+   <tr>
+	  <td>company</td>
+	  <td>否</td>
+	  <td>领料单位（out 时必须有）</td>
+   </tr>
+   <tr>
+	  <td>lingliaoren</td>
+	  <td>否</td>
+	  <td>领料人（out时必须有）</td>
+   </tr>
+   
+</table>
+
+#####返回结果：
+Result 为字典
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>物资名称</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建者</td>
+   </tr>
+   <tr>
+      <td>gg</td>
+      <td>规格</td>
+   </tr>
+   <tr>
+      <td>company</td>
+      <td>领料单位</td>
+   </tr>
+   <tr>
+      <td>lingliaoren</td>
+      <td>领料人</td>
+   </tr>
+   <tr>
+      <td>count</td>
+      <td>数量字符串</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+    <tr>
+      <td>record_date</td>
+      <td>记录日期id（和施工日志类似，属于现实详细信息前的日期列表）</td>
+   </tr>
+   <tr>
+      <td>date</td>
+      <td>记录日期的date（2015-01-12）</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>记录数量（相同记录日期id的记录数量）</td>
+   </tr>
+   <tr>
+      <td>is_active</td>
+      <td>是否被删除</td>
+   </tr>
+   <tr>
+      <td>last_create_user</td>
+      <td>最后修改人的id</td>
+   </tr>
+</table>
+------------------------
+ <h3 id="48">48.删除物资记录(本人、24小时内):</h3>
+     /ns/project_id/del_wuzirecord_by_id
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>物资记录id</td>
+   </tr>
+   
+</table>
+
+#####返回结果：
+Result 为数字，对应物资记录的id
+------------------------
+ <h3 id="49">49.删除物资记录(本人、24小时内):</h3>
+     /ns/project_id/del_wuzirecord_by_id
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>物资记录id</td>
+   </tr>
+
+</table>
+
+#####返回结果：
+Result 为数字，对应物资记录的id------------------------
+ <h3 id="50">50.删除物资记录(本人、24小时内):</h3>
+     /ns/project_id/del_wuzirecord_by_id
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>物资记录id</td>
+   </tr>
+
+</table>
+
+#####返回结果：
+Result 为数字，对应物资记录的id------------------------
+ <h3 id="51">51.删除物资记录(本人、24小时内):</h3>
+     /ns/project_id/del_wuzirecord_by_id
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>物资记录id</td>
+   </tr>
+
+</table>
+
+#####返回结果：
+Result 为数字，对应物资记录的id------------------------
+ <h3 id="52">52.物资记录查询:</h3>
+      /ns/project_id/query_wuzirecord_by_group
+查询供应商名录列表，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>应用节点flag</td>
+   </tr>
+   <tr>
+	  <td>record_date_id</td>
+	  <td>是</td>
+	  <td>记录日期id</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>是</td>
+	  <td>时间戳</td>
+   </tr>
+   <tr>
+	  <td>start_date</td>
+	  <td>否</td>
+	  <td>搜索开始日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+   <tr>
+	  <td>end_date</td>
+	  <td>否</td>
+	  <td>搜索结束日期(规范化日期字符串 例：2015-05-14)</td>
+   </tr>
+</table>
+		
+#####返回结果：
+Result 为数组
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目的id</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>物资名称</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>创建者</td>
+   </tr>
+   <tr>
+      <td>gg</td>
+      <td>规格</td>
+   </tr>
+   <tr>
+      <td>company</td>
+      <td>领料单位</td>
+   </tr>
+   <tr>
+      <td>lingliaoren</td>
+      <td>领料人</td>
+   </tr>
+   <tr>
+      <td>count</td>
+      <td>数量字符串</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>发布日期</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>修改时间戳</td>
+   </tr>
+   <tr>
+      <td>record_date</td>
+      <td>记录日期id</td>
+   </tr>
+   <tr>
+      <td>is_active</td>
+      <td>是否被删除</td>
+   </tr>
+</table>
+
+--------------
+ <h3 id="53">53.根据project_id查询项目信息:</h3>
+      /ns/get_project
+查询所选项目用到的接口
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>项目ID</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>用户头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+</table>
+--------------
+ <h3 id="54">54.根据上传的手机号，加入项目:</h3>
+      /ns/project_id/add_person_by_tel
+根据上传的手机号，加入项目,手机号在系统中的用户，被邀请，不在系统中的用户，系统发送短信邀请
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>手机号字符串：“,”分隔，如：12345,123212,1233455,223323</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>分组id</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>任意值，有这个参数，系统就不会发短信了，开发测试使用</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>addlist</td>
+	  <td>数组，tel数组，本身手机号在系统中的，成功加入了项目</td>
+   </tr>
+   <tr>
+	  <td>sendlist</td>
+	  <td>数组，tel数组，本身手机号不在系统中的，成功发送了短信</td>
+   </tr>
+   <tr>
+	  <td>userlist</td>
+	  <td>数组，tel数组，本身手机号已经在系统中了，无需再加入</td>
+   </tr>
+</table>
+--------------
+ <h3 id="55">55.根据访问的手机操作系统不同，跳转至相应的网址:</h3>
+      /ns/guest_app_url
+根据用户使用的操作系统，来判断显示什么页面。
+    ios手机端浏览器，跳转到 打开app或app store页面
+    android 手机跳转到，打开app或 apk下载页面
+    pc 浏览器，跳转到首页
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+</table>
+		
+#####无返回结果：
+
+----------
+ <h3 id="56">56.手机号校验:</h3>
+      /ns/submit_user_tel
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>用户名,手机号</td>
+   </tr>
+   <tr>
+	  <td>code</td>
+	  <td>是</td>
+	  <td>验证码</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>调试时，带上此参数可以不用发短信</td>
+   </tr>
+</table>
+#####无返回结果：
+
+----------
+ <h3 id="57">57.bcs文件上传结果校验:</h3>
+      /nf/project_id/check_file_upload_status
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>文件主键</td>
+   </tr>
+   
+</table>
+#####返回结果：
+result:True/False 表示bcs上文件成功或失败
+----------
+ <h3 id="58">58.文件上传接口:</h3>
+      /nf/project_id/upload_files
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>fileid</td>
+	  <td>是</td>
+	  <td>文件主键</td>
+   </tr>
+   <tr>
+	  <td>file</td>
+	  <td>是</td>
+	  <td>文件内容</td>
+   </tr>
+   
+</table>
+#####返回结果：
+result:True/False 表示上文件成功或失败
+----------
+
+ <h3 id="59">59.分享社交应用的积分获取接口:</h3>
+      /ns/send_social_success
+手机端分享了社交软件信息，再调用这个接口，服务器会根据，当天分享的条数，来决定返回的积分值
+##### 无返回结果：
+----------
+
+
+ <h3 id="60">60.获取我的积分:</h3>
+      /ns/query_my_jifen
+登录用户，查询自己的积分值
+##### 返回结果：
+result: 积分值（数字）
+----------
+ <h3 id="61">61.根据城市id获取城市天气:</h3>
+      /ns/get_today_weather
+根据项目的城市 address 字段值 获取天气信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>是</td>
+	  <td>project 的 address 字段值</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>city</td>
+	  <td>城市名</td>
+   </tr>
+   <tr>
+	  <td>cityid</td>
+	  <td>城市id</td>
+   </tr>
+   <tr>
+	  <td>temp1</td>
+	  <td>气温1</td>
+   </tr>
+   <tr>
+	  <td>temp2</td>
+	  <td>气温2</td>
+   </tr>
+   <tr>
+	  <td>weather</td>
+	  <td>天气</td>
+   </tr>
+   <tr>
+	  <td>WS</td>
+	  <td>风力</td>
+   </tr>
+</table>
+--------------
+ <h3 id="62">62.对一条记录进行“顶”操作:</h3>
+      /ns/project_id/ding_filerecord_by_id
+根据一条记录，进行顶操作
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>filerecord 的 id</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>files</td>
+      <td>file的id数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>zan</td>
+      <td>赞数量</td>
+   </tr>
+   <tr>
+      <td>cai数量</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>replay</td>
+      <td>评论数量</td>
+   </tr>
+</table>
+--------------
+ <h3 id="63">63.对一条记录进行“评论”操作:</h3>
+      /ns/project_id/replay_filerecord_by_id
+根据一条记录，进行评论操作
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>filerecord 的 id</td>
+   </tr>
+   <tr>
+	  <td>content</td>
+	  <td>是</td>
+	  <td>评论的内容</td>
+   </tr>
+   <tr>
+	  <td>to_user</td>
+	  <td>否</td>
+	  <td>评论的，回复对象</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>files</td>
+      <td>file的id数组[]</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>file_group</td>
+      <td>属于那个节点</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>project</td>
+      <td>项目iD</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>文件标题</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>上传者</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>其他信息</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>zan</td>
+      <td>赞数量</td>
+   </tr>
+   <tr>
+      <td>cai数量</td>
+      <td>时间戳</td>
+   </tr>
+   <tr>
+      <td>replay</td>
+      <td>评论数量</td>
+   </tr>
+</table>
+--------------
+ <h3 id="64">64.对一条记录进行“查询评论”操作:</h3>
+      /ns/project_id/query_replay_filerecord_by_id
+根据一条记录，查询评论数据
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>filerecord 的 id</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>最后一条评论的 _id 值</td>
+   </tr>
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>_id</td>
+      <td>评论id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>content</td>
+      <td>评论内容</td>
+   </tr>
+   <tr>
+      <td>u_id</td>
+      <td>发布人iD</td>
+   </tr>
+   <tr>
+      <td>f_id</td>
+      <td>隶属记录的id</td>
+   </tr>
+   <tr>
+      <td>fg_id</td>
+      <td>隶属节点id</td>
+   </tr>
+   <tr>
+      <td>t_u_id</td>
+      <td>回复对象</td>
+   </tr>
+</table>
+--------------
+ <h3 id="65">65.添加系统消息:</h3>
+      /ns/create_sysmessage
+发布系统消息，该接口应该由系统管理员来使用
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>是</td>
+	  <td>系统消息针对的项目</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>否</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>否</td>
+	  <td>系统消息针对的人</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>是</td>
+	  <td>系统信息标题</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>是</td>
+	  <td>系统信息内容</td>
+   </tr>
+</table>
+		
+#####返回结果 字典：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>针对人ID</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="66">66.查询系统消息:</h3>
+      /ns/project_id/query_sysmessage
+查询本项目的系统消息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>group_id</td>
+	  <td>否</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>针对人ID</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="67">67.查询系统消息旧数据:</h3>
+      /ns/project_id/query_sysmessage_old
+查询本项目的系统消息旧数据
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>group_id</td>
+	  <td>否</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>针对人ID</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="68">68.创建项目公告，根据分组:</h3>
+      /ns/project_id/create_project_message
+创建项目公告，根据分组来创建，只有say_member 成员才可以发布 
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>是</td>
+	  <td>内容</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>是</td>
+	  <td>标题</td>
+   </tr>
+</table>
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>发布人</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="69">69.查询项目公告，根据分组:</h3>
+      /ns/project_id/query_project_message
+查询项目内的公告，根据分组id
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>发布人</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="70">70.查询项目公告，根据分组 旧数据:</h3>
+      /ns/project_id/query_project_message_old
+查询项目内的公告，根据分组id 旧数据
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>系统消息针对的分组</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>时间戳</td>
+   </tr>
+</table>
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>项目id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>发布人</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>to_group</td>
+      <td>针对分组id</td>
+   </tr>
+</table>
+--------------
+ <h3 id="71">71.获取项目的余额信息:</h3>
+      /ns/project_id/get_project_balance
+获取项目的余额信息
+
+		
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>total</td>
+      <td>总额</td>
+   </tr>
+   <tr>
+      <td>price</td>
+      <td>自上次充值，再次消费额度</td>
+   </tr>
+   <tr>
+      <td>person_nums</td>
+      <td>成员数量</td>
+   </tr>
+   <tr>
+      <td>days</td>
+      <td>预计剩余使用天数</td>
+   </tr>
+</table>
+--------------
+ <h3 id="72">72.查询相似项目名:</h3>
+      /ns/query_project_name
+根据参数key 查询相似的项目名列表
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+   <tr>
+	  <td>key</td>
+	  <td>是</td>
+	  <td>项目名 关键字</td>
+   </tr>
+</table>
+		
+#####返回结果 字符串数组：
+
+--------------
+ <h3 id="73">73.查询示例项目的信息:</h3>
+      /ns/get_show_project
+查询示例项目的信息
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   
+</table>
+		
+#####返回结果：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>工程名称</td>
+   </tr>
+   <tr>
+	  <td>total_name</td>
+	  <td>工程全称</td>
+   </tr>
+   <tr>
+	  <td>address</td>
+	  <td>工程地点</td>
+   </tr>
+   <tr>
+	  <td>jzmj</td>
+	  <td>建筑面积</td>
+   </tr>
+   <tr>
+	  <td>jglx</td>
+	  <td>结构类型</td>
+   </tr>
+   <tr>
+	  <td>jzcs</td>
+	  <td>建筑层数</td>
+   </tr>
+   <tr>
+	  <td>htzj</td>
+	  <td>合同造价</td>
+   </tr>
+   <tr>
+	  <td>kg_date</td>
+	  <td>开工日期</td>
+   </tr>
+   <tr>
+	  <td>days</td>
+	  <td>总工期(天)</td>
+   </tr>
+   <tr>
+	  <td>jsdw</td>
+	  <td>建设单位</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jsdw_fzr_tel</td>
+	  <td>建设单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>kcdw</td>
+	  <td>勘察单位</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr</td>
+	  <td>建设单位负责人</td>
+   </tr>
+   <tr>
+	  <td>kcdw_fzr_tel</td>
+	  <td>勘察单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sgdw</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr</td>
+	  <td>施工单位</td>
+   </tr>
+   <tr>
+	  <td>sgdw_fzr_tel</td>
+	  <td>施工单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>jldw</td>
+	  <td>监理单位</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr</td>
+	  <td>监理单位负责人</td>
+   </tr>
+   <tr>
+	  <td>jldw_fzr_tel</td>
+	  <td>监理单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>sjdw</td>
+	  <td>设计单位</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr</td>
+	  <td>设计单位负责人</td>
+   </tr>
+   <tr>
+	  <td>sjdw_fzr_tel</td>
+	  <td>设计单位负责人电话</td>
+   </tr>
+   <tr>
+	  <td>manager</td>
+	  <td>管理员id</td>
+   </tr>
+   <tr>
+	  <td>manager_name</td>
+	  <td>管理员姓名</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>项目id</td>
+   </tr>
+   <tr>
+	  <td>create_time</td>
+	  <td>创建时间</td>
+   </tr>
+   <tr>
+	  <td>is_activite</td>
+	  <td>是否激活</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td></td>
+   </tr>
+   <tr>
+	  <td>icon_url</td>
+	  <td>用户头像url</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>时间线</td>
+   </tr>
+</table>
+--------------
+ <h3 id="74">74.删除供应商地址记录(本人、24小时内):</h3>
+     /ns/project_id/del_gysaddress_by_id
+创建、修改一个物资记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>id</td>
+	  <td>是</td>
+	  <td>供应商地址id</td>
+   </tr>
+
+</table>
+
+#####返回结果：
+Result 为数字，对应供应商记录的id
+
+--------------
+ <h3 id="75">75.修改分组权限:</h3>
+     /ns/project_id/change_power_by_group
+修改一个分组的权限记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>分组id</td>
+   </tr>
+   <tr>
+	  <td>powers</td>
+	  <td>是</td>
+	  <td>权限值, 逗号隔开的字符串，上传的时已经具有的所有权限</td>
+   </tr>
+
+</table>
+
+#####返回结果：
+Result 为空，根据success值判断是否成功
+
+
+--------------
+ <h3 id="76">76.修改个人权限:</h3>
+     /ns/project_id/change_power_by_person
+修改一个个人的权限记录，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>是</td>
+	  <td>分组id</td>
+   </tr>
+   <tr>
+	  <td>powers</td>
+	  <td>是</td>
+	  <td>权限值, 逗号隔开的字符串，上传的时已经具有的所有权限</td>
+   </tr>
+</table>
+
+#####返回结果：
+Result 为空，根据success值判断是否成功
+
+ <h3 id="77">77.删除上传的文件信息(本人、24小时内):</h3>
+     /ns/project_id/delete_file_by_filerecord_id
+删除上传的文件信息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filerecord_id</td>
+	  <td>是</td>
+	  <td>filerecord id</td>
+   </tr>
+</table>
+
+#####返回结果：
+Result 为数字，filerecord id
+
+ <h3 id="78">78.删除工程检查信息(本人、24小时内):</h3>
+     /ns/project_id/delete_enginecheck_by_enginecheck_id
+删除工程检查信息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>enginecheck_id</td>
+	  <td>是</td>
+	  <td>enginecheck_id id</td>
+   </tr>
+</table>
+
+#####返回结果：
+Result 为数字，enginecheck id
+
+ <h3 id="79">79.创建NEED消息</h3>
+     /ns/create_needmessage
+创建用户消息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>否</td>
+	  <td>标题</td>
+   </tr>
+   <tr>
+	  <td>text</td>
+	  <td>否</td>
+	  <td>正文</td>
+   </tr>
+   <tr>
+	  <td>create_user_id</td>
+	  <td>否</td>
+	  <td>创建消息用户id,可为空，如果为空则将当前登陆用户作为创建用户</td>
+   </tr>
+   <tr>
+	  <td>to_user_id</td>
+	  <td>是</td>
+	  <td>接收消息用户id</td>
+   </tr>
+   <tr>
+	  <td>type</td>
+	  <td>是</td>
+	  <td>消息类型 1：系统消息   2：发给用户消息   3：发给客服消息</td>
+   </tr>
+</table>
+
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>create_user_id</td>
+      <td>创建消息用户id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>to_user_id</td>
+      <td>接收消息用户id</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>timeline</td>
+   </tr>
+   <tr>
+	  <td>type</td>
+	  <td>消息类型 1：系统消息   2：发给用户消息   3：发给客服消息</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>消息状态 1:未读 2：已读</td>
+   </tr>
+</table>
+
+
+ <h3 id="80">80.查询NEED消息</h3>
+     /ns/query_need_message
+查询用户消息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>否</td>
+	  <td>标题</td>
+   </tr>
+   <tr>
+	  <td>timeline</td>
+	  <td>否</td>
+	  <td>timeline</td>
+   </tr>
+   <tr>
+	  <td>create_user_id</td>
+	  <td>否</td>
+	  <td>创建消息用户id</td>
+   </tr>
+   <tr>
+	  <td>to_user_id</td>
+	  <td>否</td>
+	  <td>接收消息用户id</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>否</td>
+	  <td>消息状态</td>
+   </tr>
+   <tr>
+	  <td>type</td>
+	  <td>否</td>
+	  <td>消息类型</td>
+   </tr>
+</table>
+
+#####返回结果 数组：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+      <td>id</td>
+      <td>id</td>
+   </tr>
+   <tr>
+      <td>create_time</td>
+      <td>创建时间</td>
+   </tr>
+   <tr>
+      <td>create_user_id</td>
+      <td>创建消息用户id</td>
+   </tr>
+   <tr>
+      <td>text</td>
+      <td>内容</td>
+   </tr>
+   <tr>
+      <td>to_user_id</td>
+      <td>接收消息用户id</td>
+   </tr>
+   <tr>
+      <td>title</td>
+      <td>标题</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>timeline</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>消息状态</td>
+   </tr>
+   <tr>
+	  <td>type</td>
+	  <td>消息类型</td>
+   </tr>
+   <tr>
+	  <td>create_user_icon_url</td>
+	  <td>发送消息用户icon</td>
+   </tr>
+   <tr>
+	  <td>to_user_icon_url</td>
+	  <td>接收消息用户icon</td>
+   </tr>
+   <tr>
+	  <td>create_user_name</td>
+	  <td>创建消息用户姓名</td>
+   </tr>
+   <tr>
+	  <td>to_user_name</td>
+	  <td>接收消息用户姓名</td>
+   </tr>
+</table>
+
+ <h3 id="81">81.NEED小助手</h3>
+     /need_helper
+     例子：http://baetest.tjeasyshare.com/need_helper?flag=bao_guang_jing_gao&version=30000&client_type=ios
+查询用户消息，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>节点flag</td>
+   </tr>
+   <tr>
+	  <td>version</td>
+	  <td>是</td>
+	  <td>版本号 eg：30000, 3.0.0</td>
+   </tr>
+   <tr>
+	  <td>client_type</td>
+	  <td>是</td>
+	  <td>客户端类型eg：ios android</td>
+   </tr>
+</table>
+
+#####返回结果 ：对应的html
+--------------------
+ <h3 id="82">82.七牛云存储,获取url用来上传文件（图片）</h3>
+      /nf/project_id/get_qn_upload_files_url
+根据提交的参数，从服务器上获取一个用来上传的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 或者 file 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>params</td>
+      <td>文件上传的post参数</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="83">83.七牛云存储,获取上传项目图标的url（图片）</h3>
+      /ns/project_id/get_qn_upload_project_icon_url
+根据提交的参数，从服务器上获取一个用来给特定项目上传图标的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>params</td>
+      <td>文件上传的post参数</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="84">84.七牛云存储,获取上传用户头像的url（图片）</h3>
+      /ns/get_qn_upload_user_icon_url
+根据提交的参数，从服务器上获取一个用来给用户上传图标的url，参数如下：
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>filetype</td>
+	  <td>是</td>
+	  <td>image 文件的类型</td>
+   </tr>
+   <tr>
+	  <td>size</td>
+	  <td>是</td>
+	  <td>文件的大小，如果错了，会导致上传不成功的</td>
+   </tr>
+   <tr>
+	  <td>filename</td>
+	  <td>是</td>
+	  <td>文件的名字，可以不带后缀名</td>
+   </tr>
+</table>
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>fileid</td>
+      <td>文件id</td>
+   </tr>
+   <tr>
+      <td>posturl</td>
+      <td>文件上传的url(post)</td>
+   </tr>
+   <tr>
+      <td>params</td>
+      <td>文件上传的post参数</td>
+   </tr>
+</table>
+--------------------
+ <h3 id="85">85.刷新need消息阅读时间接口</h3>
+      /ns/read_needmessage
+无需提交参数
+
+#####返回结果说明：
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>timeline</td>
+      <td>阅读消息的timeline</td>
+   </tr>
+
+</table>
+--------------------
+ <h3 id="86">86.重置密码</h3>
+      /ns/forget_password
+重新设置密码
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>tel</td>
+	  <td>是</td>
+	  <td>手机号</td>
+   </tr>
+   <tr>
+	  <td>sms_code</td>
+	  <td>是</td>
+	  <td>短信验证码</td>
+   </tr>
+   <tr>
+	  <td>password</td>
+	  <td>是</td>
+	  <td>新密码</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+重置密码是否成功
+
+--------------------
+ <h3 id="87">87.根据flag获取未读消息数量</h3>
+      /ns/prject_id/get_unread_num_by_flag
+根据flag获取未读消息数量
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>flag</td>
+	  <td>是</td>
+	  <td>节点flag，可以是多个，多个用英文逗号分隔</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+返回flag的未读数量，如果flag存在子节点，则返回flag父节点和自己点的未读数量数据
+
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>工程id</td>
+   </tr>
+   <tr>
+      <td>flag</td>
+      <td>节点flag</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>未读数量</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="88">88.根据project_id获取所有flag未读消息数量</h3>
+      /ns/get_unread_num_by_project_id
+根据flag获取未读消息数量
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>project_id</td>
+	  <td>否</td>
+	  <td>工程id,为空时返回当前用户所有所在项目的未读消息数量</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+返回该工程的所有flag未读数量
+
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>project_id</td>
+      <td>工程id</td>
+   </tr>
+   <tr>
+      <td>flag</td>
+      <td>节点flag</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>未读数量</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="89">89.刷新project最后阅读时间</h3>
+      /ns/project_id/flush_project_last_read_timeline
+无参数
+
+#####返回结果说明：
+无返回结果
+
+
+--------------------
+ <h3 id="90">90.获取未读项目公告数量</h3>
+      /ns/project_id/get_project_message_unread_number
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>否</td>
+	  <td>项目公告针对的group_id</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>未读数量</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="91">91.获取未读系统消息数量</h3>
+      /ns/project_id/get_sysmessage_unread_number
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>系统消息针对的group_id</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>num</td>
+      <td>未读数量</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="92">92.获取未读系统消息和未读项目公告数量的和</h3>
+      /ns/project_id/get_projectmessage_sysmessage_unread_number
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>group_id</td>
+	  <td>是</td>
+	  <td>系统消息和项目公告针对的group_id</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+<table>
+   <tr>
+      <td>参数</td>
+      <td>含义</td>
+   </tr>
+   <tr>
+      <td>project_message_num</td>
+      <td>项目公告未读数量</td>
+   </tr>
+   <tr>
+      <td>sysmessage_num</td>
+      <td>项目公告未读数量</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="93">93.获取申请用户的详情</h3>
+      /ns/project_id/get_applyproject_user_infomation
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>user_id</td>
+	  <td>是</td>
+	  <td>申请用户user_id</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>name</td>
+	  <td>用户的真实姓名</td>
+   </tr>
+   <tr>
+	  <td>nickname</td>
+	  <td>昵称</td>
+   </tr>
+   <tr>
+	  <td>sex</td>
+	  <td>性别,true 为男，false为女</td>
+   </tr>
+   <tr>
+	  <td>birthday</td>
+	  <td>生日(2015-01-01)</td>
+   </tr>
+
+   <tr>
+	  <td>address</td>
+	  <td>籍贯（数字）</td>
+   </tr>
+   <tr>
+	  <td>xueli</td>
+	  <td>学历(0:未选择5:高中6:大专7:本科8:研究生9:博士)</td>
+   </tr>
+
+   <tr>
+	  <td>zhicheng</td>
+	  <td>职称（字符）</td>
+   </tr>
+   <tr>
+	  <td>zhiyezigezheng</td>
+	  <td>职业资格证（字符）</td>
+   </tr>
+   <tr>
+	  <td>hunyin</td>
+	  <td>婚姻状况（'wei':未婚'yihun':已婚'liyi':离异'sang':丧偶）</td>
+   </tr>
+   <tr>
+	  <td>company</td>
+	  <td>工作公司</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>department</td>
+	  <td>公司任职部门</td>
+   </tr>
+   <tr>
+	  <td>title</td>
+	  <td>公司职务</td>
+   </tr>
+   <tr>
+	  <td>qq</td>
+	  <td>qq</td>
+   </tr>
+   <tr>
+	  <td>email</td>
+	  <td>电子邮件（电子邮件）</td>
+   </tr>
+   <tr>
+      <td>uid</td>
+      <td>用户id</td>
+   </tr>
+   <tr>
+      <td>icon_url</td>
+      <td>用户头像</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>用户真实姓名</td>
+   </tr>
+   <tr>
+      <td>tel</td>
+      <td>用户名</td>
+   </tr>
+   <tr>
+      <td>hx_reg</td>
+      <td>环信账号是否注册</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="94">94.阿里云搜索</h3>
+      /ns/search
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>search_flag</td>
+	  <td>是</td>
+	  <td>搜索内容的类型 当前可以为 project help</td>
+   </tr>
+   <tr>
+	  <td>query</td>
+	  <td>否</td>
+	  <td>搜索关键词</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>status</td>
+	  <td>返回状态</td>
+   </tr>
+   <tr>
+	  <td>errors</td>
+	  <td>错误信息</td>
+   </tr>
+   <tr>
+	  <td>result</td>
+	  <td>结果</td>
+   </tr>
+</table>
+
+
+--------------------
+ <h3 id="95">95.获取NEED消息未读数</h3>
+      /ns/get_needmessage_unread_number
+
+无参数
+
+#####返回结果说明：
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>num</td>
+	  <td>未读个数</td>
+   </tr>
+
+</table>
+--------------------
+ <h3 id="96">96.获取NEED消息未读数</h3>
+      /ns/get_needmessage_unread_number
+
+无参数
+
+--------------------
+ <h3 id="97">97.阿里云搜索</h3>
+      /ns/search
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>search_flag</td>
+	  <td>是</td>
+	  <td>搜索内容的类型 当前可以为 project help</td>
+   </tr>
+   <tr>
+	  <td>query</td>
+	  <td>否</td>
+	  <td>搜索关键词</td>
+   </tr>
+</table>
+
+
+#####返回结果说明：
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+
+	  <td>num</td>
+	  <td>未读个数</td>
+
+	  <td>status</td>
+	  <td>返回状态</td>
+   </tr>
+   <tr>
+	  <td>errors</td>
+	  <td>错误信息</td>
+   </tr>
+   <tr>
+	  <td>result</td>
+	  <td>结果</td>
+   </tr>
+</table>
+
+--------------------
+ <h3 id="98">98.关闭项目</h3>
+      /ns/project_id/close_project
+	  
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>sms_code</td>
+	  <td>是</td>
+	  <td>短信验证码</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>任意值，有这个参数，系统就不会发短信了，开发测试使用</td>
+   </tr>
+</table>
+
+#####返回结果说明：
+
+无参数
+--------------------
+ <h3 id="99">99.关闭项目</h3>
+      /ns/project_id/delete_project
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>sms_code</td>
+	  <td>是</td>
+	  <td>短信验证码</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>任意值，有这个参数，系统就不会发短信了，开发测试使用</td>
+   </tr>
+</table>
+
+
+#####返回结果说明：
+
+无参数
+
+--------------------
+ <h3 id="100">100.恢复删除项目</h3>
+      /ns/project_id/cancel_delete_project
+
+<table>
+   <tr>
+	  <td>参数</td>
+	  <td>是否必须</td>
+	  <td>含义</td>
+   </tr>
+   <tr>
+	  <td>sms_code</td>
+	  <td>是</td>
+	  <td>短信验证码</td>
+   </tr>
+   <tr>
+	  <td>smsdebug</td>
+	  <td>否</td>
+	  <td>任意值，有这个参数，系统就不会发短信了，开发测试使用</td>
+   </tr>
+</table>
+
+
+#####返回结果说明：
+
+无参数

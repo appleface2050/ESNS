@@ -1,0 +1,4 @@
+<button onclick="showCreateProjectMessage();" class="btn btn-default">创建</button>
+<br>
+<br>
+<div id="project_message_content"></div>

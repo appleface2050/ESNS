@@ -1,0 +1,17 @@
+{{#result}}
+<tr>
+    <td class="hidden-xs hidden-sm">{{#icon_url }}<a href="javascript:showProjectInfo({{ id }})"><img
+            class="project_icon" src='{{ icon_url }}'></a>{{/icon_url }}</td>
+    <td><a href="javascript:showProjectInfo('{{ id }}')">{{ total_name }}</a>
+    </td>
+    <td class="hidden-xs hidden-sm" style="min-width: 100px">{{#format_address }}{{ address }}{{/format_address }}</td>
+    <td class="hidden-xs hidden-sm">{{ jzmj }}</td>
+    <td class="hidden-xs hidden-sm">
+        <button type="button" onclick="showProjectInfo('{{ id }}')" class="btn btn-default">工程概况</button>
+    </td>
+
+    <td style="min-width: 200px">
+        {{& option }}
+    </td>
+</tr>
+{{/result}}

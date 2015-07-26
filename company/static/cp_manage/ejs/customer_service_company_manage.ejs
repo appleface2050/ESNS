@@ -1,0 +1,54 @@
+<div class="help-block">公司管理</div>
+<div class="row">
+
+
+    <div class="col-xs-12 col-sm-4 pull-right">
+        <form ajax class="form-inline">
+            <input id="search_keyword" type="text" class="" placeholder="公司名">
+            <button type="button" onclick="get_all_company();" class="btn btn-info btn-sm">
+                <i class="icon-search bigger-110"></i>
+                查询
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+
+<form id="company_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+                <th>id</th>
+                <th>公司名称</th>
+                <th>集团名称</th>
+                <th>logo</th>
+                <th>标题logo</th>
+                <th>公司管理员</th>
+                <th>是否可用</th>
+                <th class="hidden-480">
+                    <i class="icon-time bigger-110 hidden-480"></i>
+                    创建时间
+                </th>
+                <th class="hidden-480">
+                    <i class="icon-time bigger-110 hidden-480"></i>
+                    过期时间
+                </th>
+                <th>操作</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

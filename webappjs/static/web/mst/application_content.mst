@@ -1,0 +1,10 @@
+{{#result}}
+<div class="col-md-3 app_block">
+    <a href="javascript:openApplication('{{ id }}')">
+        <div class="row">
+            <div class="col-md-12 text-center"><img class="app_icon" src="{{ icon_url }}"></div>
+            <div class="col-md-12 text-center app_name">{{ name }}</div>
+        </div>
+    </a>
+</div>
+{{/result}}

@@ -1,0 +1,20 @@
+<div class="help_xx_biaoti">文章维护</div>
+<table width="100%" >
+     {% for menu, n, t in menulist %}
+         {% ifequal 'menu' t %}
+         <tr>
+        <td style="text-align: left;" >{{ n|safe }}{{ menu.title }}</td>
+         <td>{{ menu.sorted }}</td>
+         <td><a href="/help_menu_update?id={{ menu.id }}">修改菜单</a></td>
+         <td><a href="/help_menu_delete?id={{ menu.id }}">删除菜单</a></td>
+         </tr>
+         {% else %}
+             <tr>
+                <td style="text-align: left;">{{ n|safe }}<a href="/helpupdate?id={{ menu.id }}">{{ menu.title }}</a></td>
+                <td>{{ menu.sorted }}</td>
+                 <td><a href="/helpupdate?id={{ menu.id }}">修改</a></td>
+                 <td><a href="/help_delete?id={{ menu.id }}">删除</a></td>
+            </tr>
+         {% endifequal %}
+    {% endfor %}
+</table>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta charset="utf-8">
+<title>项目账户信息</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+<!--<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type=text/javascript src="js/jquery.min.js"></script>-->
+</head>
+<body class="chongzhi_bg">
+<div class="chongzhi_biaoti">当前剩余金豆：<span class="shengyujindou_yellow">{{ project.balance }}</span></div>
+<div class="chongzhi_zhxx">
+<ul>
+  <li>
+      <section class="container">
+        <div class="progress">
+          <span class="{{ classname }}" style="width: {{ balance_persent }}%;"><span>{{ balance_persent}}%</span></span>
+        </div>
+     </section>
+  </li>
+<li>当前项目成员：<span class="chongzhi_blue">{{ project.person_nums }}人</span></li>
+<li>预计可用天数：<span class="chongzhi_blue">{{ project.days }}天</span></li>
+</ul>
+ </div>
+<div class="chongzhi_huabian"></div>
+<div class="blue_button" onclick="window.open('/phone_pay?project_id={{ project.id }}')" style="margin-top:15px;">充值</div>
+    <br>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<% _(list).each(function (item1) { %>
+<% if (item1.menus && item1.menus.length > 0){ %>
+<li view-id="<%= item1.view_id %>">
+    <a href="#" class="dropdown-toggle">
+        <i class="<%= item1.icon %>"></i>
+        <span class="menu-text"><%= item1.title %></span>
+
+        <b class="arrow icon-angle-down"></b>
+    </a>
+    <ul class="submenu">
+        <% _(item1.menus).each(function (item2) { %>
+        <li p-view-id="<%= item1.view_id %>" view-id="<%= item2.view_id %>">
+            <a href="javascript:openView('<%= item2.view_id %>');">
+                <i class="icon-double-angle-right"></i>
+                <%= item2.title %>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</li>
+<% }else{ %>
+<li view-id="<%= item1.view_id %>">
+    <a href="javascript:openView('<%= item1.view_id %>');">
+        <i class="<%= item1.icon %>"></i>
+        <span class="menu-text"> <%= item1.title %> </span>
+    </a>
+</li>
+<% }
+}); %>

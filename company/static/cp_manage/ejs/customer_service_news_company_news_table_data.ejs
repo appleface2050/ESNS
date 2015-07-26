@@ -1,0 +1,41 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+
+    <td>
+    <% if (item.is_active == null || item.is_active === false){ %>
+        <%= item.pre_title %>
+        <% }else if(item.is_active === true) { %>
+       <%= item.title %>
+        <% } %>
+
+    </td>
+    <td><%= item.author %></td>
+    <td><%= item.create_time%></td>
+    <td><%= item.publish_time%></td>
+
+    <td>
+        <% if (item.is_active == null || item.is_active === false){ %>
+        <span class="label label-sm label-default">未发布</span>
+        <% }else if(item.is_active === true) { %>
+        <span class="label label-sm label-warning">已发布</span>
+        <% } %>
+
+    </td>
+    <td>
+        <a href="javascript:update_company_news('<%= item.id %>');"><span class="label label-sm label-danger">修改</span></a>
+        <a href="javascript:news_look_by_url('/cp/show_phone_news_look/<%=item.company%>/<%=item.company_column%>/<%= item.id %>');"><span class="label label-sm label-danger">预览</span></a>
+    </td>
+
+</tr>
+<%
+}); %>
+

@@ -1,0 +1,19 @@
+{% extends 'cp_manage/phone/base2.html' %}
+{% block title %}{{ column.name }}{% endblock %}
+{% block head_ext %}
+{% endblock %}
+{% block body_class %}bg_white1{% endblock %}
+{% block body %}
+<div class="woaicss_con" id="woaicss_con1" style="display:block;">
+<ul id="recordlist">
+
+</ul>
+</div>
+{% endblock %}
+{% block bottom_ext %}
+    <script src="{{ STATIC_URL }}cp_manage/phone/js/gonggaotongzhi.js?t=123"></script>
+    <script>
+        var company_id = "{{ company_id }}";
+        var column_id = "{{ column_id }}";
+    </script>
+{% endblock %}

@@ -1,0 +1,396 @@
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form ajax id="project_from" action="/ns/reg_project" class="form-horizontal" method="post" role="form"
+              callback="formCallback">
+            <div id="form_error" class="text-danger"></div>
+            <input type="hidden" name="id" value="{{ id }}">
+            <!-- begin -->
+            <div class="form-group " input-group="name">
+
+                <label for="name" class="col-sm-2 control-label">项目简称
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="name" name="name"
+                           placeholder="项目简称" maxlength="8" value="{{ name }}" input-check="required">
+
+                    <p class="help-block">项目简称</p>
+
+                    <div input-errors="name" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="total_name">
+
+                <label for="total_name" class="col-sm-2 control-label">项目全称
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="total_name" name="total_name"
+                           placeholder="项目全称" maxlength="50" value="{{ total_name }}" input-check="required">
+
+                    <p class="help-block">项目全称</p>
+
+                    <div input-errors="total_name" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="address">
+
+                <label for="address" class="col-sm-2 control-label">地址
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <span role="city_group" default="{{ address }}" empty="无" class="form-inline">
+                           <select role="select_province" style="max-width: 200px" class="form-control"></select>
+                            <select role="select_city" class="form-control" style="max-width: 200px"
+                                    style="display: none"
+                                    name="address" id="address">
+
+                            </select>
+                       </span>
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="address" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jzmj">
+
+                <label for="jzmj" class="col-sm-2 control-label">建筑面积
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jzmj" name="jzmj"
+                           placeholder="建筑面积" maxlength="" value="{{ jzmj }}" input-check="required,int">
+
+                    <p class="help-block">单位平米</p>
+
+                    <div input-errors="jzmj" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jglx">
+
+                <label for="jglx" class="col-sm-2 control-label">结构类型
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jglx" name="jglx"
+                           placeholder="结构类型" maxlength="30" value="{{ jglx }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jglx" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jzcs">
+
+                <label for="jzcs" class="col-sm-2 control-label">建筑层数
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jzcs" name="jzcs"
+                           placeholder="建筑层数" maxlength="" value="{{ jzcs }}" input-check="required,int">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jzcs" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="htzj">
+
+                <label for="htzj" class="col-sm-2 control-label">合同造价
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="htzj" name="htzj"
+                           placeholder="合同造价" maxlength="" value="{{ htzj }}" input-check="required,int">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="htzj" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="kg_date">
+
+                <label for="kg_date" class="col-sm-2 control-label">开工日期
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+
+                    <div id="datetimepicker_date_kg_date" style="max-width: 220px;display: inline-table;"
+                         role="datetimepicker-date" class="clearfix input-group">
+    <span class="add-on input-group-addon">
+          <span data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></span>
+      </span>
+                        <input style="max-width: 500px;" type="text" class="form-control" id="kg_date"
+                               name="kg_date"
+                               value="{{ kg_date }}" input-check="required">
+                    </div>
+
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="kg_date" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="days">
+
+                <label for="days" class="col-sm-2 control-label">总工期
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="days" name="days"
+                           placeholder="总工期" maxlength="" value="{{ days }}" input-check="required,int">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="days" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jsdw">
+
+                <label for="jsdw" class="col-sm-2 control-label">建设单位
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jsdw" name="jsdw"
+                           placeholder="建设单位" maxlength="30" value="{{ jsdw }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jsdw" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jsdw_fzr">
+
+                <label for="jsdw_fzr" class="col-sm-2 control-label">项目负责人
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jsdw_fzr" name="jsdw_fzr"
+                           placeholder="项目负责人" maxlength="10" value="{{ jsdw_fzr }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jsdw_fzr" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="kcdw">
+
+                <label for="kcdw" class="col-sm-2 control-label">勘察单位
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="kcdw" name="kcdw"
+                           placeholder="勘察单位" maxlength="30" value="{{ kcdw }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="kcdw" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="kcdw_fzr">
+
+                <label for="kcdw_fzr" class="col-sm-2 control-label">勘察单位负责人
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="kcdw_fzr" name="kcdw_fzr"
+                           placeholder="勘察单位负责人" maxlength="10" value="{{ kcdw_fzr }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="kcdw_fzr" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="sgdw">
+
+                <label for="sgdw" class="col-sm-2 control-label">施工单位
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="sgdw" name="sgdw"
+                           placeholder="施工单位" maxlength="30" value="{{ sgdw }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="sgdw" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="sgdw_fzr">
+
+                <label for="sgdw_fzr" class="col-sm-2 control-label">施工单位负责人
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="sgdw_fzr" name="sgdw_fzr"
+                           placeholder="施工单位负责人" maxlength="10" value="{{ sgdw_fzr }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="sgdw_fzr" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jldw">
+
+                <label for="jldw" class="col-sm-2 control-label">监理单位
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jldw" name="jldw"
+                           placeholder="监理单位" maxlength="30" value="{{ jldw }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jldw" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="jldw_fzr">
+
+                <label for="jldw_fzr" class="col-sm-2 control-label">监理单位负责人
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="jldw_fzr" name="jldw_fzr"
+                           placeholder="监理单位负责人" maxlength="10" value="{{ jldw_fzr }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="jldw_fzr" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="sjdw">
+
+                <label for="sjdw" class="col-sm-2 control-label">设计单位
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="sjdw" name="sjdw"
+                           placeholder="设计单位" maxlength="30" value="{{ sjdw }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="sjdw" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="sjdw_fzr">
+
+                <label for="sjdw_fzr" class="col-sm-2 control-label">设计单位负责人
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="sjdw_fzr" name="sjdw_fzr"
+                           placeholder="设计单位负责人" maxlength="10" value="{{ sjdw_fzr }}" input-check="required">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="sjdw_fzr" class="text-danger"></div>
+                </div>
+
+            </div>
+            <div class="form-group " input-group="channel">
+
+                <label for="channel" class="col-sm-2 control-label">渠道代码
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="channel" name="channel"
+                           placeholder="渠道代码" maxlength="20" value="{{ channel }}">
+
+                    <p class="help-block"></p>
+
+                    <div input-errors="channel" class="text-danger"></div>
+                </div>
+
+            </div>
+            <!-- end -->
+        </form>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" onclick="saveProjectButtonClick();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+

@@ -1,0 +1,67 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="javascript:show_browse_imagelist();">浏览</a></li>
+    <li role="presentation" class="active"><a href="#">创建</a></li>
+</ul>
+
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form ajax id="imagelist_from" class="form-horizontal" method="post" role="form"
+              callback="createImagelistFormCallback">
+            <input type="hidden" id="fileid" name="fileid">
+            <input type="hidden" id="flag" name="flag">
+
+            <div id="form_error" class="text-danger"></div>
+            <div class="form-group " input-group="title">
+
+                <label for="title" class="col-sm-2 control-label">图片描述
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <textarea data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                              class="form-control" id="title" name="title" placeholder="图片描述" maxlength="300" value=""
+                              input-check="required"></textarea>
+
+                    <div input-errors="title" class="text-danger"></div>
+                </div>
+            </div>
+            {{#is_bg_state }}
+            <div class="form-group " input-group="text">
+
+                <label for="text" class="col-sm-2 control-label">处理方式
+                    <span class="required">*</span>
+                </label>
+
+                <div class="col-sm-10 controls ">
+
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="text" name="text" placeholder="处理方式" maxlength="50" value=""
+                           input-check="required">
+
+                    <div input-errors="text" class="text-danger"></div>
+                </div>
+            </div>
+            {{/is_bg_state }}
+        </form>
+        <div class="form-horizontal">
+            <div class="form-group " input-group="text">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" id="btn_select_file">选择文件</button>
+                    <div id="upload_list"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button onclick="createImageListButtonClick()" type="button" class="btn btn-default"><span
+                class="glyphicon glyphicon-upload"></span>上传
+        </button>
+
+    </div>
+</div>
+

@@ -1,0 +1,89 @@
+<div style="margin: auto;text-align: center">
+    <div class="panel panel-default">
+        <div class="panel-heading">个人信息</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 text-center">{{#icon_url }}<img class="user_icon_lg"
+                                                                      src='{{ icon_url }}'>{{/icon_url }}
+                    {{^icon_url }}<img class="user_icon_lg" src='/static/web/img/usericon.png'>{{/icon_url }}
+
+                </div>
+                <div class="col-xs-12 text-center">
+                    <button type="button" onclick="showUpdateUserIcon();" class="btn btn-default">修改头像</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">账号:</div>
+                <div class="col-xs-6 text-left">{{ tel }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">姓名:</div>
+                <div class="col-xs-6 text-left">{{ name }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">当前积分:</div>
+                <div class="col-xs-6 text-left">{{ jifen }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">性别:</div>
+                <div class="col-xs-6 text-left">{{#format_sex }}{{ sex }}{{/format_sex }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">生日:</div>
+                <div class="col-xs-6 text-left">{{ birthday }}</div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-xs-6 text-right">身份证号:</div>
+                <div class="col-xs-6 text-left">{{ idnumber }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 text-right">户口所在地:</div>
+                <div class="col-xs-6 text-left">{{#format_address }}{{ hkaddress }}{{/format_address  }}</div>
+            </div>
+            -->
+            <div class="row">
+                <div class="col-xs-6 text-right">籍贯:</div>
+                <div class="col-xs-6 text-left">{{#format_address }}{{ address }}{{/format_address }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">学历:</div>
+                <div class="col-xs-6 text-left">{{#format_xueli }}{{ xueli }}{{/format_xueli  }}</div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-xs-6 text-right">参加工作年份:</div>
+                <div class="col-xs-6 text-left">{{ workage }}</div>
+            </div>
+            -->
+            <div class="row">
+                <div class="col-xs-6 text-right">职称:</div>
+                <div class="col-xs-6 text-left">{{ zhicheng }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">职业资格证:</div>
+                <div class="col-xs-6 text-left">{{ zhiyezigezheng }}</div>
+            </div>
+            <!--
+            <div class="row">
+                <div class="col-xs-6 text-right">婚姻状况:</div>
+                <div class="col-xs-6 text-left">{{#format_hunyin }}{{ hunyin }}{{/format_hunyin }}</div>
+            </div>
+            -->
+            <div class="row">
+                <div class="col-xs-6 text-right">所在公司名称:</div>
+                <div class="col-xs-6 text-left">{{ company }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-right">电子邮件:</div>
+                <div class="col-xs-6 text-left">{{ email }}</div>
+            </div>
+
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-default" onclick="show_update_user_info()">修改</button>
+        </div>
+    </div>
+
+</div>

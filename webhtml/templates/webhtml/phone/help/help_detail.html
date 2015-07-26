@@ -1,0 +1,40 @@
+{#{{ html | safe}}#}
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<meta charset="utf-8">
+<title>{{ obj.title }}</title>
+<link rel="stylesheet" type="text/css" href="/static/webhtml/phone/css/css.css">
+<link rel="stylesheet" type="text/css" href="/static/webhtml/phone/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/webhtml/phone/css/pay.css">
+<script type=text/javascript src="/static/webhtml/phone/js/jquery.min.js"></script>
+
+</head>
+<body class="app_link_body">
+ <div class="help_xx_biaoti">{{ obj.title }}</div>
+ <div class="white_bg">
+<div class="jifen_content">
+
+    <div class="help_detail_img">  {#class="xiangguanjieshao"#}
+{#<p>工程实体质量检查是指在工程实体已完成部位或工程施工过程中，质检人员对该部位进行质量检查或验收所发现的质量缺陷，是对工程实体的质量情况进行描述。照片拍摄时，需把工作实体质量的缺陷作为重点的布景对像。</p>#}
+{#<p>1、	问题描述：#}
+{#描述时需写明工程的楼栋号、楼层号、具体部位、具体的什么质量问题。如：综合楼五层3#楼梯间墙力墙涨模严重（整改前照片）。</p>#}
+{#<p>2、整改描述：需要写明什么工种或作业班组对该质量缺陷部位进行了什么样的技术处理措施，处理后达到了什么样的结果。#}
+{#点击上传图片，拍摄照片（在同一部位同一角度对整改后的效果进行拍照）。</p>#}
+{#<p>3、	复查意见：#}
+{#复查合格！或整改合格！#}
+{#上传成功后，所有项目成员便可同一时间看到工程实体质量检查记录。</p>#}
+{{ obj.text|safe }}
+
+
+    </div>
+    </div>
+<div class="help_xiangxiye_footer">未解决您的疑问？<br>
+直接拨打服务热线：400-001-5552</div>
+     </div>
+</body>
+</html>

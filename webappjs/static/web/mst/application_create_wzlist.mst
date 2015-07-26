@@ -1,0 +1,116 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="javascript:showWzlist();">浏览</a></li>
+    <li role="presentation" class="active"><a href="#">创建</a></li>
+</ul>
+<br>
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form ajax id="create_wzlist_form" class="form-horizontal" method="post" role="form"
+              callback="createWzlistFormCallback">
+            <input type="hidden" id="fileid" name="fileid">
+            <input type="hidden" id="hidden_flag" name="flag" value="{{ flag }}">
+            <input type="hidden" id="hidden_id" name="id" value="{{ id }}">
+
+            <div id="form_error" class="text-danger"></div>
+            <!-- start-->
+            <div class="form-group " input-group="name">
+
+                <label for="name" class="col-sm-2 control-label">物资名称<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="name" name="name" placeholder="物资名称" maxlength="50" value="{{ name }}"
+                           input-check="required">
+
+                    <div input-errors="name" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="gg">
+
+                <label for="gg" class="col-sm-2 control-label">规格<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="gg" name="gg" placeholder="规格" maxlength="200" value="{{ gg }}"
+                           input-check="required">
+
+                    <div input-errors="gg" class="text-danger"></div>
+                </div>
+            </div>
+
+            <!--
+            <div class="form-group " input-group="num">
+
+                <label for="num" class="col-sm-2 control-label">数量<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="num" name="num" placeholder="数量" maxlength="20" value="{{ num }}"
+                           input-check="required">
+
+                    <div input-errors="num" class="text-danger"></div>
+                </div>
+            </div>
+            -->
+
+            <div class="form-group " input-group="count">
+
+                <label for="count" class="col-sm-2 control-label">数量<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="count" name="count" placeholder="数量" maxlength="200"
+                           value="{{ count }}"
+                           input-check="required,number">
+
+                    <div input-errors="count" class="text-danger"></div>
+                </div>
+            </div>
+
+            {{#wzlist_is_out }}
+            <div class="form-group " input-group="company">
+
+                <label for="company" class="col-sm-2 control-label">领料单位<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="company" name="company" placeholder="领料单位" maxlength="20"
+                           value="{{ company }}"
+                           input-check="required">
+
+                    <div input-errors="company" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="lingliaoren">
+
+                <label for="lingliaoren" class="col-sm-2 control-label">领料人<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="lingliaoren" name="lingliaoren" placeholder="领料人" maxlength="10"
+                           value="{{ lingliaoren }}"
+                           input-check="required">
+
+                    <div input-errors="lingliaoren" class="text-danger"></div>
+                </div>
+            </div>
+
+            {{/wzlist_is_out }}
+            <!-- end-->
+        </form>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button type="button" onclick="createWzlistButtonClick();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>
+

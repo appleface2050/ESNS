@@ -1,0 +1,28 @@
+{% extends 'webhtml/frame.html' %}
+
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script1.js" >
+    </script>
+
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+<!-- 代码 结束 -->
+
+      <td align="center" valign="top"><div class="text_title">支付方式</div>
+        <img src="{{ STATIC_URL }}webhtml/img/sjzf.jpg" width="882" height="578" alt=""/>
+        <img src="{{ STATIC_URL }}webhtml/img/web_zf_02.jpg" width="882" height="159" alt=""/>
+      </td>
+    </tr>
+</table>
+
+
+{% endblock %}

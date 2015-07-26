@@ -1,0 +1,68 @@
+<div class="help-block">修改员工设置</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+            <button class="btn btn-warning" onclick="update_admin();">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置管理员
+            </button>
+            <button class="btn btn-warning" onclick="cancel_admin();">
+                <i class="icon-edit align-top bigger-125"></i>
+                取消管理员
+            </button>
+             <button class="btn btn-warning" onclick="">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置员工权限
+            </button>
+            <button class="btn btn-warning" onclick="add_our_company_user();">
+                <i class="icon-edit align-top bigger-125"></i>
+               添加员工
+            </button>
+            <button class="btn btn-danger" onclick="delete_our_company_user();">
+                <i class="icon-edit align-top bigger-125"></i>
+                删除员工
+            </button>
+
+
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 pull-right">
+        <form ajax class="form-inline">
+            <input id="search_keyword" type="text" class="" placeholder="成员关键词" onkeydown="enterIn(event);">
+            <button type="button" onclick="find_our_company_user();" class="btn btn-info btn-sm">
+                <i class="icon-search bigger-110"></i>
+                查询
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+
+<form id="sys_news_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+
+                <th>姓名</th>
+                <th>电话</th>
+                <th>权限</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

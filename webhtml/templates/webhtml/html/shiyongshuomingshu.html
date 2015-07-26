@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <meta name="renderer" content="webkit">
+{#<script type="text/javascript" src="{{ STATIC_URL }}webhtml/js/jquery-1.5.1.min.js" charset="utf-8"></script>#}
+<script type="text/javascript" src="{{ STATIC_URL }}webhtml/js/jquery.min.js" charset="utf-8"></script>
+<title>使用说明书</title>
+    <link href="/static/webhtml/css/global.css" rel="stylesheet" type="text/css">
+    <link href="/static/webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/static/webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <link href="/static/webhtml/css/base.css" rel="stylesheet" type="text/css">
+    <link rel=stylesheet type=text/css href="/static/webhtml/css/lrtk2.css">
+
+
+    <script type="text/javascript" src="/static/webhtml/js/nav.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/webhtml/css/lrtk.css">
+    <script src="/static/js/jquery-1.11.1.min.js" type="text/javascript">
+    </script>
+    <script src="/static/webhtml/js/jquery.hammer-full.min.js" type="text/javascript">
+    </script>
+    <script src="/static/webhtml/js/plugin.js" type="text/javascript">
+    </script>
+    <script src="/static/web/js/city_data.js" type="text/javascript"></script>
+    <script src="/static/webhtml/js/base.js" type="text/javascript"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+<link href="{{ STATIC_URL }}webhtml/css/sms.css" rel="stylesheet" type="text/css" />
+        <link href="/static/webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/static/webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="/static/webhtml/js/include_menu_script1.js" />
+</head>
+
+<body>
+<!-- 代码 开始 -->
+ <script type="text/javascript" charset="utf-8" src="http://gate.looyu.com/53654/123126.js"></script>
+    <div id="header-title">
+        <div class="logo">
+            <a href="#">
+                <img width="158" height="62" src="/static/webhtml/img/logo.png">
+            </a>
+        </div>
+        <div class="logo-right">
+
+            <p id="loginTopTipP">
+                {% if user.is_active %}
+                    依子轩软件科技欢迎您 &nbsp;&nbsp;
+                    <a href="/web">
+                        {% if user.name %}
+                            {{ user.name }}
+                        {% else %}
+                            {{ user.tel }}
+                        {% endif %}
+                    </a>
+                    <a href="/logout">
+                        [注销]
+                    </a>
+                {% else %}
+                    依子轩软件科技欢迎您，请 &nbsp;&nbsp;
+                    <a id="headerMemberLoginA" href="/login?next=/web">
+                        [登录]
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="/register">
+                        [注册]
+                    </a>
+                {% endif %}
+{#                &nbsp;&nbsp;#}
+{#                <a shref="">#}
+{#                    帮助中心#}
+{#                </a>#}
+            </p>
+        </div>
+    </div>
+    <div id="nav">
+        <ul>
+            <li onclick="qiehuan(0)" id="mynav0" class="nav_on">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            <li onclick="qiehuan(1)" id="mynav1" class="nav_off">
+                <a id="productListNavA" href="/download.html">
+                    下载
+                </a>
+            </li>
+            <li onclick="qiehuan(2)" id="mynav2" class="nav_off">
+                <a href="/dingjia.html">
+                    定价
+                </a>
+            </li>
+            <li onclick="qiehuan(3)" id="mynav3" class="nav_off">
+                <a href="/shiyongshuomingshu.html">
+                    使用说明书
+                </a>
+            </li>
+            <li onclick="qiehuan(5)" id="mynav5" class="nav_off">
+                <a href="/web">
+                    <img width="120" height="40" src="/static/webhtml/img/jinruxiangmu.gif"
+                         style="margin-top:2px;">
+                </a>
+            </li>
+        </ul>
+    </div>
+<div style="width:1200px;height:100%; margin:0px auto;text-align:center; background:#fff; padding-top:15px;">
+<a name="top" id="top"><img src="{{ STATIC_URL }}webhtml/img/shouce_03.jpg" width="408" height="159" alt=""/></a>
+<div class="sms_imgtop"></div>
+<div class="sms_img"><a name="001" id="001"><img src="{{ STATIC_URL }}webhtml/img/shouce_07.jpg" width="1160" height="365" alt=""/></a></div>
+<div class="sms_img"><a name="002" id="002"><img src="{{ STATIC_URL }}webhtml/img/shouce_10.jpg" width="1160" height="309" alt=""/></a></div>
+<div class="sms_img"><a name="003" id="003"><img src="{{ STATIC_URL }}webhtml/img/shouce_11.jpg" width="1160" height="714" alt=""/></a></div>
+
+<div class="sms_img"><a name="004" id="004"><img src="{{ STATIC_URL }}webhtml/img/shouce_12.jpg" width="1160" height="476" alt=""/></a></div>
+<div class="sms_img"><a name="005" id="005"><img src="{{ STATIC_URL }}webhtml/img/shouce_14.jpg" width="1160" height="301" alt=""/></a></div>
+<div class="sms_img"><a name="006" id="006"><img src="{{ STATIC_URL }}webhtml/img/shouce_15.jpg" width="1158" height="527" alt=""/></a></div>
+<div class="sms_img"><a name="007" id="007"><img src="{{ STATIC_URL }}webhtml/img/shouce_16.jpg" width="1160" height="293" alt=""/></a></div>
+<div class="sms_img"><a name="008" id="008"><img src="{{ STATIC_URL }}webhtml/img/shouce_18.jpg" width="1160" height="523" alt=""/></a></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_22.jpg" width="1160" height="635" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_24.jpg" width="1160" height="451" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_26.jpg" width="1160" height="1037" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_28.jpg" width="1160" height="364" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_30.jpg" width="1160" height="634" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_32.jpg" width="1160" height="330" alt=""/></div>
+<div class="sms_img"><img src="{{ STATIC_URL }}webhtml/img/shouce_34.jpg" width="1160" height="624" alt=""/></div>
+
+<div class="sms_img"><a name="009" id="009"><img src="{{ STATIC_URL }}webhtml/img/shouce_36.jpg" width="1160" height="308" alt=""/></a></div>
+
+
+
+
+
+
+
+
+</div>
+
+    <div class="float" id="float">
+      <div class="f_title" align="center"><strong> 快捷导航</strong></div>
+        <a href="#001" >一、软件基本信息</a>
+     <a>  二、软件使用</a>
+        <a href="#002" >1.注册</a>
+        <a href="#003" >2.登录方式</a>
+        <a href="#004" >3.个人信息修改</a>
+        <a href="#005" class="an_5">4.创建项目</a>
+        <a href="#006" class="an_6">5.添加人员以及<br />
+&nbsp; 加入项目</a>
+        <a href="#007" class="an_7">6.与联系人聊天</a>
+        <a href="#008" class="an_8">7.应用</a>
+        <a href="#009" class="an_9">8.付费流程</a>                     
+        <a href="#top" class="an_top">向上返回</a>
+    </div>
+	
+    
+  
+</div>
+
+<script type="text/javascript">
+//浮动导航
+function float_nav(dom){
+	var right_nav=$(dom);
+	var nav_height=right_nav.height();
+	function right_nav_position(bool){
+		var window_height=$(window).height();
+		var nav_top=(window_height-nav_height)/2;
+		if(bool){
+			right_nav.stop(true,false).animate({top:nav_top+$(window).scrollTop()},400);
+		}else{
+			right_nav.stop(true,false).animate({top:nav_top},300);
+		}	
+		right_nav.show();
+	}
+	
+	if(!+'\v1' && !window.XMLHttpRequest ){
+		$(window).bind('scroll resize',function(){
+			if($(window).scrollTop()>300){
+				right_nav_position(true);			
+			}else{
+				right_nav.hide();	
+			}
+		})
+	}else{
+		$(window).bind('scroll resize',function(){
+			if($(window).scrollTop()>300){
+				right_nav_position();
+			}else{
+				right_nav.hide();
+			}
+		})
+	}	
+}
+float_nav('#float');
+</script>
+<!-- 代码 结束 -->
+
+</body>
+</html>

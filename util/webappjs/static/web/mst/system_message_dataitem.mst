@@ -1,0 +1,7 @@
+{{#result }}
+<div class="well" style="overflow: hidden;word-wrap: break-word;">
+    <h2>{{ title }}</h2>
+    <div>{{#format_text }}{{ text }}{{/format_text }}</div>
+    <div class="text-right">{{ create_time }}</div>
+</div>
+{{/result }}

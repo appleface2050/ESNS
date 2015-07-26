@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>日期</td>
+            <td>channel</td>
+            <td>手机类型</td>
+            <td>访问数量</td>
+        </tr>
+        {% for tj in tjlist %}
+            <tr>
+                <td>{{ tj.date }}</td>
+                <td>{{ tj.channel }}</td>
+                <td>{{ tj.client_type }}</td>
+                <td>{{ tj.num }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

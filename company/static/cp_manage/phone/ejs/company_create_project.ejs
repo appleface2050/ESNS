@@ -1,0 +1,133 @@
+
+<form ajax callback="company_create_project_callback" class="form-horizontal" role="form">
+ <div class="cjxm_bg">
+    <div >
+        <div class="cjxm_t1">项目简称</div>
+        <div class="cjxm_t2">
+            <input name="name" type="text" value="">
+        </div>
+    </div>
+    <div>
+        <div class="cjxm_t1">项目全称</div>
+        <div class="cjxm_t2">
+            <input name="total_name" type="text" value="">
+        </div>
+    </div>
+    <div >
+        <div class="cjxm_t1">地址</div>
+        <div class="cjxm_t2" empty="请选择" role="city_group">
+            <div style="margin-left:0.7em;">
+            <select role="select_province" class="cjxm_t3"></select>
+            <select role="select_city" name="address" class="cjxm_t3"></select>
+            </div>
+        </div>
+    </div>
+    <div >
+        <div class="cjxm_t1">建筑面积</div>
+        <div class="cjxm_t2">
+            <input name="jzmj" type="text" value="">
+        </div>
+    </div>
+    <div>
+        <div class="cjxm_t1">结构类型</div>
+        <div class="cjxm_t2">
+            <input name="jglx" type="text" value="">
+        </div>
+    </div>
+    <div >
+         <div class="cjxm_t1">建筑层数</div>
+         <div class="cjxm_t2">
+            <input name="jzcs" type="text" value="">
+        </div>
+    </div>
+    <div>
+         <div class="cjxm_t1">合同造价</div>
+         <div class="cjxm_t2">
+            <input name="htzj"type="text" value="">
+        </div>
+    </div>
+    <div>
+         <div class="cjxm_t1">开工日期</div>
+       <div class="cjxm_t2">
+
+          <input type="date" name="kg_date" id="cjxm_time">
+        </div>
+    </div>
+    <div >
+        <div class="cjxm_t1">总工期</div>
+         <div class="cjxm_t2">
+            <input name="days" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">建设单位</div>
+         <div class="cjxm_t2">
+            <input name="jsdw" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">项目负责人</div>
+         <div class="cjxm_t2">
+            <input name="jsdw_fzr" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">勘察单位</div>
+         <div class="cjxm_t2">
+            <input name="kcdw" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">勘察单位负责人</div>
+         <div class="cjxm_t2">
+            <input name="kcdw_fzr" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">施工单位</div>
+         <div class="cjxm_t2">
+            <input name="sgdw" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">施工单位负责人</div>
+         <div class="cjxm_t2">
+            <input name="sgdw_fzr" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">监理单位</div>
+         <div class="cjxm_t2">
+            <input name="jldw" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">监理单位负责人</div>
+         <div class="cjxm_t2">
+            <input name="jldw_fzr" type="text" value="">
+        </div>
+    </div>
+        <div >
+        <div class="cjxm_t1">设计单位</div>
+         <div class="cjxm_t2">
+            <input name="sjdw" type="text" value="">
+        </div>
+    </div>
+        </div>
+
+        <div class="cjxm_t1">设计单位负责人</div>
+         <div class="cjxm_t2">
+            <input name="sjdw_fzr" type="text" value="">
+        </div>
+    </div>
+
+
+    <div class="cjxm_footer">
+        <button class="cjxm_btn" type="submit" onclick="company_create_project_callback();">提交</button>
+        <input type="hidden" name="id" id="news_id" value="<%=id%>">
+    </div>
+ </div>
+
+
+
+</form>

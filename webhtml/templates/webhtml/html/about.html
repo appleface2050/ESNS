@@ -1,0 +1,45 @@
+﻿{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script.js" />
+    <script>
+    $("#firstpane .menu_body:eq(0)").show();
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      {% include 'webhtml/html/include_menu.html' %}
+      </td>
+      <td align="center" valign="top"><div class="text_title">公司简介</div>
+ <div class="text_content">
+   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天津依子轩软件科技有限公司成立于2014年7月，是伴随着移动互联网时代的到来而成立的一家科技型创新企业，是一家致力于为建筑行业相关企业项目信息化建设提供解决方案的软件运营服务商。 <br>
+     公司以先进的管理理念，通过运用大数据、云计算、云存储等信息技术手段，为建筑行业工程建设相关各方打造一个以项目建设为核心，让多单位协同工作、项目信息共享的专业级移动信息平台。 <br>
+ <div> <strong>企业愿景：</strong></div>
+  <div class="text_content_left">我们追求极致产品，享受极致人生； <br>
+     是成就员工美好梦想的家园； <br>
+     成为所涉行业发展的风向标和引路人。</div>
+ <div> <strong>企业使命：</strong></div>
+   <div class="text_content_left">改变人们工作方法与思维，提升人们工作的效率与水平，持续引领产业的发展，为推动中国信息化产业的发展贡献力量。</div>
+ <div> <strong>企业口号：</strong></div>
+   <div class="text_content_left">你的Need就是我的World！</div>
+  <div> <strong>企业经营理念： </strong></div>
+    <div class="text_content_left">  创造价值  用户至上</div>
+ <div> <strong>企业核心价值观：</strong></div>
+    <div class="text_content_left"> 诚信  创新  专注  分享</div> </p>
+ </div>
+
+
+
+
+
+      </td>
+    </tr>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js" type="text/javascript">
+    </script>
+    <style>
+        tr{
+            height: 30px;
+        }
+    </style>
+    <script>
+
+        function query1(){
+            $.post('/ns/commit_user_count_by_date', {date:$('#date1').val()}, function(response){
+                if(response.success){
+                    $('#value1').html(response.result);
+                }
+            },'json');
+        }
+
+        function query2(){
+            $.post('/ns/commit_user_total', {date:$('#date2').val()}, function(response){
+                if(response.success){
+                    if(!response.result){
+                        $('#value2').html('没有用户');
+                        return;
+                    }
+                    $('#value2').html(response.result);
+                }
+            },'json');
+        }
+
+        function query3(){
+            $.post('/ns/commit_user_jifen_by_date', {start_date:$('#date3_start').val(), end_date:$('#date3_end').val()}, function(response){
+                if(response.success){
+                    if(!response.result){
+                        $('#value3').html('没有用户');
+                        return;
+                    }
+                    var h='';
+                    for(var i=0;i<response.result.length;i++){
+                        var u=response.result[i];
+                        h = h+ "<tr><td>"+ u.tel+"</td><td>"+ u.name+"</td><td>"+ u.jifen+"</td></tr>";
+                    }
+                    $('#value3').html("<table><tr><td>手机号</td><td>昵称</td><td>积分</td></tr>"+h+"</table>");
+                }
+            },'json');
+        }
+
+        function query4(){
+            $.post('/ns/commit_jifen_paiming_by_jifen', {fen:$('#jifen4').val()}, function(response){
+                if(response.success){
+                    $('#value4').html("总人数："+response.result.total+"  等于或超过积分的人数："+response.result.num1+"  比例："+response.result.per_str);
+                }
+            },'json');
+        }
+
+        function query5(){
+            $.post('/ns/commit_project_by_date', {start_date:$('#date5_start').val(), end_date:$('#date5_end').val()}, function(response){
+                if(response.success){
+                    if(!response.result){
+                        $('#value5').html('没有项目');
+                        return;
+                    }
+                    var h='';
+                    for(var i=0;i<response.result.length;i++){
+                        var u=response.result[i];
+                        h = h+ "<tr><td>"+ u.date+"</td><td>"+ u.name+"</td><td>"+ u.manager+"</td><td>"+ u.tel+"</td><td>"+ u.num+"</td></tr>";
+                    }
+                    $('#value5').html("<table><tr><td>日期</td><td>项目名称</td><td>超级管理员</td><td>超级管理员电话</td><td>成员数</td></tr>"+h+"</table>");
+                }
+            },'json');
+        }
+
+    </script>
+</head>
+<body>
+<table style="width: 500%;">
+    <tr>
+        <td><a href="/ns/export_excel_jifen"> 下载用户积分统计（耗时长，谨慎）</a></td>
+    </tr>
+    <tr>
+        <td>1.某日注册人数</td>
+    </tr>
+    <tr>
+        <td><input name="date" id="date1" style="width: 200px;" value="{{ date|date:"Ymd" }}">（格式：20150525）<input type="button" onclick="query1()" value="查询"> </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 15px;" id="value1"></td>
+    </tr>
+    <tr>
+        <td>2.截止某日注册总人数</td>
+    </tr>
+    <tr>
+        <td><input name="date" id="date2" style="width: 200px;" value="{{ date|date:"Ymd" }}">（格式：20150525）<input type="button" onclick="query2()" value="查询"> </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 15px;" id="value2"></td>
+    </tr>
+    <tr>
+        <td>3.查询某日到某日注册人员的积分详情</td>
+    </tr>
+    <tr>
+        <td>开始：<input name="date" id="date3_start" style="width: 100px;" value="{{ date|date:"Ymd" }}">结束：<input name="date" id="date3_end" style="width: 100px;" value="{{ date|date:"Ymd" }}">（格式：20150525）<input type="button" onclick="query3()" value="查询"> </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 15px;" id="value3"></td>
+    </tr>
+    <tr>
+        <td>4.查询积分在XX分以上的人员有多少，占总注册人数的百分比（耗时长，谨慎）</td>
+    </tr>
+    <tr>
+        <td><input name="date" id="jifen4" style="width: 100px;">（格式：33）<input type="button" onclick="query4()" value="查询"> </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 15px;" id="value4"></td>
+    </tr>
+    <tr>
+        <td>5.查询某日到某日的新建项目列表</td>
+    </tr>
+    <tr>
+        <td>开始：<input name="date" id="date5_start" style="width: 100px;" value="{{ date|date:"Ymd" }}">结束：<input name="date" id="date5_end" style="width: 100px;" value="{{ date|date:"Ymd" }}">（格式：20150525）<input type="button" onclick="query5()" value="查询"></td>
+    </tr>
+    <tr>
+        <td style="padding-left: 15px;" id="value5"></td>
+    </tr>
+</table>
+</body>
+</html>

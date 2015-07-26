@@ -1,0 +1,15 @@
+.required {
+    color: red;
+}
+
+.text-danger {
+    color: red;
+}
+
+span[role=city_group] select {
+    display: inline-block;
+}
+
+.alert-error {
+    color: red;
+}

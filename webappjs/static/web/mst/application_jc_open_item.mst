@@ -1,0 +1,32 @@
+<div>
+    <button type="button" onclick="show_browse_jc();" class="btn btn-default">返回</button>
+</div>
+<h2>{{#format_text}}{{ desc }}{{/format_text}}</h2>
+<div>处理人:{{#createUserName}}{{ user }}{{/createUserName}}</div>
+<div>发布日期:{{ create_time }}</div>
+{{#finish_time }}
+<div>完成日期:{{ finish_time }}</div>
+{{/finish_time }}
+<div class="row well">
+    <div class="col-md-2">整改前:</div>
+    <div class="col-md-9">
+        {{#pre_pic_array }}
+        <div id="image_file_id_{{ template_image }}"></div>
+        {{/pre_pic_array }}
+    </div>
+</div>
+<div class="row well">
+    <div class="col-md-2">处理意见:</div>
+    <div class="col-md-9">{{#format_text}}{{ chuli }}{{/format_text}}</div>
+</div>
+<div class="row well">
+    <div class="col-md-2">处理结果:</div>
+    <div class="col-md-9">{{#chuli_pic_array }}
+        <div id="image_file_id_{{ template_image }}"></div>
+        {{/chuli_pic_array }}
+    </div>
+</div>
+<div class="row well">
+    <div class="col-md-2">复查意见:</div>
+    <div class="col-md-9">{{#format_text}}{{ fucha }}{{/format_text}}</div>
+</div>

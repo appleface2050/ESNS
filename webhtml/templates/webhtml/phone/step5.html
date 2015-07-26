@@ -1,0 +1,40 @@
+{% extends 'webhtml/phone/pay_baes.html' %}
+{% load webhtml_filter %}
+{% block content %}
+    {% if success %}
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/xiangmugaikuang0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/taocanxuanze0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fapiaoxinxi0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fukuanfangshi0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/wanchengcaozuo1.png"
+                                        width="120" height="75"/></td>
+            </tr>
+        </table>
+
+        <table align="center" cellspacing="0" cellpadding="0" class="table_qingdan">
+            <tr>
+                <td align="right" valign="middle" width="36%">项目</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.project.name }}</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">套餐</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.product.name }}</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">金额</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.real_price|money }}元</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">获得</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.product.gold }}金豆</span></td>
+            </tr>
+        </table>
+
+    {% endif %}
+{% endblock %}

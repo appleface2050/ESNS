@@ -1,0 +1,88 @@
+{% extends 'webhtml/phone/pay_baes.html' %}
+{% load webhtml_filter %}
+{% block content %}
+    <form method="post">
+        {% for i in tform %}
+            {{ i }}
+        {% endfor %}
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/xiangmugaikuang0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/taocanxuanze0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fapiaoxinxi0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fukuanfangshi1.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/wanchengcaozuo0.png"
+                                        width="120" height="75"/></td>
+            </tr>
+        </table>
+        <table border="0" cellspacing="0" cellpadding="0" class="table_zhifu">
+            <tr>
+                <td align="right" valign="middle" width="36%">支付金额</td>
+                <td align="left" valign="middle"><span class="jine">{{ product.price|money }}</span>元</td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">项目简称:</td>
+                <td align="left" valign="middle">{{ project.name }}</td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">套餐名:</td>
+                <td align="left" valign="middle">{{ product.name }}</td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">原价:</td>
+                <td align="left" valign="middle">{{ product.show_price|money }}元</td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">现价:</td>
+                <td align="left" valign="middle">{{ product.price|money }}元</td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">获得:</td>
+                <td align="left" valign="middle">{{ product.gold }}金豆</td>
+            </tr>
+            {% if has_fp_bool %}
+                <tr>
+                    <td align="right" valign="middle">开发票:</td>
+                    <td align="left" valign="middle">是</td>
+                </tr>
+                <tr>
+                    <td align="right" valign="middle">发票抬头:</td>
+                    <td align="left" valign="middle">{{ fptt }}</td>
+                </tr>
+                <tr>
+                    <td align="right" valign="middle">收货人:</td>
+                    <td align="left" valign="middle">{{ addr_username }}</td>
+                </tr>
+                <tr>
+                    <td align="right" valign="middle">所在地区:</td>
+                    <td align="left" valign="middle">{{ addr_address|address_v2 }}</td>
+                </tr>
+                <tr>
+                    <td align="right" valign="middle">详细地址:</td>
+                    <td align="left" valign="middle">{{ addr_address_detail }}</td>
+                </tr>
+                <tr>
+                    <td align="right" valign="middle">手机号或固定电话:</td>
+                    <td align="left" valign="middle">{{ addr_phone }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td align="right" valign="middle">开发票:</td>
+                    <td align="left" valign="middle">否</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td align="right" valign="middle">支付方式</td>
+                <td align="left" valign="middle">
+                    <img src="{{ STATIC_URL }}webhtml/images/zhifubao.png" width="200" height="80"/>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="__back_state_3" value="上一步" class="button_style"/>
+        <input type="submit" name="__state_5" value="确认订单" class="button_style"/>
+    </form>
+{% endblock %}

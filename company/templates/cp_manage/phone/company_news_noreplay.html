@@ -1,0 +1,33 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block title %}
+    <title>{{ news.column_name }}</title>
+    <meta name="description" content="{{ news.content|truncatewords:"30" }}"/>
+{% endblock %}
+{% block extjs %}
+
+    <script>
+    var news_id={{ news.id }};
+    var is_sys = {{ news.is_sys }};
+    var company_id = '';
+    var start = 0;
+    var staticUrl = '';
+    var is_debug=true;
+    function get_news_title(){
+        return '{{ news.title }}';
+    }
+    </script>
+{% endblock %}
+{% block body %}
+    <body class="bg_white2">
+    <div class="hot_title_text">
+        <h3>
+            {{ news.title }}<br />
+            <h4>{{ news.company_name }}&nbsp;&nbsp;&nbsp;{{ news.publish_time}}</h4>
+        </h3>
+    </div>
+    <div class="hot_con01">
+        {{ news.content|safe }}
+    </div>
+
+</body>
+{% endblock %}

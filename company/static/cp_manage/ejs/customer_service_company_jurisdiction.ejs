@@ -1,0 +1,851 @@
+<form ajax callback="customer_service_company_update_jurisdiction" class="form-horizontal" role="form">
+<div class="help-block">设置所选用户类型</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+
+</div>
+<br>
+
+
+    <div class="table-responsive" >
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover" >
+            <thead>
+            <tr >
+                <th></th>
+                <th class=center>文件传达</th>
+                <th class=center>通知公告</th>
+                <th class=center>宣传报道</th>
+                <th class=center>技术指导</th>
+                <th class=center>工程管理</th>
+                <th class=center>信息发布</th>
+                <th class=center>报审资料</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class=center>
+            <td >全部</td>
+            <td  >
+                 <label>
+                     <input type="checkbox" class="ace" a="wjcd_r_all" name="wjcd" id="wjcd1" />
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace"  a="wjcd_w_all" name="wjcd" id="wjcd" />
+                     <span class="lbl"></span>
+                 </label>
+                 写
+            </td>
+             <td >
+                 <label>
+                     <input  type="checkbox" a="tzgg_r_all"  name="tzgg" class="ace" id="tzgg1" />
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace"  a="tzgg_w_all" name="tzgg" id="tzgg"  />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input   type="checkbox"  name="xcbd" class="ace" id="xcbd1" a="xcbd_r_all"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="xcbd" id="xcbd" a="xcbd_w_all"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input   type="checkbox"  name="jszd" class="ace" id="jszd1" a="jszd_r_all"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="jszd" id="jszd" a="jszd_w_all"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="gcgl" class="ace" id="gcgl1" a="gcgl_r_all"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="gcgl" id="gcgl" a="gcgl_w_all"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="xxfb" class="ace" id="xxfb1" a="xxfb_r_all"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="xxfb" id="xxfb" a="xxfb_w_all"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="bszl" class="ace" id="bszl1"a="bszl_r_all" />
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace" name="bszl" id="bszl" a="bszl_w_all"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+
+          <tr class=center>
+            <td >员工</td>
+            <td >
+                 <label>
+                     <input type="checkbox" class="ace"  a="wjcd_r_00" name="power" d="r0" id="wjcd" value="WENJIANCHUANDA*staff*1"  />
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace"  a="wjcd_w_00" name="power" d="w0" id="wjcd"  value="WENJIANCHUANDA*staff*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input  type="checkbox"  name="power"  a="tzgg_r_00" class="ace" id="tzgg" d="t0" value="TONGZHIGONGGAO*staff*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power"   a="tzgg_w_00" id="tzgg" d="w0" value="TONGZHIGONGGAO*staff*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xcbd" d="x0" a="xcbd_r_00" value="XUANCHUANBAODAO*staff*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w0"  a="xcbd_w_00" value="XUANCHUANBAODAO*staff*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="jszd"  d="j0" a="jszd_r_00" value="JISHUZHIDAO*staff*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd"  d="w0" a="jszd_w_00" value="JISHUZHIDAO*staff*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g0" a="gcgl_r_00" value="GONGCHENGGUANLI*staff*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl"  d="w0"  a="gcgl_w_00" value="GONGCHENGGUANLI*staff*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i0" a="xxfb_r_00" value="XINXIFABU*staff*1" />
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb"  d="w0" a="xxfb_w_00" value="XINXIFABU*staff*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b0" a="bszl_r_00" value="BAOSHENZILIAO*staff*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w0" a="bszl_w_00" value="BAOSHENZILIAO*staff*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+
+            </tr>
+
+            </tr>
+            <tr class=center>
+            <td >行政主管</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace"  a="wjcd_r_01" d="r1"  name="power" id="wjcd" value="WENJIANCHUANDA*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace"  a="wjcd_w_01" name="power" d="w1" id="wjcd" value="WENJIANCHUANDA*sys_xzzg*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace"  name="power"   a="tzgg_r_01" id="tzgg" d="t1" value="TONGZHIGONGGAO*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg"   a="tzgg_w_01" d="w1" value="TONGZHIGONGGAO*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace"  name="power" id="xcbd" d="x1" a="xcbd_r_01"  value="XUANCHUANBAODAO*sys_xzzg*1"  />
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w1"  a="xcbd_w_01" value="XUANCHUANBAODAO*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace"  name="power" id="jszd" d="j1" a="jszd_r_01" value="JISHUZHIDAO*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w1"  a="jszd_w_01" value="JISHUZHIDAO*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input  type="checkbox"  name="power" class="ace" id="gcgl" d="g1" a="gcgl_r_01" value="GONGCHENGGUANLI*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w1"  a="gcgl_w_01" value="GONGCHENGGUANLI*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i1" a="xxfb_r_01" value="XINXIFABU*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w1"  a="xxfb_w_01" value="XINXIFABU*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+            <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="b1" a="bszl_r_01" value="BAOSHENZILIAO*sys_xzzg*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="w1"  a="bszl_w_01" value="BAOSHENZILIAO*sys_xzzg*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+             <tr class=center>
+            <td >建设单位</td>
+             <td >
+             <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd"  d="r2"  a="wjcd_r_02" value="WENJIANCHUANDA*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="w2" a="wjcd_w_02" value="WENJIANCHUANDA*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t2" a="tzgg_r_02" value="TONGZHIGONGGAO*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w2" a="tzgg_w_02" value="TONGZHIGONGGAO*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x2" a="xcbd_r_02" value="XUANCHUANBAODAO*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd"d="w2" a="xcbd_w_02" value="XUANCHUANBAODAO*sys_jsdw*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j2" a="jszd_r_02" value="JISHUZHIDAO*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w2" a="jszd_w_02" value="JISHUZHIDAO*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input  type="checkbox"  name="power" class="ace" id="gcgl" d="g2" a="gcgl_r_02" value="GONGCHENGGUANLI*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w2" a="gcgl_w_02" value="GONGCHENGGUANLI*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i2" a="xxfb_r_02" value="XINXIFABU*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w2" a="xxfb_w_02" value="XINXIFABU*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b2" a="bszl_r_02" value="BAOSHENZILIAO*sys_jsdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w2" a="bszl_w_02" value="BAOSHENZILIAO*sys_jsdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+             <tr class=center>
+            <td  >设计单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r3"a="wjcd_r_03" value="WENJIANCHUANDA*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd" d="w3" a="wjcd_w_03" value="WENJIANCHUANDA*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t3" a="tzgg_r_03" value="TONGZHIGONGGAO*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w3" a="tzgg_w_03" value="TONGZHIGONGGAO*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x3" a="xcbd_r_03" value="XUANCHUANBAODAO*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w3" a="xcbd_w_03" value="XUANCHUANBAODAO*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j3" a="jszd_r_03" value="JISHUZHIDAO*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w3" a="jszd_w_03" value="JISHUZHIDAO*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g3" a="gcgl_r_03" value="GONGCHENGGUANLI*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w3" a="gcgl_w_03" value="GONGCHENGGUANLI*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i3" a="xxfb_r_03" value="XINXIFABU*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w3" a="xxfb_w_03" value="XINXIFABU*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b3" a="bszl_r_03" value="BAOSHENZILIAO*sys_sjdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w3" a="bszl_w_03" value="BAOSHENZILIAO*sys_sjdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+             <tr class=center>
+            <td >勘察单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r4"  a="wjcd_r_04" value="WENJIANCHUANDA*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd"  d="w4" a="wjcd_w_04" value="WENJIANCHUANDA*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg"  d="t4"  a="tzgg_r_04" value="TONGZHIGONGGAO*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w4" a="tzgg_w_04" value="TONGZHIGONGGAO*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd"  d="x4"  a="xcbd_r_04" value="XUANCHUANBAODAO*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w4" a="xcbd_w_04" value="XUANCHUANBAODAO*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd"  d="j4"  a="jszd_r_04" value="JISHUZHIDAO*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w4" a="jszd_w_04" value="JISHUZHIDAO*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl"  d="g4"  a="gcgl_r_04" value="GONGCHENGGUANLI*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w4" a="gcgl_w_04" value="GONGCHENGGUANLI*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb"  d="i4"  a="xxfb_r_04" value="XINXIFABU*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w4" a="xxfb_w_04" value="XINXIFABU*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b4"  a="bszl_r_04"  value="BAOSHENZILIAO*sys_kcdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w4" a="bszl_w_04"  value="BAOSHENZILIAO*sys_kcdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+            <tr class=center>
+             <td >监理单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r5" a="wjcd_r_05" value="WENJIANCHUANDA*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd" d="w5" a="wjcd_w_05" value="WENJIANCHUANDA*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t5" a="tzgg_r_05" value="TONGZHIGONGGAO*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w5" a="tzgg_w_05" value="TONGZHIGONGGAO*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x5" a="xcbd_r_05" value="XUANCHUANBAODAO*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w5" a="xcbd_w_05" value="XUANCHUANBAODAO*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j5" a="jszd_r_05" value="JISHUZHIDAO*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w5" a="jszd_w_05" value="JISHUZHIDAO*sys_jldw*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g5" a="gcgl_r_05" value="GONGCHENGGUANLI*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w5" a="gcgl_w_05" value="GONGCHENGGUANLI*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i5" a="xxfb_r_05" value="XINXIFABU*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w5" a="xxfb_w_05" value="XINXIFABU*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b5" a="bszl_r_05" value="BAOSHENZILIAO*sys_jldw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w5" a="bszl_w_05" value="BAOSHENZILIAO*sys_jldw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+            <tr class=center>
+             <td >施工单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r6" a="wjcd_r_06" value="WENJIANCHUANDA*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd"  d="w6" a="wjcd_w_06" value="WENJIANCHUANDA*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t6" a="tzgg_r_06" value="TONGZHIGONGGAO*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg"  d="w6" a="tzgg_w_06" value="TONGZHIGONGGAO*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x6" a="xcbd_r_06" value="XUANCHUANBAODAO*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd"  d="w6" a="xcbd_w_06" value="XUANCHUANBAODAO*sys_sgdw*2" />
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j6" a="jszd_r_06" value="JISHUZHIDAO*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd"  d="w6" a="jszd_w_06" value="JISHUZHIDAO*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g6" a="gcgl_r_06" value="GONGCHENGGUANLI*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl"  d="w6"  a="gcgl_w_06" value="GONGCHENGGUANLI*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i6" a="xxfb_r_06" value="XINXIFABU*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb"  d="w6" a="xxfb_w_06" value="XINXIFABU*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b6" a="bszl_r_06" value="BAOSHENZILIAO*sys_sgdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl"  d="w6" a="bszl_w_06" value="BAOSHENZILIAO*sys_sgdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+            <tr class=center>
+             <td >项目经理部</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r7" a="wjcd_r_07" value="WENJIANCHUANDA*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                 读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd" d="w7" a="wjcd_w_07" value="WENJIANCHUANDA*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t7" a="tzgg_r_07" value="TONGZHIGONGGAO*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w7" a="tzgg_w_07"  value="TONGZHIGONGGAO*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x7" a="xcbd_r_07" value="XUANCHUANBAODAO*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w7" a="xcbd_w_07" value="XUANCHUANBAODAO*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j7" a="jszd_r_07" value="JISHUZHIDAO*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w7" a="jszd_w_07" value="JISHUZHIDAO*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g7" a="gcgl_r_07" value="GONGCHENGGUANLI*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w7" a="gcgl_w_07" value="GONGCHENGGUANLI*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i7" a="xxfb_r_07" value="XINXIFABU*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w7" a="xxfb_w_07" value="XINXIFABU*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b7" a="bszl_r_07" value="BAOSHENZILIAO*sys_xmjl*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w7" a="bszl_w_07" value="BAOSHENZILIAO*sys_xmjl*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+            <tr class=center>
+             <td >劳务分包单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r8" a="wjcd_r_08" value="WENJIANCHUANDA*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd" d="w8"  a="wjcd_w_08" value="WENJIANCHUANDA*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t8" a="tzgg_r_08" value="TONGZHIGONGGAO*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w8"  a="tzgg_w_08" value="TONGZHIGONGGAO*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x8" a="xcbd_r_08" value="XUANCHUANBAODAO*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w8"  a="xcbd_w_08" value="XUANCHUANBAODAO*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j8" a="jszd_r_08" value="JISHUZHIDAO*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w8"  a="jszd_w_08" value="JISHUZHIDAO*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl" d="g8" a="gcgl_r_08" value="GONGCHENGGUANLI*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w8"  a="gcgl_w_08" value="GONGCHENGGUANLI*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i8" a="xxfb_r_08" value="XINXIFABU*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w8"  a="xxfb_w_08" value="XINXIFABU*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b8" a="bszl_r_08" value="BAOSHENZILIAO*sys_lwfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w8"  a="bszl_w_08" value="BAOSHENZILIAO*sys_lwfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+            <tr class=center>
+             <td >专业分包单位</td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="wjcd" d="r9"  a="wjcd_r_09" value="WENJIANCHUANDA*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="wjcd" d="w9" a="wjcd_w_09" value="WENJIANCHUANDA*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="tzgg" d="t9"  a="tzgg_r_09" value="TONGZHIGONGGAO*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="tzgg" d="w9" a="tzgg_w_09" value="TONGZHIGONGGAO*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="xcbd" d="x9"  a="xcbd_r_09" value="XUANCHUANBAODAO*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="xcbd" d="w9" a="xcbd_w_09" value="XUANCHUANBAODAO*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            <td >
+                 <label>
+                     <input type="checkbox" select_all class="ace" name="power" id="jszd" d="j9"  a="jszd_r_09" value="JISHUZHIDAO*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="jszd" d="w9" a="jszd_w_09" value="JISHUZHIDAO*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="gcgl"  d="g9"  a="gcgl_r_09" value="GONGCHENGGUANLI*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="gcgl" d="w9" a="gcgl_w_09" value="GONGCHENGGUANLI*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="xxfb" d="i9"  a="xxfb_r_09" value="XINXIFABU*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+               读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <label>
+                     <input type="checkbox" class="ace" name="power" id="xxfb" d="w9" a="xxfb_w_09" value="XINXIFABU*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+             <td >
+                 <label>
+                     <input   type="checkbox"  name="power" class="ace" id="bszl" d="b9"  a="bszl_r_09" value="BAOSHENZILIAO*sys_zyfbdw*1"/>
+                     <span class="lbl"></span>
+                 </label>
+                读&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
+                     <input type="checkbox" class="ace" name="power" id="bszl" d="w9" a="bszl_w_09" value="BAOSHENZILIAO*sys_zyfbdw*2"/>
+                     <span class="lbl"></span>
+                 </label>写
+            </td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+       <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                提交
+            </button>
+        </div>
+    </div>
+    <!-- /.table-responsive -->
+
+</form>

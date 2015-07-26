@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-4 text-right">物资名称:</div><div class="col-md-8 text-left">{{ name }}</div>
+    <div class="col-md-4 text-right">创建者:</div><div class="col-md-8 text-left">{{#createUserName }}{{ user }}{{/createUserName }}</div>
+    <div class="col-md-4 text-right">供应商:</div><div class="col-md-8 text-left">{{ ghs }}</div>
+    <div class="col-md-4 text-right">供货商负责人:</div><div class="col-md-8 text-left">{{ ghs_fzr }}</div>
+    <div class="col-md-4 text-right">供货商负责人电话:</div><div class="col-md-8 text-left">{{ ghs_fzr_tel }}</div>
+    <div class="col-md-4 text-right">是否签订了合同:</div><div class="col-md-8 text-left">{{#format_true_false }}{{ is_hetong }}{{/format_true_false }}</div>
+    <div class="col-md-4 text-right">付款方式:</div><div class="col-md-8 text-left">{{ pay_type }}</div>
+    <div class="col-md-4 text-right">送货人:</div><div class="col-md-8 text-left">{{ shr }}</div>
+    <div class="col-md-4 text-right">送货人电话:</div><div class="col-md-8 text-left">{{ shr_tel }}</div>
+    <div class="col-md-4 text-right">发布日期:</div><div class="col-md-8 text-left">{{ create_time }}</div>
+    <div class="col-md-4 text-right">备注:</div><div class="col-md-8 text-left">{{#format_text}}{{ bz }}{{/format_text}}</div>
+</div>

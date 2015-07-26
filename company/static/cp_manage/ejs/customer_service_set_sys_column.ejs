@@ -1,0 +1,51 @@
+<div class="help-block">设置系统栏目</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+            <button class="btn" onclick="SetSysColumnIsActive(false);">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置无效
+            </button>
+            <button class="btn btn-warning" onclick="SetSysColumnIsActive(true);">
+                <i class="icon-edit align-top bigger-125"></i>
+                设置生效
+            </button>
+            <button class="btn btn-danger" onclick="DeleteSysColumn();">
+                <i class="icon-edit align-top bigger-125"></i>
+                删除
+            </button>
+        </div>
+    </div>
+
+
+</div>
+<br>
+
+<form id="sys_column_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+
+                <th>名称</th>
+                <th>顺序</th>
+                <th>是否生效</th>
+
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

@@ -1,0 +1,35 @@
+<div class="panel-group" id="user_group">
+    {{#group_list }}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#user_group"
+                   href="#group_id{{ id }}">
+                    {{ name }}
+                </a>
+            </h4>
+        </div>
+        <div id="group_id{{ id }}" class="panel-collapse collapse">
+            <div class="panel-body">
+                {{#has_group_chat }}
+                <a href="javascript:selectGroup(window.project_id,'{{ hxgroup_id }}')">
+                    <div class="user_item">
+                        <span class="glyphicon glyphicon-user"></span>群组消息
+                    </div>
+                </a>
+                {{/has_group_chat }}
+                {{#user_list }}
+                <a href="javascript:selectUser(window.project_id,'{{ id }}')">
+                    <div class="user_item">
+                        {{#icon_url }}<img class="user_icon" src="{{ icon_url }}">{{/icon_url }}
+                        {{^icon_url }}<img class="user_icon" src='/static/web/img/usericon.png'>{{/icon_url }}
+                        {{ name }}
+                    </div>
+                </a>
+
+                {{/user_list }}
+            </div>
+        </div>
+    </div>
+    {{/group_list }}
+</div>

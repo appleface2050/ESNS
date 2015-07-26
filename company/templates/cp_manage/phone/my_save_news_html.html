@@ -1,0 +1,30 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block title %}
+    <title>我的收藏</title>
+{% endblock %}
+{% block body %}
+<body class="white_bg1"> 
+<div class="woaicss">
+
+	<div class="woaicss_con" id="woaicss_con1" style="display:block;">
+			<ul>
+                {% for n in news %}
+                    <li>
+                    {% if n.icon_url %}
+                        <div class="news-1">
+                            <a href="{{ n.url }}"><img width="60" height="60" src="{{ n.icon_url }}"></a>
+                        </div>
+                    {% endif %}
+                        <div class="give-date02">
+                          <a href="{{ n.url }}">{{ n.title }}</a>
+                            <div class="news_bottom"><span class="news_time">{{ n.create_time }}</span></div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+			</ul>
+	</div>
+
+</div>	
+</body>
+{% endblock %}

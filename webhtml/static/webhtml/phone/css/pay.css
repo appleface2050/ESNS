@@ -1,0 +1,88 @@
+.required {
+    color: red;
+}
+
+.text-danger {
+    color: red;
+}
+
+span[role=city_group] select {
+    display: inline-block;
+}
+
+.alert-error {
+    color: red;
+}
+
+@charset "utf-8";
+/* CSS Document */
+
+body{
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+
+@media only screen and (min-width:320px){
+
+  body{font-size:16px!important;}.viewport{max-width:320px}
+
+}
+
+@media only screen and (min-width:640px){
+
+  body{font-size:24px!important;}.viewport{max-width:640px}
+
+}
+
+@media only screen and (min-width:960px){
+
+  body{font-size:32px!important;}.viewport{max-width:960px}
+
+}
+input{height:30px; padding:5px 10px;}
+
+
+form{border: none;}
+form a{border: none;}
+form a:hover{border: none;}
+
+html { font-size:100%; height:100%; }
+body { margin:0px; height:100%; font-family:微软雅黑; background-color:#FFFFFF; text-align:center; font-size:1em;}
+button{border: none;}
+button a{border: none;}
+button a:hover{border: none;}
+.pay_bottom{border-bottom:#aaaaaa 1px solid;}
+.pay_ju{ padding-top:10px; padding-bottom:10px;}
+.pay_text{color:#ff7171;}
+.pay_text1{font-size:1.5em;}
+.pay_text2{font-size:0.8em;}
+.pay_text3{font-size:1.2em;}
+.pay_text7{font-size:1.8em;}
+.pay_text4{color:#7b7b7b;}
+.pay_text5{color:#008acd; font-size:0.8em;}
+.pay_text6{color:#008acd;font-size:1.5em; text-align: left;}
+.pay_text8{color:#ff7171;}
+.pay_anniu{background:#008acd; color:#fff; font-weight:bold; font-size:1.8em;}
+.pay_anniu1{background:#ff7171; color:#fff;font-weight:bold;}
+.pay_biankuan{border:#dbdbdb 1px solid;}
+.pay_anniu2{padding:5px;
+    display: block;
+    background:#ff7171;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius:10px;
+	color:#fff;font-size:1.5em;
+text-align: center;}
+.pay_jianju{margin-top:10px;}
+.pay_bg{background:#0c69aa; color:#fff;}
+.pay_line{border-left:#e7e7e7 1px solid;border-top:#e7e7e7 1px solid; }
+.pay_line1{border-right:#e7e7e7 1px solid;}
+.pay_line2{border-bottom:#e7e7e7 1px solid;}
+.pay_gao{ line-height:60px;}
+.pay_center{text-align: center;}
+.pay_xie{padding: 5px;display: block;line-height: 30px; text-align: left;color:#333;}

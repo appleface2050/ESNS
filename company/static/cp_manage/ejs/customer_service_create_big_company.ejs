@@ -1,0 +1,36 @@
+<form ajax callback="customer_service_create_big_company_callback" class="form-horizontal" role="form">
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 集团名称 </label>
+        <div class="col-sm-9">
+            <input name="name" input-check="required" id="form-field-2" placeholder="集团名称"
+                   class="col-xs-10 col-sm-5" value="<%=name%>">
+        </div>
+    </div>
+
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> logo </label>
+        <div class="col-sm-9">
+            <div class="shangchuantupian">
+            <div class="sc_left"><button class="btn btn-default" id="btn_select_file" type="button">选择图片</button>
+              <div class="xz_img">
+            <div class="xianshitupiantishi">选择图片上传后，以下将显示所选图片右侧可以预览上传后的效果</div>
+                  <div class="xianshitupiantishi">图片类型为jpg或png或jpeg，大小为81px宽34px高</div>
+            <img id='column_image' width="81" height="34" alt=""/>
+                  <input type="hidden" name="logo" id="logoimage">
+            </div>
+            <button class="btn btn-info" type="submit">
+                提交
+            </button>
+                 <input type="hidden" name="id" id="bigcompany_id" value="<%=id%>">
+            </div>
+
+            <div class="yulan_right" style="background:url(http://7xjnpa.com2.z0.glb.qiniucdn.com//company/ed59323d-472e-46e7-b07d-79a0de0ce2a2.jpg?attname=shangchuanjituanlogo.jpg) no-repeat;">
+              <div style="padding:104px 0 0 122px;"><img  id='column_image1' width="81" height="34" alt=""/></div>
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+</form>

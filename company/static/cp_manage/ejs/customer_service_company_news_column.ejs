@@ -1,0 +1,42 @@
+<div class="help-block">设置系统栏目</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+            <button class="btn btn-warning" onclick="set_update_column('GONGSIJIANJIE');">
+                <i class="icon-edit align-top bigger-125"></i>
+                公司简介
+            </button>
+            <button class="btn btn-warning" onclick="set_update_column('QIYEWENHUA');">
+                <i class="icon-edit align-top bigger-125"></i>
+                公司文化
+            </button>
+            <button class="btn btn-warning" onclick="set_update_column('GONGSIYEJI')">
+                <i class="icon-edit align-top bigger-125"></i>
+                公司业绩
+            </button>
+        </div>
+    </div>
+</div>
+<form ajax callback="customer_service_update_company_callback1" class="form-horizontal" role="form">
+
+<div class="shangchuantupian">
+<div class="sc_left"><button class="btn btn-default" id="btn_select_file" type="button">上传banner图片</button>
+  <div class="xz_img">
+  <div class="xianshitupiantishi">选择图片上传后，以下将显示所选图片右侧可以预览上传后的效果</div>
+  <div class="xianshitupiantishi">图片类型为jpg或png或jpeg，大小为81px宽34px高</div>
+     <img src="" id="column_image1" width="280" height="98" alt=""/>
+      <input type="hidden" name="image" id="logoimage">
+</div>
+<button class="btn btn-info" type="submit">
+                提交
+</button>
+</div>
+
+<div class="yulan_right" style="background:url(http://7xjnpa.com2.z0.glb.qiniucdn.com//company/b0fb4172-f3d4-4df0-b0a9-fd032f7c2d76.jpg?attname=gongsi_banner.jpg) no-repeat;">
+  <div style="padding:137px 0 0 20px;"><img  src="" id="column_image" width="280" height="98" alt=""/></div>
+
+</div>
+
+</div>
+</form>

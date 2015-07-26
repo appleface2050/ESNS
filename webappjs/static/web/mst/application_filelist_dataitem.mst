@@ -1,0 +1,23 @@
+{{#result}}
+<div class="well">
+    {{#format_text }}{{ title }}{{/format_text }}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                {{#files }}
+                    {{#fileinfo }}{{ . }}
+                    {{/fileinfo }}
+                {{/files }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-9 col-md-3 text-right">
+            <div class="help-block" style="margin-top:10px;">创建时间:{{ create_time }}</div>
+            <div class="help-block">创建者:{{#createUserName }}{{ user }}{{/createUserName }}</div>
+        </div>
+    </div>
+</div>
+{{/result}}

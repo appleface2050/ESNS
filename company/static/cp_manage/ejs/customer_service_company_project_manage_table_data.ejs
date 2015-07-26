@@ -1,0 +1,42 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="project_id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+
+    <td><%= item.total_name%></td>
+    <td><%= item.name%></td>
+    <td><%= item.manager%></td>
+     <td>
+        <% if (item.status==0){ %>
+        <span class="label label-sm label-warning">正常</span>
+        <% }else if(item.status==1) { %>
+        <span class="label label-sm label-warning">欠费</span>
+         <% }else if(item.status==2) { %>
+        <span class="label label-sm label-warning">关闭</span>
+         <% }else if(item.status==3) { %>
+        <span class="label label-sm label-default">已删除</span>
+         <% }else if(item.status==4) { %>
+        <span class="label label-sm label-danger">删除公示期</span>
+         <% }else if(item.status==5) { %>
+        <span class="label label-sm label-danger">删除公示期</span>
+        <% } %>
+    </td>
+
+
+
+    <td>
+       <a href="javascript:update_company_project(<%=item.id%>);"><span class="label label-sm label-danger">修改</span></a>
+
+    </td>
+
+</tr>
+<%
+}); %>
+

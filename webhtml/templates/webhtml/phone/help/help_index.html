@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<title>使用帮助</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/pay.css">
+<script type=text/javascript src="{{ STATIC_URL }}webhtml/phone/js/jquery.min.js"></script>
+
+</head>
+<!--  class=""app_link_body-->
+<body>
+<div class="help_img"></div>
+
+<div id="firstpane" class="menu_list">
+{#  <a href="help_menu_detail?help_menu_id=1">常见问题</a>#}
+{#  <a href="help_menu_detail?help_menu_id=2">使用手册</a>#}
+
+  <a href="help_menu_parent?help_menu_parent_id=1">常见问题</a>
+  <a href="help_menu_parent?help_menu_parent_id=2">使用手册</a>
+  <a href="help_version">版本介绍</a>
+  <a href="zhi_fu_xie_yi">平台服务协议</a>
+{#  <a href="help_usage">使用帮助</a>#}
+</div>
+<div class="grey_logo"><img src="{{ STATIC_URL }}webhtml/phone/images/help_logo.png" width="50" height="50" alt=""/></div>
+<div class="All_rights">2014-2015 Easy Share Software Technology. <br>
+All rights reserved.</div>
+
+</body>
+</html>

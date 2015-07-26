@@ -1,0 +1,61 @@
+{% extends 'webhtml/pay_baes.html' %}
+{% load webhtml_filter %}
+{% block pay_content %}
+    <form method="post">
+        {% for i in tform %}
+            {{ i }}
+        {% endfor %}
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" width="165" class="step_font2 step1_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step1_2.png" class="step_number_icon"/>项目基本信息
+                </td>
+                <td align="center" class="td_line_blue">&nbsp;</td>
+                <td align="center" width="120" class="step_font1  step2_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step2_2.png" class="step_number_icon"/>套餐选择
+                </td>
+                <td align="center" class="td_line_grey">&nbsp;</td>
+                <td align="center" width="120" class="step_font1 step2_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step3_1.png" class="step_number_icon"/>发票信息
+                </td>
+                <td align="center" class="td_line_grey">&nbsp;</td>
+                <td align="center" width="85" class="step_font1 step3_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step4_1.png" class="step_number_icon"/>付款
+                </td>
+                <td align="center" class="td_line_grey">&nbsp;</td>
+                <td align="center" width="85" class="step_font1 step3_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step5_1.png" class="step_number_icon"/>完成
+                </td>
+            </tr>
+        </table>
+<div class="shijian_shuoming"> 活动时间：3月18日至5月17日</div>
+        <table class="table_gaikuang" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <th align="center" width="10%"></th>
+                <th align="center">套餐名</th>
+                <th align="center" width="25%">原价</th>
+                <th align="center" width="25%">现价</th>
+                <th align="center" width="25%">获得</th>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    <td align="center"><input
+                            {% ifequal product_id|safe product.id|safe %}
+                                checked="checked" {% endifequal %}
+                                type="radio"
+                                id="id_{{ product.id }}"
+                                name="product_id"
+                                value="{{ product.id }}"></td>
+                    <td align="center"><label for="id_{{ product.id }}">{{ product.name }}</label></td>
+                    <td align="center">{{ product.show_price|money }}元</td>
+                    <td align="center">{{ product.price|money }}元</td>
+                    <td align="center">{{ product.gold }}金豆</td>
+                </tr>
+            {% endfor %}
+
+
+        </table>
+        <input type="submit" name="__back_state_1" value="上一步" class="button_style"/>
+        <input type="submit" name="__state_3" value="下一步" class="button_style"/>
+    </form>
+{% endblock %}

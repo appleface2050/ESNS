@@ -1,0 +1,23 @@
+{{#result}}
+<a href="javascript:openJcItem({{ id }})">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="data_item_title">{{#format_text}}{{ desc }}{{/format_text}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 help-block">
+                        处理人:{{#createUserName}}{{ user }}{{/createUserName}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2  jc_item_status">
+                {{& status_display }}
+            </div>
+        </div>
+    </div>
+</a>
+{{/result}}

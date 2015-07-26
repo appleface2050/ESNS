@@ -1,0 +1,31 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block scalabel %}
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3.0,user-scalable=1"/>
+{% endblock %}
+{% block title %}
+    <title>{{ father_column.name }}</title>
+{% endblock %}
+{% block body %}
+    <body class="white_bg1">
+    <div class="qiye_banner">
+        <img src="{{ father_column.image_url }}"  alt=""/></div>
+    <div class="woaicss">
+        <ul class="woaicss_title woaicss_title_bg1" id="woaicsstitle">
+            {% for col in columnslist %}
+                <li {% ifequal col.id  column.id %} class="bot_red_line" {% endifequal %}><a
+                        href="/cp/{{ col.company }}/{{ col.flag }}/get_company_button_html_by_flag">{{ col.name }}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    <div class="hot_con01">
+                {{ news.content|safe }}
+    </div>
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+    <script>
+        var title_blcok = $('#woaicsstitle');
+        var count = title_blcok.children().length;
+        title_blcok.children().css('width', (100 / count) + "%");
+    </script>
+    </body>
+{% endblock %}

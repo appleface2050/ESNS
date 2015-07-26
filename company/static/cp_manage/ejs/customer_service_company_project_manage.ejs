@@ -1,0 +1,60 @@
+<div class="help-block">项目管理</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+
+            <button class="btn btn-warning" onclick="customer_service_company_create_project();">
+                <i class="icon-edit align-top bigger-125"></i>
+             新增项目
+            </button>
+             <button class="btn btn-danger" onclick="customer_service_company_close_project();">
+                <i class="icon-edit align-top bigger-125"></i>
+             关闭项目
+            </button>
+             <button class="btn btn-danger" onclick="customer_service_company_delete_project();">
+                <i class="icon-edit align-top bigger-125"></i>
+             删除项目
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 pull-right">
+        <form ajax class="form-inline" id="query_sys_news_list">
+
+            <input id="search_keyword" type="text" class="" placeholder="项目名称" onkeydown="enterIn(event);">
+
+           <button type="button" onclick="orientation_get_all_project();" class="btn btn-info btn-sm" >
+                <i class="icon-search bigger-110"></i>
+                查询
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+
+<form id="sys_news_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+                <th>项目全称</th>
+                <th>项目简称</th>
+                <th>管理员</th>
+                <th>项目状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

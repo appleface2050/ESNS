@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>你的NEED</title>
+<link href="{{ STATIC_URL }}webhtml/phone/css/default.css" rel="stylesheet" type="text/css">
+<link type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css" rel="stylesheet"/>
+<script language="javascript">
+function ios_android_download_url(){
+var u = navigator.userAgent;
+if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+{#alert("安卓手机");#}
+    window.location.href = "http://zhushou.360.cn/detail/index/soft_id/2756289";
+} else if (u.indexOf('iPhone') > -1) {//苹果手机
+    window.location.href = "https://itunes.apple.com/cn/app/ni-deneed/id956441505?mt=8";
+{#alert("苹果手机");#}
+} else if (u.indexOf('Windows Phone') > -1) {//winphone手机
+    alert("PC端");
+// window.location.href = "mobile/index.html";
+}
+}
+</script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}webhtml/phone/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}webhtml/phone/js/jquery.touchSlider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".main_visual").hover(function () {
+            $("#btn_prev,#btn_next").fadeIn()
+        }, function () {
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible: true,
+            speed: 200,
+            btn_prev: $("#btn_prev"),
+            btn_next: $("#btn_next"),
+            paging: $(".flicking_con a"),
+            counter: function (e) {
+                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function () {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function () {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function () {
+            if ($dragBln) {
+                return false;
+            }
+        });
+
+        timer = setInterval(function () {
+            $("#btn_next").click();
+        }, 5000);
+
+        $(".main_visual").hover(function () {
+            clearInterval(timer);
+        }, function () {
+            timer = setInterval(function () {
+                $("#btn_next").click();
+            }, 5000);
+        });
+
+        $(".main_image").bind("touchstart", function () {
+            clearInterval(timer);
+        }).bind("touchend", function () {
+            timer = setInterval(function () {
+                $("#btn_next").click();
+            }, 5000);
+        });
+
+    });
+</script>
+</head>
+
+<body>
+<div class="containr">
+	<Div class="top">
+    	<div class="top_left"><img src="{{ STATIC_URL }}webhtml/phone/images/bt.png" alt="" class="logo_img"/></div>
+        <div class="top_right"><img src="{{ STATIC_URL }}webhtml/phone/images/gsmc.png" class="yzx_img" alt=""/></div>
+     </Div>
+{#    <div class="banner"><img src="{{ STATIC_URL }}webhtml/phone/images/banner.jpg" class="banner_img" alt=""/></div>#}
+
+<!--滑动 效果html开始-->
+<div class="main_visual">
+    <div class="flicking_con">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+
+    </div>
+    <div class="main_image">
+        <ul>
+            <li><span class="img_1"></span></li>
+            <li><span class="img_2"></span></li>
+            <li><span class="img_3"></span></li>
+        </ul>
+        <a href="javascript:;" id="btn_prev"></a>
+        <a href="javascript:;" id="btn_next"></a>
+    </div>
+</div>
+<!--效果html结束-->
+
+  <div class="content">
+    	<div class="content_top content_center content_jj"><img src="{{ STATIC_URL }}webhtml/phone/images/fbkj.jpg" class="fb_img" alt=""/></div>
+        <div class="content_bottom">
+        	<div class="content_top " style="margin-top: 0px;">
+            	<div class="top_left "><img src="{{ STATIC_URL }}webhtml/phone/images/jz.jpg"  alt="" class="fbkj_img"/></div>
+           		<div class="top_left content_hg"><h4>建筑项目工程管理必备之神器:</h4><p>实时了解项目进度情况，检查施工质量，有效杜绝<bR>豆腐渣工程</p></div>
+            </div>
+        	<div class="content_top content_jj">
+            	<div class="top_left "><img src="{{ STATIC_URL }}webhtml/phone/images/xl.jpg"  alt="" class="fbkj_img"/></div>
+           		<div class="top_left content_hg"><h4>工作效率提高不是梦:</h4><p> 多岗位，多单位协同工作，信息即时共享。</p></div>
+            </div>
+            <div class="content_top content_jj">
+            	<div class="top_left "><img src="{{ STATIC_URL }}webhtml/phone/images/qian.jpg"  alt="" class="fbkj_img"/></div>
+           		<div class="top_left content_hg"><h4>一人一天一元钱:</h4><p>不断提高工程质量，为和谐社会贡献一份力量。</p></div>
+            </div>
+            <div class="content_top content_jj">
+            	<div class="top_left "><img src="{{ STATIC_URL }}webhtml/phone/images/need.jpg"  alt="" class="fbkj_img"/></div>
+           		<div class="top_left content_hg"><h4>你的Need我的World:</h4><p>超低使用成本，超高的使用效率。</p></div>
+            </div>
+        </div>
+  </div>
+    <div  style="margin: 0 auto; width:100%;">
+        <div class=" top_left" style="margin-bottom: 2em;margin-left:2em;">
+             {#    <button type="button" class="round" onclick="window.location.href('www.baidu.com')">下 载</button> #}
+            <input type="button" class="round" onclick="ios_android_download_url()" value="下 载">
+        </div>
+        <div class="top_right" style="margin-right:2em;" >
+            {#    <button type="button" class="round" >注 册</button>#}
+            <input type="submit" name="submit2" id="submit2" value="注 册" class="round" onClick="location.href='/phone_register'"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

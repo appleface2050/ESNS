@@ -1,0 +1,24 @@
+{% extends 'web/include/form_field_base.html' %}
+{% block input %}
+
+    <div id="datetimepicker_date_{{ field.auto_id }}_0" style="max-width: 220px;display: inline-table;"
+         role="datetimepicker-date" class="clearfix input-group">
+    <span class="add-on input-group-addon">
+          <span data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></span>
+      </span>
+        <input style="max-width: 500px;" type="text" class="form-control" id="{{ field.auto_id }}_0"
+               name="{{ field.name }}_0"
+               value="{% if field.date %}{{ field.date }}{% endif %}" {% if field.input_check %} input-check="{{ field.input_check }}"{% endif %}>
+    </div>
+
+    <div id="datetimepicker_time_{{ field.auto_id }}_1" style="max-width: 220px;display: inline-table;"
+         role="datetimepicker-time" class="clearfix input-group">
+    <span class="add-on input-group-addon">
+          <span data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></span>
+      </span>
+        <input style="max-width: 500px;" type="text" class="form-control" id="{{ field.auto_id }}_1"
+               name="{{ field.name }}_1"
+               value="{% if field.time %}{{ field.time }}{% endif %}" {% if field.input_check %} input-check="{{ field.input_check }}"{% endif %}>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'webhtml/phone/base.html' %}
+{% block script1 %}
+<script type="text/javascript">
+    function sendsms() {
+        /**
+         * 发送短信验证码
+         * by:范俊伟 at:2015-03-24
+         */
+        var tel = $('#tel').val();
+        if (tel.length == 11) {
+            $.post('/ns/send_sms_code', {'tel': tel}, function (response, status) {
+                if (status == 'success') {
+                    alert('短信已发送');
+                }
+            }, 'json');
+        }
+    }
+</script>
+{% endblock %}
+{% block body %}
+<div class="zc_logo"><img src="{{ STATIC_URL }}webhtml/phone/images/logo.png" width="158" height="62" alt=""/></div>
+<div class="zc_w">
+  <div class="zc_w_dingwei">
+
+    <div class="l_centent">
+    <div class="zc_top">
+    <table width="99%" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td width="99"><img src="{{ STATIC_URL }}webhtml/phone/images/sj-zhuce_03.png" width="99" height="29" alt=""/></td>
+          <td width="" align="right"><a href="/" class="back_homea">返回首页》</a></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+      <form method="post">
+      <table width="99%" border="0" cellspacing="3" cellpadding="3">
+        <tbody>
+          <tr>
+            <td height="39" align="right">
+              手机号码:</td>
+            <td width="66%" align="left">
+                <input name="tel" id="tel" tabindex="1" type="text" value="{{ tel }}" class="login_input">
+              </td>
+          </tr>
+          <tr>
+            <td width="" height="39" align="right">短信验证码:</td>
+            <td align="left">
+            <input name="sms_code" type="text" id="sms_code" value="{{ sms_code }}" tabindex="3"
+                                   style="border:1px solid #afafaf;width:60px;height:24px;line-height:24px;padding-left:5px;">
+            <input type="button" value="获取验证码" onclick="sendsms()">
+            </td>
+          </tr>
+
+
+          <tr>
+            <td width="" height="39" align="right">&nbsp;&nbsp;密 码:
+              </td>
+            <td align="left">
+                <input name="password" id="password" tabindex="1" type="password" class="login_password_input">
+                <div id="keyboard" style="position: absolute; display: none; z-index: 9999;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td height="39" align="right">确认密码:
+              </td>
+            <td width="218" align="left">
+                <input name="re_password" type="password" id="re_password" tabindex="3" class="login_password_input">
+              </td>
+          </tr>
+          <tr>
+            <td height="39" align="right">真实姓名:
+              </td>
+            <td width="218" align="left">
+                <input name="name" type="text" id="name" value="{{ name }}" tabindex="3"
+                                   class="login_input">
+            </td>
+          </tr>
+          <tr>
+            <td height="47" align="right">&nbsp;
+              </td>
+            <td width="218" align="left">
+              <input type="image" src="{{ STATIC_URL }}webhtml/phone/images/tj1_11.jpg">
+              </td>
+
+          </tr>
+             </tbody>
+      </table>
+      </form>
+       <div class="dl"><a href="/login">登录</a></div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

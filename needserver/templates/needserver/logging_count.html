@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>Message</td>
+        <td><a href="?sort=first_time">首次出现时间</a></td>
+        <td><a href="?sort=last_time">最后出现时间</a></td>
+        <td><a href="?sort=count">出现次数</a></td>
+        <td>堆栈</td>
+    </tr>
+
+    {% for i in list %}
+        <tr>
+            <td>
+                {{ i.message|escape|linebreaksbr }}
+            </td>
+            <td>
+                {{ i.first_time }}
+            </td>
+            <td>
+                {{ i.last_time }}
+            </td>
+            <td>
+                {{ i.count }}
+            </td>
+            <td>
+                <textarea rows="10" cols="50">{{ i.stackTrace }}</textarea>
+
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

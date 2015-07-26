@@ -1,0 +1,151 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="javascript:showGysaddress();">浏览</a></li>
+    <li role="presentation" class="active"><a href="#">创建</a></li>
+</ul>
+<br>
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form ajax id="gysaddress_form" class="form-horizontal" method="post" role="form"
+              callback="createGysaddressFormCallback">
+            <input type="hidden" id="hidden_flag" name="flag" value="{{ flag }}">
+            <input type="hidden" id="hidden_id" name="id" value="{{ id }}">
+
+            <div id="form_error" class="text-danger"></div>
+            <!-- 项目开始-->
+            <div class="form-group " input-group="name">
+
+                <label for="name" class="col-sm-2 control-label">物资名称<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="name" name="name" placeholder="物资名称" maxlength="50" value="{{ name }}"
+                           input-check="required">
+
+                    <div input-errors="name" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="ghs">
+
+                <label for="ghs" class="col-sm-2 control-label">供应商<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="ghs" name="ghs" placeholder="供应商" maxlength="50" value="{{ ghs }}"
+                           input-check="required">
+
+                    <div input-errors="ghs" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="ghs_fzr">
+
+                <label for="ghs_fzr" class="col-sm-2 control-label">供应商负责人<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="ghs_fzr" name="ghs_fzr" placeholder="供应商负责人" maxlength="10"
+                           value="{{ ghs_fzr }}"
+                           input-check="required">
+
+                    <div input-errors="ghs_fzr" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="ghs_fzr_tel">
+
+                <label for="ghs_fzr_tel" class="col-sm-2 control-label">供应商负责人电话<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="ghs_fzr_tel" name="ghs_fzr_tel" placeholder="供应商负责人电话" maxlength="15"
+                           value="{{ ghs_fzr_tel }}"
+                           input-check="required">
+
+                    <div input-errors="ghs_fzr_tel" class="text-danger"></div>
+                </div>
+            </div>
+
+            <!--
+            <div class="form-group " input-group="is_hetong">
+                <div class="col-sm-offset-2 col-sm-10 controls">
+                    <label>
+                        <input type="checkbox" id="is_hetong" name="is_hetong" {{#is_hetong }}checked="checked"{{/is_hetong }}>已签订了合同
+                    </label>
+
+                    <div input-errors="is_hetong" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="pay_type">
+
+                <label for="pay_type" class="col-sm-2 control-label">付款方式<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="pay_type" name="pay_type" placeholder="付款方式" maxlength="" value="{{ pay_type }}"
+                           input-check="required">
+
+                    <div input-errors="pay_type" class="text-danger"></div>
+                </div>
+            </div>
+            -->
+
+            <div class="form-group " input-group="shr">
+
+                <label for="shr" class="col-sm-2 control-label">送货人<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="shr" name="shr" placeholder="送货人" maxlength="10" value="{{ shr }}"
+                           input-check="required">
+
+                    <div input-errors="shr" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="shr_tel">
+
+                <label for="shr_tel" class="col-sm-2 control-label">送货人联系电话<span class="required">*</span></label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="shr_tel" name="shr_tel" placeholder="送货人联系电话" maxlength="15"
+                           value="{{ shr_tel }}"
+                           input-check="required">
+
+                    <div input-errors="shr_tel" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="bz">
+
+                <label for="bz" class="col-sm-2 control-label">备注</label>
+
+                <div class="col-sm-10 controls ">
+                    <textarea data-toggle="tooltip" rows="5" data-placement="top" style="max-width: 500px;"
+                              class="form-control" id="bz" name="bz" placeholder="备注" maxlength="200">{{ bz }}</textarea>
+
+                    <div input-errors="bz" class="text-danger"></div>
+                </div>
+            </div>
+            <!-- 项目开始结束-->
+        </form>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button type="button" onclick="createGysaddressButtonClick();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>
+

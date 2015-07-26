@@ -1,0 +1,10 @@
+{% extends 'webhtml/include/phone/field_base.html' %}
+{% block input %}
+    <span role="city_group" default="{{ field.value|default_if_none:'' }}" empty="{{ field.empty|default_if_none:'无' }}">
+                           <select role="select_province"  class="form-control"></select>
+                            <select role="select_city" class="form-control"
+                                    style="display: none"
+                                    name="{{ field.name }}" id="{{ field.name }}">
+                            </select>
+    </span>
+{% endblock %}

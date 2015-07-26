@@ -1,0 +1,32 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block scalabel %}
+{% endblock %}
+{% block title %}
+    <title>{{ column.name }}</title>
+{% endblock %}
+{% block defaultcss %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}cp_manage/phone/css/zongheganli.css">
+{% endblock %}
+{% block body %}
+<body class="bg_white1">
+
+<img src="{{ STATIC_URL }}webhtml/phone/images/zhgl/zong_background.png" id="zong_bg" />
+<div class="zong_con">
+    {% for col in columnslist %}
+        {% ifnotequal col.flag 'SHOUQUANGUANLI' %}
+        <div class="zong_cg_01">
+            <a href="/cp/zhgl/{{ col.company }}/{{ col.id }}/show_html"><img src="{{ STATIC_URL }}webhtml/phone/images/zhgl/{{ col.flag }}.png"></a><br/>
+            <a href="/cp/zhgl/{{ col.company }}/{{ col.id }}/show_html">{{ col.name }}</a>
+        </div>
+        {% else %}
+
+        {% endifnotequal %}
+    {% endfor %}
+<div class="zong_cg_01">
+        <a href="/cp/{{ company_id }}/manage_com_user_html"><img src="{{ STATIC_URL }}webhtml/phone/images/zhgl/CHENGYUANGUANLI.png"></a>
+        <a href="/cp/{{ company_id }}/manage_com_user_html">成员管理</a>
+    </div>
+
+</div>
+</body>
+{% endblock %}

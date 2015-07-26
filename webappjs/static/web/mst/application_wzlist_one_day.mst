@@ -1,0 +1,50 @@
+<button type="button" onclick="showWzlistDateList();" class="btn btn-default">返回</button>
+<h1>{{ date }}记录</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">最后修改时间:{{ create_time }}</div>
+            <div class="col-md-6">记录条数:{{ num }}</div>
+        </div>
+    </div>
+</div>
+<table class="table table-striped table-bordered table-hover" id="object_table">
+    <thead>
+    <tr>
+        <th scope="col">物资名称</th>
+        <th scope="col">规格</th>
+        <th scope="col">数量</th>
+        <!--
+        <th scope="col">库存量</th>
+        -->
+        {{#wzlist_is_out }}
+        <th scope="col">领料单位</th>
+        <th scope="col">领料人</th>
+        {{/wzlist_is_out }}
+        <!--
+        <th scope="col">操作</th>
+        -->
+    </tr>
+    </thead>
+    <tbody id="table_data">
+    {{#result}}
+    <tr>
+        <td>{{ name }}</td>
+        <td>{{ gg }}</td>
+        <!--
+        <td>{{ num }}</td>
+        -->
+        <td>{{ count }}</td>
+        {{#wzlist_is_out }}
+        <td>{{ company }}</td>
+        <td>{{ lingliaoren }}</td>
+        {{/wzlist_is_out }}
+        <!--
+        <td>
+            <button type="button" onclick="saveCreateWzlist({{ id }})" class="btn btn-default">修改</button>
+        </td>
+        -->
+    </tr>
+    {{/result}}
+    </tbody>
+</table>

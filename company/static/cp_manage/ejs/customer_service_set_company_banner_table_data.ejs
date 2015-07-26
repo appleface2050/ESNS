@@ -1,0 +1,27 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+    <td><%= item.id %></td>
+    <td><img src='<%= item.image_url %>' width="280" height="98" /></td>
+    <td><%= item.url %></td>
+    <td><%= item.index_num %></td>
+    <td>
+        <% if (item.is_active == null || item.is_active === false){ %>
+        <span class="label label-sm label-default">未生效</span>
+        <% }else if(item.is_active === true) { %>
+        <span class="label label-sm label-warning">生效</span>
+        <% } %>
+    </td>
+
+</tr>
+<%
+}); %>
+

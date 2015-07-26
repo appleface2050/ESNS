@@ -1,0 +1,36 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+
+    <td><%= item.name %></td>
+    <td><%= item.bigcompany_name %></td>
+    <td><img src='<%= item.logo_url %>' style="width: 32px;height: 32px;" /></td>
+    <td><img src='<%= item.top_logo_url %>'  style="width: 100px;height: 32px;" /></td>
+    <td><%= item.manager %></td>
+    <td>
+        <% if (item.is_active == null || item.is_active === false){ %>
+        <span class="label label-sm label-default">不可用</span>
+        <% }else if(item.is_active === true) { %>
+        <span class="label label-sm label-warning">可用</span>
+        <% } %>
+    </td>
+    <td><%= item.create_time %></td>
+    <td><%= item.expired_date %></td>
+    <td>
+        <a href="javascript:update_company('<%= item.id %>');"><span class="label label-sm label-danger">修改</span></a>
+        <a href="javascript:create_company_user('<%= item.id %>');"><span class="label label-sm label-danger">添加成员</span></a>
+        <a href="javascript:create_update_admin('<%= item.id %>');"><span class="label label-sm label-danger">修改管理员</span></a>
+    </td>
+
+</tr>
+<%
+}); %>
+

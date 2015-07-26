@@ -1,0 +1,6 @@
+<button type="button" class="btn btn-default" onclick="showCreateJc();">创建</button>
+<br>
+<br>
+<div id="jc_content" class="container-fluid">
+
+</div>

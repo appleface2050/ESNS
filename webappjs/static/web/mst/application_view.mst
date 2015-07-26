@@ -1,0 +1,5 @@
+<div class="row" id="app_top"></div>
+<div class="container-fluid" id="content">
+    <div class="row" id="app_content">
+    </div>
+</div>

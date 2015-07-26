@@ -1,0 +1,25 @@
+<ul class="well nav nav-pills nav-stacked">
+    <li view-id="home">
+        <a href="/"><span class="glyphicon glyphicon-home"></span>返回主页</a>
+    </li>
+<hr style="margin-top: 5px;margin-bottom: 15px; >
+    {{#menu_groups  }}
+        <li class="project_menu nav-header">
+            {{#icon }}<span class="glyphicon {{ icon }}">
+                </span>{{/icon }}{{ title }}
+        </li>
+        {{#menus }}
+        {{#show }}
+            <li view-id="{{ view_id }}"
+                class="project_menu">
+                <a href="javascript:openView('{{ view_id }}')">
+                    {{#icon }}<span class="glyphicon {{ icon }}">
+                    </span>{{/icon }}
+                    {{ title }}</a>
+            </li>
+        {{/show  }}
+        {{/menus }}
+    {{/menu_groups  }}
+
+
+</ul>

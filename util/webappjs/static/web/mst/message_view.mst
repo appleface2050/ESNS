@@ -1,0 +1,35 @@
+<div id="message_view_point"></div>
+<div class="row-fluid" id="message_view">
+    <div class="col-xs-3 col-sm-2 well text-center" style="height: 100%;">
+
+        <div class="btn-group" style="margin-top: -20px;">
+            <button onclick="setSideColumnState(0);" class="btn  btn-default"><span
+                    class="glyphicon glyphicon-user"></span></button>
+            <button onclick="setSideColumnState(1);" class="btn  btn-default"><span
+                    class="glyphicon glyphicon-comment"></span><span id="current_message_btn" class="badge">New</span>
+            </button>
+        </div>
+        <div id="side_content" class="text-left">
+        </div>
+    </div>
+    <div class="col-xs-9 col-sm-10 message_column well">
+        <!-- chat start -->
+        <div id="chat_title">
+            <div id="chart_user_name"></div>
+        </div>
+        <div id="chat_message">
+            <div id="chat_message_content"></div>
+        </div>
+        <div id="chat_input">
+            <div id="chat_input_toolbar">
+
+            </div>
+            <textarea placeholder="回车发送" id="chat_input_box"></textarea>
+
+            <div id="chat_input_bottom">
+                <button type="button" onclick="sendMessage();" class="btn btn-primary">发送</button>
+            </div>
+        </div>
+        <!-- chat end -->
+    </div>
+</div>

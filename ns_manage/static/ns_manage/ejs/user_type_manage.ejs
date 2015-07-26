@@ -1,0 +1,77 @@
+<div class="help-block">设置所选用户类型</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+        <div class="btn-group">
+            <button class="btn" onclick="setUserType(-1);">
+                <i class="icon-edit align-top bigger-125"></i>
+                无
+            </button>
+            <button class="btn btn-warning" onclick="setUserType(0);">
+                <i class="icon-edit align-top bigger-125"></i>
+                客服
+            </button>
+            <button class="btn btn-info" onclick="setUserType(1);">
+                <i class="icon-edit align-top bigger-125"></i>
+                会计
+            </button>
+            <button class="btn btn-danger" onclick="setUserType(2);">
+                <i class="icon-edit align-top bigger-125"></i>
+                推广员
+            </button>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4 pull-right">
+
+
+        <form ajax class="form-inline">
+            <input id="search_keyword" type="text" class="" placeholder="手机号，姓名">
+            <select id="search_user_type" class="input-small">
+                <option value="">所有</option>
+                <option value="0">客服</option>
+                <option value="1">会计</option>
+                <option value="2">推广员</option>
+            </select>
+
+            <button type="button" onclick="query_user();" class="btn btn-info btn-sm">
+                <i class="icon-search bigger-110"></i>
+                查询
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+
+<form id="user_list">
+    <div class="table-responsive">
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="center">
+                    <label>
+                        <input type="checkbox" select_all class="ace"/>
+                        <span class="lbl"></span>
+                    </label>
+                </th>
+                <th width="70" class="hidden-480">头像</th>
+                <th>手机号</th>
+                <th>姓名</th>
+
+                <th class="hidden-480">
+                    <i class="icon-time bigger-110 hidden-480"></i>
+                    注册时间
+                </th>
+                <th>用户类型</th>
+
+
+            </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</form>

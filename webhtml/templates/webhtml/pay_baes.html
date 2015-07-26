@@ -1,0 +1,13 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/pay_css.css" type="text/css" rel="stylesheet"/>
+    <script src="{{ STATIC_URL }}webhtml/js/charge.js" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% block pay_content %}{% endblock %}
+{% endblock %}

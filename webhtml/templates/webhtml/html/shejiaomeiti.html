@@ -1,0 +1,46 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script3.js" >
+    <script>
+    $("#firstpane .menu_body:eq(0)").show();
+    </script>
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+
+
+<!-- 代码 结束 -->
+
+<td align="center" valign="top"><div class="text_title">社交媒体</div>
+ <div class="text_content">
+<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td align="center"><img src="{{ STATIC_URL }}webhtml/img/0_5cm.jpg" width="200" height="200" alt=""/></td>
+      <td align="center"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3182649588&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:3182649588:53" alt="您好" title="您好"/></a>
+</td>
+    </tr>
+    <tr>
+      <td align="center">欢迎扫描关注微信公众平台</td>
+      <td align="center">欢迎 QQ 咨询</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+
+
+
+
+
+      </td>
+    </tr>
+</table>
+{% endblock %}

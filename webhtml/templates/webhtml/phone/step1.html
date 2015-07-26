@@ -1,0 +1,90 @@
+{% extends 'webhtml/phone/pay_baes.html' %}
+{% load webhtml_filter %}
+{% block content %}
+    <form method="post">
+        {% for i in tform %}
+            {{ i }}
+        {% endfor %}
+
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center"><img class="step_pic"
+                                        src="{{ STATIC_URL }}webhtml/phone/images/xiangmugaikuang1.png"
+                                        width="120"
+                                        height="75"/></td>
+                <td align="center"><img class="step_pic"
+                                        src="{{ STATIC_URL }}webhtml/phone/images/taocanxuanze0.png"
+                                        width="120"
+                                        height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fapiaoxinxi0.png"
+                                        width="120"
+                                        height="75"/></td>
+                <td align="center"><img class="step_pic"
+                                        src="{{ STATIC_URL }}webhtml/phone/images/fukuanfangshi0.png"
+                                        width="120"
+                                        height="75"/></td>
+                <td align="center"><img class="step_pic"
+                                        src="{{ STATIC_URL }}webhtml/phone/images/wanchengcaozuo0.png"
+                                        width="120"
+                                        height="75"/></td>
+            </tr>
+        </table>
+        {% if onProject %}
+            {#指定项目#}
+            {% if success %}
+                <input type="hidden" name="project_id" value="{{ project_id }}">
+                <table class="table_gaikuang" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="2" align="center">项目概况</td>
+                    </tr>
+                    <tr>
+                        <td align="right">项目简称:</td>
+                        <td align="left">{{ project.name }}</td>
+                    </tr>
+                    <tr>
+                        <td align="right">项目成员人数:</td>
+                        <td align="left">{{ project.person_nums }}人</td>
+                    </tr>
+                    <tr>
+                        <td align="right">当前剩余金豆:</td>
+                        <td align="left">{{ project.balance }}金豆</td>
+                    </tr>
+                    <tr>
+                        <td align="right">预计可用时间:</td>
+                        <td align="left">{{ project.days }}天</td>
+                    </tr>
+                </table>
+                <input type="submit" name="__state_2" value="下一步" class="button_style"/>
+            {% endif %}
+        {% else %}
+            {#未指定项目#}
+            <table class="table_gaikuang" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th align="center" width="10%"></th>
+                    <th align="center">项目名称</th>
+                    <th align="center" width="25%">余额</th>
+                    <th align="center" width="25%">剩余时间</th>
+                </tr>
+                {% for project in projects %}
+                    <tr>
+                        <td align="center"><input
+                                {% ifequal project_id|safe project.id|safe %}
+                                    checked="checked" {% endifequal %}
+                                    type="radio"
+                                    name="project_id"
+                                    id="id_{{ project.id }}"
+                                    value="{{ project.id }}"></td>
+                        <td align="center" style="width: 50%"><label
+                                for="id_{{ project.id }}">{{ project.name }}</label>
+                        </td>
+                        <td align="center">{{ project.balance }}金豆</td>
+                        <td align="center">{{ project.days }}天</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+            <input type="submit" name="__state_2" value="下一步" class="button_style"/>
+        {% endif %}
+
+    </form>
+{% endblock %}

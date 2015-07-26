@@ -1,0 +1,15 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover" id="object_table">
+        <thead>
+        <tr>
+            <th class="hidden-xs hidden-sm" scope="col">头像</th>
+            <th scope="col">用户名</th>
+            <th class="hidden-xs hidden-sm" scope="col">请求时间</th>
+            <th class="hidden-xs hidden-sm" scope="col">请求信息</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody id="table_data">
+        </tbody>
+    </table>
+</div>

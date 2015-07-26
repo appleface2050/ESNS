@@ -1,0 +1,68 @@
+{% load webhtml_filter %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8">
+    <title>充值</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type=text/javascript src="js/jquery.min.js"></script>-->
+    <script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script>
+        function submit_form() {
+            $('form').submit();
+        }
+    </script>
+</head>
+<body class="chongzhi_bg">
+<div class="chongzhi_biaoti">选择套餐：</div>
+<div class="huodongriqi"><img src="{{ STATIC_URL }}webhtml/phone/images/huodongriqi.png" alt=""/></div>
+<div class="chongzhi_huabian"></div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5%;">
+    <tbody>
+    <tr class="pay_bg">
+        <td width="13%" height="60" align="center" valign="middle" class="pay_line">选择<br>
+            套餐
+        </td>
+        <td width="19%" height="60" align="center" valign="middle" class="pay_line">金豆</td>
+        <td width="20%" height="60" align="center" valign="middle" class="pay_line">活动<br>
+            赠送
+        </td>
+        <td width="28%" height="60" align="center" valign="middle" class="pay_line">共计</td>
+        <td width="20%" height="60" align="center" valign="middle" class="pay_line">人民币（元）</td>
+    </tr>
+    </tbody>
+</table>
+<form method="post" id="form">
+    {% for i in products %}
+        <label for="product_id_{{ i.id }}">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff0f0"
+                   style="border-bottom:1px solid #d9d9d9;">
+                <tbody>
+                <tr>
+                    <td width="13%" height="60" align="center" valign="middle" class="">
+                        <input type="radio" name="product_id"
+                               {% if i.id == product_id %}checked{% elif forloop.first %}checked{% endif %}
+                               value="{{ i.id }}" id="product_id_{{ i.id }}">
+                    </td>
+                    <td width="15%" height="60" align="center" valign="middle" class="">{{ i.origin }}</td>
+                    <td width="8%" align="center" valign="middle" class="">+</td>
+                    <td width="12%" height="60" align="center" valign="middle" class="">{{ i.gift }}</td>
+                    <td width="11%" height="60" align="center" valign="middle" class="">=</td>
+                    <td width="22%" valign="middle" class="">{{ i.gold }}<img
+                            src="{{ STATIC_URL }}webhtml/phone/images/jd.png" alt=""
+                            class="jindou"/></td>
+                    <td width="19%" height="60" align="center" valign="middle" class=" pay_line1">
+                        ￥{{ i.price|money }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </label>
+    {% endfor %}
+</form>
+<div class="blue_button" style="margin-top:5%;cursor: pointer" onclick="submit_form();">确定</div>
+</body>
+</html>

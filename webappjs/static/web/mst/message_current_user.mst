@@ -1,0 +1,32 @@
+{{#current_user_list }}
+{{#hxgroup_id }}
+<a href="javascript:selectGroup(window.project_id, {{ hxgroup_id }})">
+    <div class="user_item">
+        <span class="glyphicon glyphicon-user"></span>
+        {{ name }}
+        {{#has_hit_count }}
+        <span class="badge">{{ hit_count }}</span>
+        {{/has_hit_count }}
+    </div>
+</a>
+{{/hxgroup_id }}
+
+{{^hxgroup_id }}
+<a href="javascript:selectUser(window.project_id, {{ id }})">
+    <div class="user_item">
+        {{#icon_url }}<img class="user_icon" src="{{ icon_url }}">{{/icon_url }}
+        {{^icon_url }}<img class="user_icon" src='/static/web/img/usericon.png'>{{/icon_url }}
+        {{ name }}
+        {{#has_hit_count }}
+        <span class="badge">{{ hit_count }}</span>
+        {{/has_hit_count }}
+    </div>
+</a>
+{{/hxgroup_id }}
+
+{{/current_user_list }}
+{{^current_user_list }}
+<div class="user_item">
+    暂无消息
+</div>
+{{/current_user_list }}

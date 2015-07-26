@@ -1,0 +1,15 @@
+{{#list  }}
+    {{#is_text }}
+        {{#get_message }}
+        <div>
+            {{ name }}:{{ text }}
+        </div>
+        {{/get_message }}
+
+        {{^get_message }}
+        <div class="text-right">
+            我:{{ text }}
+        </div>
+        {{/get_message }}
+    {{/is_text }}
+{{/list  }}

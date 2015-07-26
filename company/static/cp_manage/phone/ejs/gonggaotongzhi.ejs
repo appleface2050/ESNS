@@ -1,0 +1,23 @@
+<%
+_(result).each(function(n){
+    %>
+<li>
+<%if(n.icon_url){%>
+        <div class="news-1"><a href="/cp/zhgl/<%=n.company%>/<%=n.company_column%>/<%=n.id%>/show_html"><img  src="<%=n.icon_url%>"></a></div>
+<%}%>
+<%if(n.files_url){%>
+        <div class="news-1"><a href="<%=n.files_url%>"><img  src="<%=n.files_image_url%>"></a></div>
+        <div class="give-date02">
+             <a href="<%=n.files_url%>"><%=n.title%></a>
+             <div class="news_bottom"><span class="news_info">发布人：<%=n.author_name%></span><span class="news_time">发布时间:<%=n.publish_time%></span></div>
+        </div>
+<%}else{%>
+     <div class="give-date02<%=n.icon_url?"":" give-date-noimg"%>">
+         <a href="/cp/zhgl/<%=n.company%>/<%=n.company_column%>/<%=n.id%>/show_html"><%=n.title%></a>
+         <div class="news_bottom"><span class="news_info">发布人：<%=n.author_name%></span><span class="news_time">发布时间:<%=n.publish_time%></span></div>
+    </div>
+<%}%>
+</li>
+<%
+});
+ %>

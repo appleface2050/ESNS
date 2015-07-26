@@ -1,0 +1,134 @@
+{% extends 'web/base.html' %}
+{% block title %}{{ view.title }}{% endblock %}
+{% block frame_header %}
+    <script src="{{ STATIC_URL }}web/js/frame.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}web/js/menu_data.js" type="text/javascript"></script>
+{% endblock %}
+{% block  body %}
+    <!-- Frame -->
+
+    <!-- navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img alt="Brand" height="40" style="margin-top: -10px" src="{{ STATIC_URL }}webhtml/img/logo.png">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown" id="project_dropdown_menu" style="display: none">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span id="project_name"></span>
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="javascript:openView('all_project',true)">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                    所有项目</a>
+                            </li>
+                            <li>
+                                <a href="javascript:openView('my_project',true)">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    我关注的项目</a>
+                            </li>
+                            <li>
+                                <a href="javascript:openView('create_project',true)">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    新建项目</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:refreshView();"><span class="glyphicon glyphicon-refresh"></span>刷新</a>
+                    </li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <strong>欢迎， <span id="top_name"></span></strong>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:openView('user_info')"><span
+                                    class="glyphicon glyphicon-info-sign"></span>个人信息</a></li>
+                            <li><a href="/user_center"><span
+                                    class="glyphicon glyphicon-usd"></span>我的订单</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'web:logout' %}"><span class="glyphicon glyphicon-log-out"></span>注销</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- navbar end -->
+    <div class=" container-fluid">
+        <div class="clearfix row">
+            <!-- Left menu-->
+            <div id="left-side-menu" class="col-md-2">
+            </div>
+            <!-- Left menu end-->
+            <div class="col-md-9 col-lg-10" id="view_content">
+                {% block content-title %}
+                    <div class="navbar content-navbar navbar-default navbar-xs" data-toggle="breakpoint"
+                         data-class-xs="navbar content-navbar navbar-inverse navbar-xs"
+                         data-class-sm="navbar content-navbar navbar-default navbar-xs">
+                        <div class="navbar-header">
+
+                            <span class="navbar-brand">
+                                {% if view.parents %}
+                                    {% for parent in view.parents %}
+                                        <span class="parent-brand"><a
+                                                href="{{ parent.url }}"><u>{{ parent.name }}</u></a> <span
+                                                class="glyphicon glyphicon-chevron-right"></span></span>
+                                    {% endfor %}
+                                {% endif %}
+                                {{ view.title }}
+                            </span>
+
+                        </div>
+                    </div>
+                {% endblock %}
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <script>
+            $(function () {
+                {% for message in messages %}
+                    {% ifequal message.tags 'error' %}
+                        $.simplyToast('{{ message }}', 'danger');
+                    {% else %}
+                        $.simplyToast('{{ message }}', '{{ message.tags }}');
+                    {% endifequal %}
+                {% endfor %}
+            });
+        </script>
+    {% endif %}
+    <div id="cover" class="cover">
+        <div class="progress" style="position: fixed;margin:auto;left:0; right:0; top: 50%;width: 40%;">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
+                 aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                <span style="font-size: 15px">Loading ...</span>
+            </div>
+        </div>
+    </div>
+    <!-- Frame end-->
+{% endblock %}

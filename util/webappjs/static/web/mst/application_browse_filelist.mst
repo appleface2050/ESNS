@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">浏览</a></li>
+    <li role="presentation"><a href="javascript:show_create_filelist();">创建</a></li>
+</ul>
+<br>
+<div id="filelist_content" class="container-fluid">
+
+</div>

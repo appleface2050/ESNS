@@ -1,0 +1,30 @@
+<%
+var last_pinyin_word = '';
+        _(list).each(function(item){
+    var pinyin_word = item.pinyin.substring(0, 1);
+%>
+<% if(last_pinyin_word != pinyin_word){ %>
+<div class="ct_01"><%= pinyin_word %></div>
+<% } %>
+
+
+<div class="content_text">
+
+    <span class="ct_02"><%= item.name %></span>
+    <% if (item.status == 'success'){ %>
+    <span chk class="ci_05"></span>
+    <% } %>
+    <% if (item.status == 'error'){ %>
+    <span chk class="ci_04"></span>
+    <% } %>
+    <% if (item.status == 'sms'){ %>
+    <span chk class="ci_06"></span>
+    <% } %>
+    <br>
+    <span class="ct_03"><%= item.tel %></span>
+
+</div>
+
+<%
+    last_pinyin_word = pinyin_word;
+}); %>

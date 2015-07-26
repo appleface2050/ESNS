@@ -1,0 +1,28 @@
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form target="bcs_upload" method="post" class="form-horizontal" enctype="multipart/form-data" id="upload_form">
+            <div class="form-group " input-group="upload">
+                <label for="upload" class="col-sm-2 control-label">头像:</label>
+
+                <div class="col-sm-10 controls ">
+                    <input type="file" class="form-control" style="max-width: 500px;" name="file"
+                           input-check="imageForUserIconUploadCheck()" id="upload">
+
+                    <div input-errors="upload" class="text-danger"></div>
+                </div>
+
+            </div>
+        </form>
+        <iframe id="bcs_upload" style="display: none;" name="bcs_upload"></iframe>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button type="button" onclick="saveUserIcon();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>
+

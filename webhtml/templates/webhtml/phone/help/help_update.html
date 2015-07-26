@@ -1,0 +1,45 @@
+{% load ueditor_filter %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<meta charset="utf-8">
+<title>帮助</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/pay.css">
+<script type=text/javascript src="{{ STATIC_URL }}webhtml/phone/js/jquery.min.js"></script>
+
+</head>
+<!--  class=""app_link_body-->
+<body>
+<form action="/helpupdate" method="post">
+<div class="help_xx_biaoti"><input name="title" value="{{ obj.title |default:"" }}" style="width: 100%;"></div>
+<select name="menu_id">
+    {% for menu, n, t in menulist %}
+        {% ifequal t 'menu' %}
+            <option value="{{ menu.id }}" {% ifequal menu.id obj.help_menu_id %}selected="selected" {% endifequal %}>{{ n|safe }}{{ menu.title }}</option>
+        {% endifequal %}
+    {% endfor %}
+</select>
+<div class="jifen_content">
+     
+    <div class="xiangguanjieshao">
+{{ obj.text|ueditorReplay:"content"|safe }}
+
+
+    </div>
+    </div>
+<div class="jifen_content">
+<input name="sorted" value="{{ obj.sorted|default:'0' }}" style="width: 80%;">
+    </div>
+<input type="hidden" name="id" value="{{ obj.id |default:""}}">
+<input type="submit" value="保存">
+<br/>
+<a href="/helpupdate">新建使用帮助</a>
+</form>
+{% include "webhtml/phone/help/help_content_incloud.html" %}
+</body>
+</html>

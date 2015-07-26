@@ -1,0 +1,21 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+
+
+    <td><%= item.name %></td>
+
+
+
+
+</tr>
+<%
+}); %>

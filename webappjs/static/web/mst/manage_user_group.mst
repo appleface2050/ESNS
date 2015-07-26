@@ -1,0 +1,51 @@
+<div class="panel-group" id="user_group">
+    {{#group_list }}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#user_group"
+                   href="#group_id{{ id }}">
+                    {{ name }}
+                </a>
+                {{ user_count }}
+            </h4>
+        </div>
+        <div id="group_id{{ id }}" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="manage_user_item">
+                    <button type="button" onclick="show_add_person_by_tel_dial('{{ id }}');" class="btn btn-default">添加用户</button>
+                </div>
+                {{#user_list }}
+                <div class="row manage_user_item">
+                    <div class="col-md-3">
+                        {{#icon_url }}<img class="user_icon_lg" src="{{ icon_url }}">{{/icon_url }}
+                        {{^icon_url }}<img class="user_icon_lg" src='/static/web/img/usericon.png'>{{/icon_url }}
+                        <span class="manage_user_name">{{ name }}</span>
+                    </div>
+                    <div class="col-md-9">
+
+                        <button type="button" onclick="manageShowSelectGroup('{{ id }}')" class="btn btn-default">更改所在单位
+                        </button>
+                        <!--
+                        {{#group_id }}
+                        <button type="button"
+                                onclick="manageConfirmDeleteFromGroup('{{ id }}','{{ group_id }}','{{ name }}','{{ group_name }}');"
+                                class="btn btn-default">从该组移除
+                        </button>
+                        {{/group_id }}
+                        -->
+                        {{#canDelete }}
+                        <button type="button" onclick="manageConfirmRemoveUserFromProject('{{ id }}','{{ name }}');"
+                                class="btn btn-danger">从该项目删除
+                        </button>
+                        {{/canDelete }}
+                    </div>
+                </div>
+
+
+                {{/user_list }}
+            </div>
+        </div>
+    </div>
+    {{/group_list }}
+</div>

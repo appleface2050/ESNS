@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=3.0; user-scalable=0;"/>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="{{ STATIC_URL }}webhtml/phone/css/css.css?t=12" rel="stylesheet">
+    <link href="{{ STATIC_URL }}webhtml/phone/css/style.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}webhtml/phone/css/pay.css" rel="stylesheet">
+{% block head_ext %}{% endblock %}
+    <script>
+
+    </script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}
+{% endblock %}
+<script src="{{ STATIC_URL }}js/jquery-1.11.1.min.js"></script>
+<script src="{{ STATIC_URL }}js/underscore-min.js"></script>
+<script src="{{ STATIC_URL }}js/json2.js"></script>
+<script src="{{ STATIC_URL }}js/ejs_production.js"></script>
+<script src="{{ STATIC_URL }}cp_manage/phone/js/base.js"></script>
+<script src="{{ STATIC_URL }}cp_manage/js/city_data.js"></script>
+<script type="text/javascript">
+    var staticUrl = "{{ STATIC_URL }}";
+    {% if is_debug %}
+        var is_debug = true;
+    {% else %}
+        var is_debug = false;
+    {% endif %}
+    {% if user.id %}
+        var uid ={{ user.id }};
+    {% endif %}
+</script>
+{% block bottom_ext %}{% endblock %}
+
+</body>
+</html>

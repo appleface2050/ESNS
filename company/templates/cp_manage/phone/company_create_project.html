@@ -1,0 +1,17 @@
+{% extends 'cp_manage/phone/base2.html' %}
+{% block title %}创建项目{% endblock %}
+{% block head_ext %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}cp_manage/phone/css/chuangjianxiangmu.css">
+{% endblock %}
+{% block body_class %}cjxm_bg{% endblock %}
+{% block body %}
+
+
+{% endblock %}
+{% block bottom_ext %}
+{#    <script src="{{ STATIC_URL }}cp_manage/phone/js/user_manage.js?t=1123123"></script>#}
+    <script src="{{ STATIC_URL }}cp_manage/phone/js/company_project_manage.js?t=134"></script>
+    <script>
+        var company_id = "{{ company_id }}";
+    </script>
+{% endblock %}

@@ -1,0 +1,5 @@
+<select name="bigcompany_id" input-check="required" id="form-field-bigcompany_id" class="col-sm-5" placeholder="集团">
+            <%for(var i=0;i<bigcompany_list.length;i++){%>
+                <option value="<%=bigcompany_list[i].id%>" <%if(bigcompany_list[i].id==bigcompany_id){%>selected<%}%>><%=bigcompany_list[i].name%></option>
+            <%}%>
+            </select>

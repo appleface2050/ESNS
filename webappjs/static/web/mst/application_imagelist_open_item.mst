@@ -1,0 +1,22 @@
+<div>
+    <button type="button" onclick="show_browse_imagelist();" class="btn btn-default">返回</button>
+</div>
+<h1>{{#format_text }}{{ title }}{{/format_text }}</h1>
+<div class="help-block">创建者:{{#createUserName }}{{ user }}{{/createUserName }}</div>
+<div>
+    <a href="javascript:imagesDing({{ id }})">顶</a>
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:imagesReplay({{ id }})">评论</a>
+</div>
+
+{{#is_bg_state }}
+<div>处理方式:{{ text }}</div>
+{{/is_bg_state }}
+{{#files }}
+<br>
+<div id="image_file_id_{{ template_image }}"></div>
+{{/files }}
+<br>
+<br>
+<div id="replay_list">
+
+</div>

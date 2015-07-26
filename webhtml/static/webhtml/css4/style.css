@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+*{
+	padding: 0;	
+	margin: 0;
+	font-family: Arial,"Microsoft Yahei",SimHei; 	
+	font-weight: 200;
+}
+
+body { color: #5c5c5c; background: #ffffff;text-align: center; }
+
+*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+p {font-size: 14px; line-height: 25px; margin-bottom: 25px; font-weight: 300; }
+
+a{
+	text-decoration:none;	
+}
+
+li{
+	list-style-type:none;
+}
+
+img{
+	max-width:100%;	
+	border:0;
+	font-size:12px;
+}
+
+
+#header{	
+	background:#34495e;
+	height:55px;
+	width:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	text-align:center;
+	z-index: 1995;	
+}
+
+* html,* html body{	
+	background-image:url(about:blank);background-attachment:fixed;
+}
+
+* html #header{
+	position:absolute;
+	left:expression(eval(document.documentElement.scrollLeft));
+	top:expression(eval(document.documentElement.scrollTop));
+	
+}
+
+
+#logo{
+	margin-left: 30px;
+	width:200px;
+	height:46px;	
+	float:left;
+	margin-top:4px;
+	background:url(../images4/logo.png) no-repeat left center;
+}
+
+#menu{
+	list-style-type: none; 	
+	float: right;
+	margin-right: 20px;
+	margin-top: 5px;
+}
+
+#menu2{
+	float: right;
+	display: none;
+}
+
+.zd_btn{
+	width: 55px;
+	height:55px;	
+	display: inline-block;	
+	background:url(../images4/menu_icon.png) no-repeat center center;
+}
+
+.am-dropdown-content{
+	border: 0;
+	margin-top:-4px;
+}
+
+@media screen and (max-width:850px) {	
+	#menu{
+		display: none;
+	}
+	
+	#menu2{
+		float: right;		
+		display:block;
+	}		
+	
+}
+
+#menu li { 	
+	float:left;	
+	font-size:15px;
+	line-height:46px;
+}
+
+#menu a { 
+	padding-left:18px;
+	padding-right:18px;
+	float:left;	
+	font-size:15px;
+	display:block;
+	text-align:center;
+	color:#fff;	
+	line-height:46px;	
+}
+#menu .active a { 
+	color:#3fa8d1;	
+}
+.section { 
+	text-align: center; 	
+	color:#fff;
+}
+
+.qjimg{
+	width:142px;
+	height:142px;	
+	border-radius:50%;
+}
+
+.slider-captions h1{
+	color:#363c42;
+	font-size:382%;	
+	margin:0;
+	padding:0;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family:"Microsoft Yahei","黑体";
+	letter-spacing: .2em;
+}
+
+.slider-captions p{
+	color:#1a1c1d;
+	font-size:100%;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	letter-spacing: .2em;
+}
+
+@media screen and (max-width:768px) {
+	.slider-captions h1{		
+		font-size:80px;			
+	}	
+}
+
+@media screen and (max-width:600px) {
+	.slider-captions h1{		
+		font-size:40px;			
+	}	
+	
+	.slider-captions p{
+		color:#1a1c1d;
+		font-size:14px;	
+		font-weight: bold;	
+	}
+}
+
+.service-details h4{
+	color: #333;
+}
+
+.service-details p{
+	color: #333;
+}
+
+.service{
+	width: 70%;
+	height: 40%;
+	margin: auto;
+	margin-right: auto;
+}
+
+.service_box{
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+.service-details {
+	border-radius: 3px;
+	background: rgba(255,255,255,.5);
+	padding: 52px 20px 20px 20px;
+	width: 95%;
+	margin: 0 2.5%;
+	float:left;
+	height: 75%;
+}
+
+.service-details h2 {
+	margin: 2px 0 6px 0;
+	color: #fff;
+}
+
+.service-details p {
+	margin-bottom: 0;
+	margin-top:10px;
+	line-height: 30px;
+	text-align: left;
+	color: #fff;
+}
+
+i.large-icon {	
+	display: inline-block;
+	vertical-align: middle; 
+	text-align: center;
+	width: 84px;
+	height: 84px;
+	font-size: 28px;	
+	border-radius: 50%;
+	margin-bottom: -40px;
+	
+}
+
+@media screen and (max-width:1440px) {
+	.service{
+		width:85%;		
+	}
+}
+
+@media screen and (max-width:1280px) {
+	.service{
+		width:90%;		
+	}
+}
+
+@media screen and (max-width:768px) {
+	.service{
+		width:85%;	
+		
+	}
+	
+	.service_box{
+		width: 50%;
+		float: left;
+	}
+	
+}
+
+@media screen and (max-width:600px) {
+	.service{
+		width:85%;	
+		
+	}
+	
+	.service_box{
+		width: 100%;
+		float: left;
+	}
+	
+	.title1{margin-top:100px}	
+}
+
+	/* Overwriting fullPage.js tooltip color
+	* --------------------------------------- */
+	.fp-tooltip{
+		color: #AAA;
+	}
+	#fp-nav span, .fp-slidesNav span{
+		border-color: #AAA;
+	}
+
+	#fp-nav li .active span, .fp-slidesNav .active span{		
+		background: rgba(168,168,168,.8);		
+	}
+	
+	#fp-nav ul li a span,
+	.fp-slidesNav ul li a span {	 
+	    height: 6px;
+	    width: 6px;	   
+	    background: rgba(168,168,168,.8);
+	    margin: -3px 0 0 -3px;
+	}
+	
+	#fp-nav ul li .fp-tooltip {
+   		display: none;
+	}

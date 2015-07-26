@@ -1,0 +1,16 @@
+{{#result}}
+<a href="javascript:showWzlistOneDay('{{ id }}')">
+    <div class="well">
+        <h2>{{ date }}记录</h2>
+
+        <div class="row">
+            <div class="col-md-3 text-right">
+                最后修改时间:{{ create_time }}
+            </div>
+            <div class="col-md-3">
+                数量:{{ num }}
+            </div>
+        </div>
+    </div>
+</a>
+{{/result}}

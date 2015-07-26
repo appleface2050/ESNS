@@ -1,0 +1,44 @@
+{% extends 'webhtml/phone/pay_baes.html' %}
+{% block ext_header %}
+    <script src="{{ STATIC_URL }}webhtml/js/charge.js" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+    <script>
+        $(function () {
+            initAddressV2();
+        })
+    </script>
+    <form id="fp_form" method="post">
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/xiangmugaikuang0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/taocanxuanze0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fapiaoxinxi1.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/fukuanfangshi0.png"
+                                        width="120" height="75"/></td>
+                <td align="center"><img class="step_pic" src="{{ STATIC_URL }}webhtml/phone/images/wanchengcaozuo0.png"
+                                        width="120" height="75"/></td>
+            </tr>
+        </table>
+        <table border="0" cellspacing="0" cellpadding="0" class="table_fapiao">
+            {% for t in tform %}
+                {{ t }}
+            {% endfor %}
+        </table>
+        <div id="fp_view" style="display: none">
+            <table border="0" cellspacing="0" cellpadding="0" class="table_fapiao">
+                {% for t in tform2 %}
+                    {{ t }}
+                {% endfor %}
+                {% for t in tform3 %}
+                    {{ t }}
+                {% endfor %}
+            </table>
+        </div>
+        <input type="submit" name="__back_state_2" value="上一步" class="button_style"/>
+        <input type="submit" name="__state_4" onclick="return fp_form_check();" value="下一步" class="button_style"/>
+    </form>
+{% endblock %}

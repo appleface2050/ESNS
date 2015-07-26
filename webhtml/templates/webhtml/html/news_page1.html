@@ -1,0 +1,39 @@
+{% extends 'webhtml/frame.html' %}
+
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script1.js" >
+    </script>
+
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+<!-- 代码 结束 -->
+
+<td align="center" valign="top"><div class="text_title">新闻中心</div>
+ <div class="text_content">
+        <div class="newspage-title"> <strong>什么是“你的Need”？</strong></div>
+<div class="newspage-date">依子轩软件科技  &nbsp;&nbsp;&nbsp;&nbsp;2015-3-17</div>
+<div class="newspage_concent" style=" text-align:left;">
+  <p>&nbsp;　&nbsp;&ldquo;你的NEED&rdquo;是依子轩软件科技倾心打造的一款建设领域项目信息管理移动工具，是针对建设工程进行多单位协同工作、信息即时共享、提高工作效率、提升项目管理水平的工程管理信息平台（Project Management Information Platform,简称PMIP）。 <br>
+核心功能模块： <br>
+1、  联系人及消息：<br>
+&nbsp;　&nbsp;所有与建筑工程相关的单位人员（建设行政主管部门、建设单位、勘察单位、设计单位、监理单位、施工单位、劳务分包单位、专业分包单位等专业管理人员，可以即时获得在施工工程的各种信息，各个成员之间可以进行无障碍即时沟通交流。让项目管理只有时间维度，没有空间限制。 <br>
+2、  应用模块： <br>
+&nbsp;　&nbsp;应用中包含：施工日志、工程施工进度计划、工程形象进度、工作影像记录、工程质量安全检查、实体质量展示、安全文明展示、施工违章曝光、项目文化建设展示、工程材料机械管理、仓库物资管理、各类文件通知传达、工程预算决算、实测实量、工程相关知识等等，能够即时上传，即时共享。 </p>
+</div>
+ </div>
+
+      </td>
+    </tr>
+</table>
+
+
+{% endblock %}

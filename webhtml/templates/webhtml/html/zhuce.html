@@ -1,0 +1,86 @@
+{% extends 'webhtml/base.html' %}
+{% block defaultcss %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block defaultscript %}
+{% endblock %}
+{% block bodytag %}
+<body class="login_bg">
+{% endblock %}
+{% block body %}
+<div class="zc_w">
+  <div class="zc_w_dingwei">
+  <div class="back_home"><a href="/">返回首页》</a></div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr>
+                                <td width="119" height="40" align="right">
+                                    手 机 号 码：</td>
+                                <td>
+                                    <input name="user" id="user" tabindex="1" type="text" class="login_input">
+                                </td>
+                                <td class="">  </td>
+                            </tr>
+                            <tr>
+                                <td width="119" height="40" align="right">短信验证码：</td>
+                                <td>
+                                    <input name="cc" type="text" id="cc" tabindex="3" style="border:1px solid #afafaf;width:90px;height:24px;line-height:24px;padding-left:5px;">
+                                 <input type="button" value="获取验证码">
+                                </td>
+                              <td class="red">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td width="119" height="40" align="right">&nbsp;&nbsp;密 码：&nbsp;
+                                </td>
+                                <td><input name="user2" id="user2" tabindex="1" type="text" class="login_input"><div id="keyboard" style="position: absolute; display: none; z-index: 9999;">
+                                </div>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td height="45" align="right">确认密码：&nbsp;
+                                </td>
+                                <td width="207">
+                                    <input name="cc" type="text" id="cc" tabindex="3" class="login_input">
+                                  </td>
+                                <td width="94">
+                                                               
+                                       </td>
+                            </tr>
+                            <tr>
+                              <td height="45" align="right">真实姓名：&nbsp;
+                                </td>
+                                <td width="207">
+                                    <input name="cc" type="text" id="cc" tabindex="3" class="login_input">
+                              </td>
+                                <td width="94">
+                                                               
+                              </td>
+                            </tr>
+                            <tr>
+                                <td height="51" align="right">&nbsp;
+                                    
+                                </td>
+                                <td width="207">
+                                 <input type="image" src="{{ STATIC_URL }}webhtml/img/tj1_11.jpg">
+                                </td>
+ 
+                                <td width="94">&nbsp;
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                              <td height="57">&nbsp;</td>
+                              <td valign="bottom">&nbsp;</td>
+                              <td align="right" valign="bottom"><div style="color: #0099FF; font-size:; text-decoration: underline; line-height: 25px; height: 25px;"> <a href="/login.html">登录</a></div></td>
+                              </tr>
+                        </tbody>
+  </table>
+  </div>
+  
+  <div class="jishuzhichi">技术支持：天津依子轩软件科技有限公司  | 津ICP备15000951号-1</div>
+</div>
+    <script type="text/javascript" id="bd_soc_login_boot"></script><script type="text/javascript">(function(){var t = new Date().getTime(),script = document.getElementById("bd_soc_login_boot"),redirect_uri = encodeURIComponent("http://www.tjeasyshare.com/ns/web_social_callback"),domid = "shhdl",src = "http://openapi.baidu.com/social/oauth/2.0/connect/login?redirect_uri=" + redirect_uri + "&domid=" + domid + "&client_type=web&response_type=code&media_types=sinaweibo%2Cqqdenglu%2Cbaidu%2Cqqweibo%2Ckaixin%2Crenren&size=53x356&button_type=3&client_id=yT9Lxqc0U56Bv0oB7bvotqGg&view=embedded&t=" + t;script.src = src;})();</script>
+{% endblock %}
+

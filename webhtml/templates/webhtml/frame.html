@@ -1,0 +1,203 @@
+{% extends 'webhtml/base.html' %}
+{% block  body %}
+    <!-- 客服悬停框 end -->
+    <link href="{{ STATIC_URL }}webhtml/css/kf.css" rel="stylesheet" type="text/css">
+    <script>
+        kf_url = "{{ kf_url }}";
+        sessionid = "{{ sessionid }}";
+    </script>
+    <script src="{{ STATIC_URL }}webhtml/js/kf.js" type="text/javascript"></script>
+    <div id="kf_panel" class="kf_panel" onclick="openwin()"></div>
+    <!-- 客服悬停框 end -->
+
+    <div id="header-title">
+        <div class="logo">
+            <a href="#">
+                <img width="158" height="62" src="{{ STATIC_URL }}webhtml/img/logo.png">
+            </a>
+        </div>
+        <div class="logo-right">
+            <p id="loginTopTipP">
+                {% if user.is_active %}
+                    依子轩软件科技欢迎您 &nbsp;&nbsp;
+                    <a href="/web">
+                        {% if user.name %}
+                            {{ user.name }}
+                        {% else %}
+                            {{ user.tel }}
+                        {% endif %}
+                    </a>
+                    <a href="/logout">
+                        [注销]
+                    </a>
+                {% else %}
+                    依子轩软件科技欢迎您，请 &nbsp;&nbsp;
+                    <a id="headerMemberLoginA" href="/login?next=/web">
+                        [登录]
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="/register">
+                        [注册]
+                    </a>
+                {% endif %}
+{#                &nbsp;&nbsp;#}
+{#                <a shref="">#}
+{#                    帮助中心#}
+{#                </a>#}
+            </p>
+        </div>
+    </div>
+    <div id="nav">
+        <ul>
+            <li onclick="qiehuan(0)" id="mynav0" class="nav_on">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            <li onclick="qiehuan(1)" id="mynav1" class="nav_off">
+                <a id="productListNavA" href="/download.html">
+                    下载
+                </a>
+            </li>
+            <li onclick="qiehuan(2)" id="mynav2" class="nav_off">
+                <a href="/dingjia.html">
+                    定价
+                </a>
+            </li>
+            <li onclick="qiehuan(3)" id="mynav3" class="nav_off">
+                <a href="/shiyongshuomingshu.html">
+                    使用说明书
+                </a>
+            </li>
+{#            <li onclick="qiehuan(4)" id="mynav4" class="nav_off" style="width:150px; height:45px; ">#}
+{#                <a id="weixinNavA" href="">#}
+{#                    <img width="25" height="25" class="erwei" src="{{ STATIC_URL }}webhtml/img/erwei.jpg">#}
+{#                    施工微信#}
+{#                    <img width="20" height="18" src="{{ STATIC_URL }}webhtml/img/weixin.png"#}
+{#                         style="margin-bottom:-5px;">#}
+{#                </a>#}
+{#            </li>#}
+            <li onclick="qiehuan(5)" id="mynav5" class="nav_off">
+                <a href="/web">
+                    <img width="120" height="40" src="{{ STATIC_URL }}webhtml/img/jinruxiangmu.gif"
+                         style="margin-top:2px;">
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% block content %}{% endblock %}
+    <!-------------------------页脚部分-------------------------------->
+    <div id="clood_down">
+        <div id="footer">
+            <div class="about">
+            <span class="span-1">
+                关于你的 Need
+            </span>
+            <span class="span-2">
+                购买与付款
+            </span>
+            <span class="span-3">
+                帮助与支持
+            </span>
+            <span class="span-4">
+                关注我们
+
+            </span>
+            </div>
+            <div class="hidden">
+            </div>
+            <div class="jiazu">
+                <ul>
+                    <li>
+                        <a href="/about.html">
+                            公司简介
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact.html">
+                            联系我们
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/xieyi.html">
+                            服务协议
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cloodWindow">
+                <ul>
+                    <li>
+                        <a href="/zhifufangshi.html">
+                            支付方式
+                        </a>
+                    </li>
+{#                    <li>#}
+{#                        <a href="#">#}
+{#                            关于发票#}
+{#                        </a>#}
+{#                    </li>#}
+                    <li>
+                        <a href="/dingjia.html">
+                            定价与计算
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="forum">
+                <ul>
+                    <li>
+                        <a href="/shiyongshuomingshu.html">
+                            使用说明书
+                        </a>
+                    </li>
+{#                    <li>#}
+{#                        <a href="#">#}
+{#                            意见与反馈#}
+{#                        </a>#}
+{#                    </li>#}
+                    <ul>
+                    </ul>
+                </ul>
+            </div>
+
+        <div class="forus">
+         <ul>
+        <li><img src="{{ STATIC_URL }}webhtml/img/0_5cm.jpg" alt="ios" width="80" height="80"></li>
+        <li> <a href="#">微信公众平台</a> </li> </ul>
+        <ul style="">
+        <li><div class="social">
+           <a class="icon-qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3182649588&site=qq&menu=yes"><img border="0" style="border:0;" src="http://wpa.qq.com/pa?p=2:3182649588:51" alt="您好" title="您好"/></a>
+{#<wb:follow-button uid="3235070644" class="icon-weibo" type="red_1" width="67" height="24" ></wb:follow-button>#}
+        <wb:follow-button uid="5478384137" type="red_1" width="67" height="24" class="icon-weibo"  ></wb:follow-button>
+   		</div></li>
+        <li>
+	               		<div align="left">
+		               	<span>电话：</span>022-60709516
+	               		</div>
+	               		<div>
+		               		<span>邮件：</span><a href=mailto:easyshare@tjeasyshare.com>easyshare@tjeasyshare.com</a>
+
+	               </div> </li>
+        </ul>
+
+        </div>
+            <table align="center" style="width:1200px; height:48px; ">
+                <tr>
+                    <td>
+                        <div class="opacity-pib">
+                            © 2014 EASYSHARE All Rights reserved. 保留所有权利
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icp">
+                            <a href="http://www.miitbeian.gov.cn/">
+                                津ICP备15000951号-1
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

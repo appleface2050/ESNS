@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+.cjxm_t1{
+    width: 35%;
+    height: 2em;
+    color: #333333;
+    line-height: 2em;
+    text-align: right;
+    margin-top: 1em;
+    float: left;
+}
+.cjxm_t2{
+    width: 65%;
+    height: 2em;
+    margin-top: 1em;
+    float: left;
+
+}
+.cjxm_t2 input{
+    width: 80%;
+    border-radius:0px;
+    padding: 1px;
+    height: 1.5em;
+    margin-left: 1em;
+    border: 1px solid #d8d8d8;
+    color: #333333;
+}
+.cjxm_t2 select{
+    width: 40%;
+    border: 1px solid #d8d8d8;
+    /*margin-left: 1em;*/
+    color: #333333;
+}
+.cjxm_t3{
+    width: 40%;
+    height: 2em;
+    margin-left:0.5em;
+}
+.cjxm_t2 select option{
+    height: 2em;
+    background: none;
+    border: none;
+}
+#cjxm_time{
+    width: 100%;
+    height: 2em;
+    font-size: 1em;
+    margin-left: 1.4em;
+}
+.cjxm_btn{
+    width: 100%;
+    height: 2em;
+    margin:1em 0 0 0;
+    font-size: 2em;
+    border: 0;
+    background: deepskyblue;
+    color: white;
+}
+.cjxm_btn:hover{
+    background: #008acd;
+}

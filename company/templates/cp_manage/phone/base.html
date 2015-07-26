@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="cache-control" content="no-cache">
+{% block scalabel %}
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3.0,user-scalable=0"/>
+{% endblock %}
+<meta charset="utf-8">
+{% block title %}{% endblock %}
+{% block defaultcss %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/css.css{% if is_debug %}?t={{ t }}{% endif %}">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/style.css{% if is_debug %}?t={{ t }}{% endif %}">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}webhtml/phone/css/pay.css{% if is_debug %}?t={{ t }}{% endif %}">
+{% endblock %}
+{% block extjs %}
+{% endblock %}
+</head>
+{% block body %}
+{% endblock %}
+</html>

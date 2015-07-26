@@ -1,0 +1,29 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+    <td><%= item.id %></td>
+    <td><%= item.name %></td>
+    <td><img src="<%= item.logo_url %>" /></td>
+    <td>
+        <% if (item.is_display == null || item.is_display === false){ %>
+        <span class="label label-sm label-default">不展示</span>
+        <% }else if(item.is_display === true) { %>
+        <span class="label label-sm label-warning">展示</span>
+        <% } %>
+    </td>
+    <td>
+        <a href="javascript:update_bigcompany(<%=item.id%>);"><span class="label label-sm label-warning">修改</span></a>
+    </td>
+
+</tr>
+<%
+}); %>
+

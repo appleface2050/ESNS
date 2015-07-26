@@ -1,0 +1,11 @@
+{% extends 'webhtml/include/form_field_base.html' %}
+{% block input %}
+    <select name="{{ field.name }}" id="{{ field.auto_id }}">
+        {% for choice in field.choices %}
+
+            <option value="{{ choice.0 }}"
+                    {% ifequal field.value|safe  choice.0|safe %}  selected{% endifequal %}>{{ choice.1 }}</option>
+        {% endfor %}
+    </select>
+
+{% endblock %}

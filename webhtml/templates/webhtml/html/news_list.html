@@ -1,0 +1,87 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script.js" />
+    <script>
+    $("#firstpane .menu_body:eq(0)").show();
+    </script>
+{% endblock %}
+
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+{% include 'webhtml/html/include_menu.html' %}
+      </td>
+
+
+<!-- 代码 结束 -->
+
+
+<td align="center">
+
+<div class="text_title">新闻中心</div>
+
+      <div class="news_list">
+      <div id="caseList">
+              <div class="news-1"><a href="news_page1.html"><img width="150" height="100" src="{{ STATIC_URL }}webhtml/img/anli1.jpg"></a>
+                <div class="give-date">
+                  <p><a href="news_page1.html">什么是“你的Need”？</a></p>
+                  <ul>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                        “你的NEED”是依子轩软件科技倾心打造的一款建设领域项目信息管理移动工具，
+                                        是针对建设工程进行多单位协同工作、信息即时共享、提高工作效率、
+                                        提升项目管理水平的工程管理信息平台（Project Management Information Platform,简称PMIP）。                  </ul>
+                </div><span>2015-3-17</span>
+                </div>
+              <div class="news-1"><a href="news_page2.html"><img width="150" height="100" src="{{ STATIC_URL }}webhtml/img/anli2.jpg"></a>
+                <div class="give-date">
+                  <p><a href="news_page2.html">互联网+建筑行业=？pong～～</a></p>
+                  <ul>
+                                                           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;李克强总理3月5日的政府工作报告中，
+                                        在“新兴产业和新兴业态是竞争高地”的部分提出：“制定‘互联网+’行动计划，推动移动互联网
+                                        云计算、大数据、物联网等与现代制造业结合，促进电子商务、工业互联网和互联网金融健康发展，
+                                        引导互联网企业拓展国际市场。国家已设立400亿元新兴产业创业投资引导基金。                  </ul>
+                </div>
+                <span>2015-3-17</span></div>
+
+              <div class="news-1"><a href="news_page3.html"><img width="150" height="100" src="{{ STATIC_URL }}webhtml/img/wanyan.jpg"></a>
+                <div class="give-date">
+                  <p><a href="news_page3.html">依子轩软件科技乔迁晚宴 各界精英助场</a></p>
+                  <ul>
+                                                           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;为了庆祝天津依子轩软件科技有限公司（简称：依子轩软件科技）顺利从天津海泰信息广场搬迁至红桥区银泰大厦5A级写字楼，
+                      公司创始人兼CEO杜江于3月28日邀请各界精英到天津皇冠维多利亚国际大酒店参加晚宴。晚宴现场，杜总对来宾的到场表示深深地感谢，
+                      并对公司研发的建筑行业首款移动互联网产品.....               </ul>
+                </div>
+                <span>2015-3-31</span></div>
+               <div class="news-1"><a href="news_page4.html"><img width="150" height="100" src="{{ STATIC_URL }}webhtml/img/zhengshu.jpg"></a>
+                <div class="give-date">
+                  <p><a href="news_page3.html">依子轩软件科技乔迁晚宴 各界精英助场</a></p>
+                  <ul>
+                                                           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;为了庆祝天津依子轩软件科技有限公司（简称：依子轩软件科技）顺利从天津海泰信息广场搬迁至红桥区银泰大厦5A级写字楼，
+                      公司创始人兼CEO杜江于3月28日邀请各界精英到天津皇冠维多利亚国际大酒店参加晚宴。晚宴现场，杜总对来宾的到场表示深深地感谢，
+                      并对公司研发的建筑行业首款移动互联网产品.....               </ul>
+                </div>
+                <span>2015-3-31</span></div>
+            </div>
+        </div>
+      </div>
+{#<div class="digg">#}
+{#<span class="disabled">&lt; </span>#}
+{#<span class="current">1</span>#}
+{#<a href="#?page=2">2</a>#}
+{#<a href="#?page=3">3</a>#}
+{#<a href="#?page=4">4</a>#}
+{##}
+{#...#}
+{#<a href="#?page=199">9</a>#}
+{#<a href="#?page=200">10</a>#}
+{#<a href="#?page=2">#}
+{#&gt; </a></div>#}
+
+      </td>
+    </tr>
+</table>
+{% endblock %}

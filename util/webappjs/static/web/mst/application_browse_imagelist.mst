@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">浏览</a></li>
+    <li role="presentation"><a href="javascript:showCreateImagelist();">创建</a></li>
+</ul>
+<div id="imagelist_content" class="container-fluid">
+
+</div>

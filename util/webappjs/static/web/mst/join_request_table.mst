@@ -1,0 +1,19 @@
+{{#result}}
+<tr>
+    <td class="hidden-xs hidden-sm">{{#icon_url }}<img class="user_icon_lg"
+                                                       src="{{ icon_url }}">{{/icon_url }}</td>
+    <td>{{ user_name }}</td>
+    <td class="hidden-xs hidden-sm">{{ create_time }}</td>
+    <td class="hidden-xs hidden-sm" style="max-width: 200px;word-wrap: break-word;">{{#format_text }}{{ text }}{{/format_text }}</td>
+    <td>
+        <div class="btn-group">
+            <button class="btn btn-primary" type="button" onclick="joinRequestShowSelectGroup({{ id }});"><span
+                    class="glyphicon glyphicon-ok"></span>同意
+            </button>
+            <button class="btn btn-danger" type="button" onclick="reject_join({{ id }});"><span
+                    class="glyphicon glyphicon-ban-circle"></span>拒绝
+            </button>
+        </div>
+    </td>
+</tr>
+{{/result}}

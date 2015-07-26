@@ -1,0 +1,13 @@
+<tr input-group="{{ field.auto_id }}">
+    <td align="right" valign="middle" width="36%"><label for="{{ field.auto_id }}"
+                                                         class="col-sm-2 control-label">{{ field.label }}
+        {% if field.required %}<span class="required">*</span>{% endif %}
+    </label></td>
+    <td align="left" valign="middle">
+        {% block input %}
+        {% endblock %}
+        {% block input_group_end %}
+        {% endblock %}
+        <div input-errors="{{ field.auto_id }}" class="text-danger"></div>
+    </td>
+</tr>

@@ -1,0 +1,8 @@
+{% extends 'webhtml/include/phone/field_base.html' %}
+{% block input %}
+    <input data-toggle="tooltip" data-placement="top" {% if field.field.required %}input-check="required"{% endif %}
+           style="max-width: 500px;" type="text" id="{{ field.auto_id }}" name="{{ field.name }}"
+           placeholder="{{ field.label }}" maxlength="{{ field.max_length }}"
+           value="{{ field.value|default_if_none:'' }}" {% if field.input_check %}
+           input-check="{{ field.input_check }}"{% endif %}>
+{% endblock %}

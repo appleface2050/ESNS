@@ -1,0 +1,41 @@
+{% extends 'web/base.html' %}
+{% block ext_header %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}web/css/login.css" type="text/css">
+    <script src="{{ STATIC_URL }}web/js/login.js" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+
+        <form ajax action="/ns/login" method="post" id="form" class="form" callback="formCallback">
+            <div class="panel panel-default" id="login_panel">
+
+                <div class="panel-heading">
+
+                    <h2>登录</h2>
+
+                    <div id="form_error" class="text-danger"></div>
+                </div>
+                <div class="panel-body">
+                    {% for f in tform %}
+                        {{ f }}
+                    {% endfor %}
+
+                    <input class="btn btn-primary btn-block" type="submit" value="确定">
+
+                </div>
+
+                <div class="panel-footer">
+
+                    <script type="text/javascript" id="bd_soc_login_boot"></script>
+                    <script type="text/javascript">(function () {
+                        var t = new Date().getTime(), script = document.getElementById("bd_soc_login_boot"), redirect_uri = encodeURIComponent("http://needserver.duapp.com/ns/web_social_callback"), domid = "loginbtn", src = "http://openapi.baidu.com/social/oauth/2.0/connect/login?redirect_uri=" + redirect_uri + "&domid=" + domid + "&client_type=web&response_type=code&media_types=sinaweibo%2Cqqdenglu%2Cbaidu%2Cqqweibo%2Ckaixin%2Crenren&size=-1&button_type=3&client_id=yT9Lxqc0U56Bv0oB7bvotqGg&view=embedded&t=" + t;
+                        script.src = src;
+                    })();</script>
+                    <div><a href="{% url 'web:register' %}?next={{ url }}">注册</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

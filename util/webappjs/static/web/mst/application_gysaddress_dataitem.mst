@@ -1,0 +1,19 @@
+{{#result}}
+<tr>
+    <td><a href="javascript:showGysaddressInfo({{ id }})">{{ name }}</a></td>
+    <td>{{#createUserName }}{{ user }}{{/createUserName }}</td>
+    <td>{{ ghs }}</td>
+    <td>{{ ghs_fzr }}</td>
+    <td>{{ ghs_fzr_tel }}</td>
+    <!--
+    <td>{{#format_true_false }}{{ is_hetong }}{{/format_true_false }}</td>
+    <td>{{ pay_type }}</td>
+    -->
+    <td>{{ shr }}</td>
+    <td>{{ shr_tel }}</td>
+    <td>{{ create_time }}</td>
+    <td>
+        <button type="button" onclick="showSaveGysaddress({{ id }})" class="btn btn-default">修改</button>
+    </td>
+</tr>
+{{/result}}

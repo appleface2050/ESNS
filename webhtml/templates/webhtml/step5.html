@@ -1,0 +1,69 @@
+{% extends 'webhtml/pay_baes.html' %}
+{% load webhtml_filter %}
+{% block pay_content %}
+    {% if success %}
+        <table class="table_step" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" width="165" class="step_font2 step1_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step1_3.png"
+                        class="step_number_icon"/>项目基本信息
+                </td>
+                <td align="center" class="td_line_blue">&nbsp;</td>
+                <td align="center" width="120" class="step_font2  step2_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step2_3.png"
+                        class="step_number_icon"/>套餐选择
+                </td>
+                <td align="center" class="td_line_blue">&nbsp;</td>
+                <td align="center" width="120" class="step_font2 step2_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step3_3.png"
+                        class="step_number_icon"/>发票信息
+                </td>
+                <td align="center" class="td_line_blue">&nbsp;</td>
+                <td align="center" width="85" class="step_font2 step3_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step4_3.png"
+                        class="step_number_icon"/>付款
+                </td>
+                <td align="center" class="td_line_blue">&nbsp;</td>
+                <td align="center" width="85" class="step_font2 step3_width"><img
+                        src="{{ STATIC_URL }}webhtml/images/step5_2.png"
+                        class="step_number_icon"/>完成
+                </td>
+            </tr>
+        </table>
+
+        <table align="center" cellspacing="0" cellpadding="0" class="table_qingdan">
+            <tr>
+                <td align="right" valign="middle" width="36%">项目</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.project.name }}</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">套餐</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.product.name }}</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">金额</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.real_price|money }}元</span></td>
+            </tr>
+            <tr>
+                <td align="right" valign="middle">获得</td>
+                <td align="left" valign="middle"><span class="liebiaozhi">{{ order.product.gold }}金豆</span></td>
+            </tr>
+        </table>
+{% else %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    {% endif %}
+{% endblock %}

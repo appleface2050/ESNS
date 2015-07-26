@@ -1,0 +1,39 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+    <td class="hidden-480 center">
+        <% if(item.icon_url){ %>
+        <img class="user-photo" src="<%= item.icon_url %>" alt="User image">
+        <% }else{ %>
+        <img class="user-photo" src="/static/ace/avatars/user.jpg" alt="User image">
+        <% } %>
+
+    </td>
+    <td><%= item.tel %></td>
+    <td><%= item.name %></td>
+    <td class="hidden-480"><%= item.create_time %></td>
+    <td>
+        <% if (item.user_type == null || item.user_type == -1){ %>
+        <span class="label label-sm label-default">无</span>
+        <% }else if(item.user_type === 0) { %>
+        <span class="label label-sm label-warning">客服</span>
+        <% }else if(item.user_type === 1) { %>
+        <span class="label label-sm label-info">会计</span>
+        <% }else if(item.user_type === 2) { %>
+        <span class="label label-sm label-danger">推广员</span>
+        <% } %>
+    </td>
+
+
+</tr>
+<%
+}); %>
+

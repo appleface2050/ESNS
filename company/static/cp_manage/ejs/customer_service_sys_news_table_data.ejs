@@ -1,0 +1,38 @@
+<% _(result).each(function (item) {
+%>
+
+<tr>
+    <td class="center">
+        <label>
+            <input name="id" value="<%= item.id %>" type="checkbox" select_all class="ace"/>
+            <span class="lbl"></span>
+        </label>
+    </td>
+
+
+    <td><a href="/cp/show_sys_phone_news/<%=item.sys_column%>/<%= item.id %>" target="_blank"><%= item.pre_title %></a></td>
+    <td><%= item.author_name %></td>
+    <td>
+        <%if(item.is_active){%>
+        <%=item.publish_time%>
+        <%}else{%>
+        <%=item.create_time%>
+        <%}%>
+    </td>
+    <td>
+        <% if (item.is_active == null || item.is_active === false){ %>
+        <span class="label label-sm label-default">未发布</span>
+        <% }else if(item.is_active === true) { %>
+        <span class="label label-sm label-warning">已发布</span>
+        <% } %>
+
+    </td>
+    <td>
+        <a href="javascript:update_sys_news('<%= item.id %>');"><span class="label label-sm label-danger">修改</span></a>
+        <a href="javascript:news_look_by_url('/cp/show_sys_phone_news_look/<%=item.sys_column%>/<%= item.id %>');"><span class="label label-sm label-danger">预览</span></a>
+    </td>
+
+</tr>
+<%
+}); %>
+

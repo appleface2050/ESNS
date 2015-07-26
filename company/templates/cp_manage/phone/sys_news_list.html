@@ -1,0 +1,39 @@
+{% extends "cp_manage/phone/base.html" %}
+{% block title %}
+    <title>{{ column.name }}</title>
+{% endblock %}
+{% block body %}
+<body class="white_bg1"> 
+<div class="woaicss">
+	<ul class="woaicss_title woaicss_title_bg1" id="woaicsstitle">
+        {% for col in columnslist %}
+            <li {% ifequal col.id  column.id %} class="bot_red_line" {% endifequal %} style="width:24%;"><a href="/cp/show_sys_phone_index_news/{{ col.id }}" {% ifequal col.id  column.id %} class="bot_red" {% endifequal %} onmouseover="javascript:woaicssq({{ forloop.counter }})">{{ col.name }}</a></li>
+        {% endfor %}
+
+	</ul>
+	<div class="woaicss_con" id="woaicss_con1" style="display:block;">
+			<ul>
+                {% for n in newslist %}
+                    <li>
+                        {% if n.icon_url %}
+                        <div class="news-1">
+                            <a href="/cp/show_sys_phone_news/{{ n.sys_column }}/{{ n.id }}"><img width="100" height="100" src="{{ n.icon_url }}"></a>
+                        </div>
+                        {% endif %}
+                        <div class="give-date{% if n.icon_url %}{% else %} give-date-noimg{% endif %}">
+                          <a href="/cp/show_sys_phone_news/{{ n.sys_column }}/{{ n.id }}">{{ n.title }}</a>
+                          <div class="news_bottom">
+
+                            <span class="news_time">{{ n.publish_time }}</span>
+                              <span class="news_info">阅读：{{ n.pv }}&nbsp;评论：{{ n.replay_num }}&nbsp;</span>
+                          </div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+			</ul>
+	</div>
+
+</div>	
+</body>
+{% endblock %}

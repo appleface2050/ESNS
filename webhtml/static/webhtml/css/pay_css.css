@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+html { font-size:100%; height:100%; }
+body { font-size:14px margin:0px; height:100%; font-family:Microsoft YaHei; background-color:#FFFFFF; text-align:center; }
+
+input[type=text]{ font-size:1em; border:1px #CCC solid; border-radius:10px; font-family:Microsoft YaHei;  color:#666; padding:0.5%; }
+select { font-size:1em; border:1px #CCC solid; font-family:Microsoft YaHei;   color:#666; }
+img { vertical-align:middle; }
+.step_number_icon { width:50px; height:50px; }
+.step_font1 { font-size:1em; color:#cccccc; line-height:80px;  padding:3px 5px 0px 5px; }
+.step_font2 { font-size:1em; color:#0099ff; line-height:80px;  padding:3px 5px 0px 5px; }
+.td_line_blue { background:url(../images/line_blue.png) repeat-x; }
+.td_line_grey { background:url(../images/line_grey.png) repeat-x; }
+.step1_width { min-width:165px; }
+.step2_width { min-width:120px; }
+.step3_width { min-width:85px; }
+
+
+
+
+.table_head { width:100%; height:10%; border-bottom:1px #b7bfc7 solid; }
+.iframe_style { width:100%; height:100%; }
+.table_step { width:96%; height:80px; border-bottom:1px #f0f0f0 solid; }
+
+.table_gaikuang { border-collapse:collapse; width:80%; margin-top:2%; margin:2% auto; }
+.table_gaikuang th { height:10%; font-size:1em; font-weight:bold; color:#000; border-bottom:2px #fe9c09 solid; padding:1.5% 0 1.5% 0;}
+.table_gaikuang td { height:5%; font-size:1em; font-weight:normal; color:#666; border:1px #cccccc solid;  padding:2% 1% 2% 1%; }
+
+.button_style { width:150px; height:50px; background-color:#ebf2f6; background:url(../images/bg_button.png) repeat-x; 
+background:-ms-linear-gradient(top,#f3f7fa,#e0ebf1); background:-moz-linear-gradient(top,#f3f7fa,#e0ebf1);  border:1px #cbdce6 solid; border-radius:20px; font-family:Microsoft YaHei; font-size:1.25em; margin:3%;
+}
+.table_button { width:100%; height:auto; text-align:center; }
+
+.table_fapiao { width:80%; margin:5% auto 5% auto;  }
+.table_fapiao td {  padding:1%; color:#666; }
+
+
+.table_zhifu { width:80%; margin:5% auto 5% auto;  }
+.table_zhifu td {  padding:2%; color:#666; }
+
+.jine { font-size:1.5em; color:#FF6600; padding:1%; }
+
+.table_qingdan { width:98%;  margin:5% auto 5% auto; border:1px #CCC solid; border-collapse:collapse;  }
+.table_qingdan td {  padding:3%; color:#666;  border:1px #CCC solid; }
+.liebiaozhi { font-size:1em; color:#ff6600; }
+
+.shijian_shuoming { margin:20px auto; font-size:2em; color:#FFce33; }
+
+.fapiao_yes_no { width:90%;   margin:10px auto; border-bottom:2px #ffab33 solid; }
+
+.fapiao_yes_no td { height:50px;  padding:3%; color:#ffab33;  }
+.required {
+    color: red;
+}
+
+.text-danger {
+    color: red;
+}
+
+span[role=city_group] select {
+    display: inline-block;
+}
+
+.alert-error {
+    color: red;
+}

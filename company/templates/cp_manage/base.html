@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}管理系统{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- basic styles -->
+
+    <link href="{{ STATIC_URL }}ace/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="{{ STATIC_URL }}ace/css/bootstrap-timepicker.css" rel="stylesheet"/>
+    <link href="{{ STATIC_URL }}ace/css/daterangepicker.css" rel="stylesheet"/>
+    <link href="{{ STATIC_URL }}ace/css/datepicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/font-awesome.min.css"/>
+    <link href="{{ STATIC_URL }}cp_manage/css/base.css" rel="stylesheet"/>
+
+    <!--[if IE 7]>
+		  <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/ace.min.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/ace-skins.min.css"/>
+
+    <!--[if lte IE 8]>
+		  <link rel="stylesheet" href="{{ STATIC_URL }}ace/css/ace-ie.min.css" />
+		<![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="{{ STATIC_URL }}ace/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+		<script src="{{ STATIC_URL }}ace/js/html5shiv.js"></script>
+		<script src="{{ STATIC_URL }}ace/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}{% endblock %}
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<script src="{{ STATIC_URL }}ace/js/jquery-2.0.3.min.js"></script>
+
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+        <script src="{{ STATIC_URL }}ace/js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='{{ STATIC_URL }}ace/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='{{ STATIC_URL }}ace/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='{{ STATIC_URL }}ace/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="{{ STATIC_URL }}ace/js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/typeahead-bs2.min.js"></script>
+
+<script src="{{ STATIC_URL }}ace/js/jquery.ui.touch-punch.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/bootbox.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/jquery.easy-pie-chart.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/jquery.gritter.min.js"></script>
+<!-- page specific plugin scripts -->
+
+<!-- ace scripts -->
+
+<script src="{{ STATIC_URL }}ace/js/ace-elements.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/ace.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/date-time/moment.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/date-time/daterangepicker.min.js"></script>
+<script src="{{ STATIC_URL }}ace/js/date-time/bootstrap-datepicker-cn.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.mustache.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/ejs_production.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/simply-toast.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/json2.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/underscore-min.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/ajaxupload.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}cp_manage/js/base.js"></script>
+<script src="{{ STATIC_URL }}cp_manage/js/frame.js"></script>
+<script src="{{ STATIC_URL }}cp_manage/js/menu_data.js"></script>
+<script src="{{ STATIC_URL }}cp_manage/js/city_data.js"></script>
+<script type="text/javascript">
+    var loginUrl = "{% url 'cp_manage:login' %}";
+    var staticUrl = "{{ STATIC_URL }}";
+    {% if is_debug %}
+        var is_debug = true;
+    {% else %}
+        var is_debug = false;
+    {% endif %}
+    {% if user.id %}
+        var uid ={{ user.id }};
+    {% endif %}
+    {% if company.id %}
+        var companyid = {{ company.id }};
+    {% endif %}
+    var user_type = "{{ user_type }}";
+</script>
+{% block frame_body_bottom %}
+
+{% endblock %}
+{% block body_bottom %}
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'web/include/form_field_base.html' %}
+{% block label %}{% endblock %}
+{% block input_group_class %}col-sm-offset-2 col-sm-10 controls {% endblock %}
+{% block input %}
+    <label>
+        <input type="checkbox" id="{{ field.auto_id }}" name="{{ field.name }}"{% if field.value %}
+               checked="checked" {% endif %} {% if field.input_check %} input-check="{{ field.input_check }}"{% endif %}> {{ field.label }}
+    </label>
+{% endblock %}

@@ -1,0 +1,216 @@
+<div class="panel panel-default fieldset">
+    <div class="panel-body">
+        <form action="/ns/update_userinfo" ajax id="update_user_info_from" class="form-horizontal" method="post"
+              role="form"
+              callback="updateUserInfoFormCallback">
+            <input type="hidden" id="fileid" name="fileid">
+            <input type="hidden" id="flag" name="flag">
+
+            <div id="form_error" class="text-danger"></div>
+
+            <div class="form-group " input-group="name">
+
+                <label for="name" class="col-sm-2 control-label">姓名</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="name" name="name" placeholder="姓名" maxlength="30" value="{{ name }}">
+
+                    <div input-errors="name" class="text-danger"></div>
+                </div>
+            </div>
+            <div class="form-group " input-group="sex">
+
+                <label for="sex" class="col-sm-2 control-label">性别</label>
+
+                <div class="col-sm-10 controls ">
+                    <select data-toggle="tooltip" data-placement="top" style="max-width: 500px;"
+                            class="form-control" id="sex" name="sex">
+                        {{#select_option_sex }}{{ sex }}{{/select_option_sex }}
+                    </select>
+
+                    <div input-errors="sex" class="text-danger"></div>
+                </div>
+            </div>
+
+            <div class="form-group " input-group="birthday">
+
+                <label for="birthday" class="col-sm-2 control-label">生日</label>
+
+                <div class="col-sm-10 controls ">
+                    <div id="datetimepicker_date_birthday" style="max-width: 220px;display: inline-table;"
+                         role="datetimepicker-date" class="clearfix input-group">
+    <span class="add-on input-group-addon">
+          <span data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></span>
+      </span>
+                        <input style="max-width: 500px;" type="text" class="form-control" id="birthday" name="birthday"
+                               value="{{ birthday }}">
+                    </div>
+
+                    <div input-errors="birthday" class="text-danger"></div>
+                </div>
+            </div>
+
+            <!--
+            <div class="form-group " input-group="idnumber">
+
+                <label for="idnumber" class="col-sm-2 control-label">身份证号</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" input-check="idcard" id="idnumber" name="idnumber" placeholder="身份证号" maxlength=""
+                           value="{{ idnumber }}">
+
+                    <div input-errors="idnumber" class="text-danger"></div>
+                </div>
+            </div>
+            
+
+            <div class="form-group " input-group="hkaddress">
+
+                <label for="hkaddress" class="col-sm-2 control-label">户口所在地</label>
+
+                <div class="col-sm-10 controls ">
+                       <span role="city_group" default="{{ hkaddress }}" empty="无" class="form-inline">
+                           <select role="select_province" style="max-width: 200px" class="form-control"></select>
+                            <select role="select_city" class="form-control" style="max-width: 200px"
+                                    style="display: none"
+                                    name="hkaddress" id="hkaddress">
+
+                            </select>
+                       </span>
+
+                    <div input-errors="hkaddress" class="text-danger"></div>
+                </div>
+            </div>
+            -->
+
+            <div class="form-group " input-group="address">
+
+                <label for="address" class="col-sm-2 control-label">籍贯</label>
+
+                <div class="col-sm-10 controls ">
+                       <span role="city_group" default="{{ address }}" empty="无" class="form-inline">
+                           <select role="select_province" style="max-width: 200px" class="form-control"></select>
+                            <select role="select_city" class="form-control" style="max-width: 200px"
+                                    style="display: none"
+                                    name="address" id="address">
+
+                            </select>
+                       </span>
+
+                    <div input-errors="address" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="xueli">
+
+                <label for="xueli" class="col-sm-2 control-label">学历</label>
+
+                <div class="col-sm-10 controls ">
+                      <select data-toggle="tooltip" data-placement="top" style="max-width: 500px;"
+                            class="form-control" id="xueli" name="xueli">
+                        {{#select_option_xueli }}{{ xueli }}{{/select_option_xueli }}
+                    </select>
+
+                    <div input-errors="xueli" class="text-danger"></div>
+                </div>
+            </div>
+
+            <!--
+            <div class="form-group " input-group="workage">
+
+                <label for="workage" class="col-sm-2 control-label">参加工作年份</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" input-check="int" id="workage" name="workage" placeholder="参加工作年份" maxlength=""
+                           value="{{ workage }}">
+
+                    <div input-errors="workage" class="text-danger"></div>
+                </div>
+            </div>
+            -->
+
+            <div class="form-group " input-group="zhicheng">
+
+                <label for="zhicheng" class="col-sm-2 control-label">职称</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="zhicheng" name="zhicheng" placeholder="职称" maxlength="100"
+                           value="{{ zhicheng }}">
+
+                    <div input-errors="zhicheng" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="zhiyezigezheng">
+
+                <label for="zhiyezigezheng" class="col-sm-2 control-label">职业资格证</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="zhiyezigezheng" name="zhiyezigezheng" placeholder="职业资格证"
+                           maxlength="100" value="{{ zhiyezigezheng }}">
+
+                    <div input-errors="zhiyezigezheng" class="text-danger"></div>
+                </div>
+            </div>
+            <!--
+
+            <div class="form-group " input-group="hunyin">
+
+                <label for="hunyin" class="col-sm-2 control-label">婚姻状况</label>
+
+                <div class="col-sm-10 controls ">
+                     <select data-toggle="tooltip" data-placement="top" style="max-width: 500px;"
+                            class="form-control" id="hunyin" name="hunyin">
+                        {{#select_option_hunyin }}{{ hunyin }}{{/select_option_hunyin }}
+                    </select>
+
+                    <div input-errors="hunyin" class="text-danger"></div>
+                </div>
+            </div>
+                -->
+
+            <div class="form-group " input-group="company">
+
+                <label for="company" class="col-sm-2 control-label">所在公司名称</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" id="company" name="company" placeholder="工作公司" maxlength="50"
+                           value="{{ company }}">
+
+                    <div input-errors="company" class="text-danger"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group " input-group="email">
+
+                <label for="email" class="col-sm-2 control-label">电子邮件</label>
+
+                <div class="col-sm-10 controls ">
+                    <input data-toggle="tooltip" data-placement="top" style="max-width: 500px;" type="text"
+                           class="form-control" input-check="email" id="email" name="email" placeholder="电子邮件" maxlength=""
+                           value="{{ email }}">
+
+                    <div input-errors="email" class="text-danger"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+        <button type="button" onclick="updateUserInfoClick();" class="btn btn-default"><span
+                class="glyphicon glyphicon-plus"></span>保存
+        </button>
+
+    </div>
+</div>

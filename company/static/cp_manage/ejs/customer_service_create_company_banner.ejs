@@ -1,0 +1,43 @@
+<form ajax callback="customer_service_create_company_banner_callback" class="form-horizontal" role="form">
+
+   <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> url </label>
+
+        <div class="col-sm-9">
+            <input name="url" id="form-field-2" placeholder="url"
+                   class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 顺序 </label>
+        <div class="col-sm-9">
+            <input name="index_num" id="" placeholder="顺序" input-check="required,int" class="col-xs-10 col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" input-group>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> image </label>
+        <div class="col-sm-9">
+            <div class="shangchuantupian">
+            <div class="sc_left">
+                <button class="btn btn-default" id="btn_select_file" type="button">上传banner图片</button>
+              <div class="xz_img">
+            <div class="xianshitupiantishi">选择图片上传后，以下将显示所选图片右侧可以预览上传后的效果</div>
+                  <div class="xianshitupiantishi">图片类型为jpg或png或jpeg，大小为960px宽322px高</div>
+            <img id='column_image'width="280" height="98" alt=""/>
+                  <input type="hidden" name="image" id="logoimage">
+            </div>
+            <button class="btn btn-info" type="submit">
+                提交
+            </button>
+            </div>
+
+            <div class="yulan_right" style="background:url(http://7xjnpa.com2.z0.glb.qiniucdn.com//company/b5441305-9617-40c4-bb40-37dc77a0a89d.jpg?attname=jituan_banner.jpg) no-repeat;">
+              <div style="padding:137px 0 0 20px;"><img id='column_image1'width="280" height="98" alt=""/></div>
+
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+</form>

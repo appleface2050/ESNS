@@ -1,0 +1,69 @@
+{% extends 'webhtml/frame.html' %}
+{% block ext_header %}
+    <link href="{{ STATIC_URL }}webhtml/css/index.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}webhtml/css/css.css" rel="stylesheet" type="text/css">
+    <script src="{{ STATIC_URL }}webhtml/js/include_menu_script1.js" />
+    <script>
+    $(function(){
+    });
+    </script>
+
+{#    <script>#}
+{#    $("#firstpane .menu_body:eq(0)").show();#}
+{#    </script>#}
+
+{% endblock %}
+{% block content %}
+<table  class="table_list"  align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="280" align="left"  valign="top">
+      <!-- 代码 开始 -->
+        {% include 'webhtml/html/include_menu.html' %}
+      </td>
+
+<!-- 代码 结束 -->
+
+
+      <td align="center" valign="top"><div class="text_title">定价与计算</div>
+ <div class="text_content" style="padding:0 0 0 200px; height:;">
+ <div style="font-size:22px; line-height:30px; font-family:'微软雅黑'; color:#555; padding:20px 0;">1人/1天/1元钱，<BR>
+项目信息实时共享，施工效率全面提升！ </div>
+
+<div class="free-pay-tab">
+  <table cellSpacing=1>
+    <TR>
+      <TH width="100" >人民币</TH>
+      <TH width="100">金豆</TH>
+      <TH width="100">活动赠送</TH>
+      <TH width="100">共计</TH>
+      </TR>
+    <TR>
+      <TD>￥5000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>5000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>1000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>6000</TD>
+      </TR>
+    <TR>
+      <TD>￥10000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>10000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>3000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>13000</TD>
+      </TR>
+    <TR>
+      <TD>￥20000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>20000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>8000</TD>
+      <TD><img src="{{ STATIC_URL }}webhtml/img/jd.png" width="15" height="15" alt=""/>28000</TD>
+      </TR>
+  </table>
+</div>
+<P class="top_10 grey">备注：<BR>
+1.免费提供在线升级。<BR>
+2.依子轩软件科技为用户提供7*24小时电话服务。<BR>
+3.依子轩软件科技对产品定价体系拥有最终解释权。 </P>
+
+ </div>
+      </td>
+    </tr>
+</table>
+{% endblock %}
